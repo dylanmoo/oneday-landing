@@ -96,7 +96,7 @@ export async function GET() {
             maxWidth: '600px',
           }}
         >
-          One evening. Real results. No technical background needed.
+          The exact AI tools, automations, and agent systems used by the world's top engineers — in one day.
         </div>
 
         {/* CTA pill */}
