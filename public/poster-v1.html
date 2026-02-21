@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Poster V1 — Centered Overlay</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,700;1,500&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      width: 1080px;
+      height: 1080px;
+      overflow: hidden;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .cover {
+      width: 1080px;
+      height: 1080px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    /* Background image — aspect fill */
+    .bg-image {
+      position: absolute;
+      inset: 0;
+      background: url('/eye-bg.jpg') center center / cover no-repeat;
+    }
+
+    /* Dark cinematic overlay */
+    .bg-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(10, 8, 20, 0.55) 0%,
+        rgba(10, 8, 20, 0.7) 40%,
+        rgba(10, 8, 20, 0.85) 100%
+      );
+    }
+
+    /* Content */
+    .content {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      max-width: 900px;
+      padding: 0 60px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 24px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 100px;
+      font-size: 15px;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.85);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 48px;
+      backdrop-filter: blur(12px);
+    }
+
+    .badge .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #6C63FF;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 108px;
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    .subtitle {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 32px;
+      font-weight: 500;
+      font-style: italic;
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 48px;
+      letter-spacing: -0.01em;
+    }
+
+    .details {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+    }
+
+    .detail {
+      font-size: 18px;
+      color: rgba(255, 255, 255, 0.5);
+      font-weight: 500;
+    }
+
+    .detail strong {
+      color: rgba(255, 255, 255, 0.85);
+      font-weight: 600;
+    }
+
+    .detail-dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.25);
+      align-self: center;
+    }
+
+    /* Logo */
+    .logo {
+      position: absolute;
+      bottom: 52px;
+      left: 52px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 22px;
+      color: rgba(255, 255, 255, 0.85);
+      letter-spacing: -0.02em;
+      z-index: 10;
+    }
+
+    .logo span { color: #6C63FF; }
+
+    .corner-tag {
+      position: absolute;
+      bottom: 56px;
+      right: 52px;
+      font-size: 15px;
+      color: rgba(255, 255, 255, 0.4);
+      z-index: 10;
+    }
+  </style>
+</head>
+<body>
+  <div class="cover">
+    <div class="bg-image"></div>
+    <div class="bg-overlay"></div>
+
+    <div class="content">
+      <div class="badge">
+        <span class="dot"></span>
+        Live Workshop
+      </div>
+      <h1>Becoming Superhuman</h1>
+      <p class="subtitle">Leveraging Claude Code in your everyday life</p>
+      <div class="details">
+        <div class="detail"><strong>Mon, Feb 23</strong></div>
+        <div class="detail-dot"></div>
+        <div class="detail"><strong>8 PM PST</strong></div>
+        <div class="detail-dot"></div>
+        <div class="detail"><strong>60 minutes</strong></div>
+      </div>
+    </div>
+
+    <div class="logo">One<span>Day</span></div>
+    <div class="corner-tag">No experience needed</div>
+  </div>
+</body>
+</html>

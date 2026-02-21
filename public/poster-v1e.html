@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>V1E — Libre Caslon Display</title>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { width: 1080px; height: 1080px; overflow: hidden; }
+
+    .cover {
+      width: 1080px; height: 1080px;
+      position: relative;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      overflow: hidden;
+    }
+
+    .bg-image {
+      position: absolute; inset: 0;
+      background: url('/eye-bg.jpg') center center / cover no-repeat;
+    }
+
+    .bg-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(10, 8, 20, 0.5) 0%,
+        rgba(10, 8, 20, 0.65) 40%,
+        rgba(10, 8, 20, 0.82) 100%
+      );
+    }
+
+    .content {
+      position: relative; z-index: 10;
+      text-align: center;
+      max-width: 1000px;
+      padding: 0 40px;
+    }
+
+    .badge {
+      display: inline-flex; align-items: center; gap: 14px;
+      padding: 16px 40px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 100px;
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 24px; font-weight: 600;
+      color: rgba(255,255,255,0.8);
+      letter-spacing: 0.08em; text-transform: uppercase;
+      margin-bottom: 56px;
+      backdrop-filter: blur(12px);
+    }
+
+    .badge .dot {
+      width: 14px; height: 14px;
+      border-radius: 50%; background: #6C63FF;
+    }
+
+    h1 {
+      font-family: 'Libre Caslon Display', serif;
+      font-size: 148px; font-weight: 400;
+      line-height: 1.0;
+      letter-spacing: -0.02em;
+      color: #fff;
+      margin-bottom: 28px;
+    }
+
+    .subtitle {
+      font-family: 'Libre Caslon Text', serif;
+      font-size: 46px; font-weight: 400;
+      font-style: italic;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 56px;
+    }
+
+    .details {
+      display: flex; justify-content: center; gap: 40px;
+    }
+
+    .detail {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 28px; color: rgba(255,255,255,0.45); font-weight: 500;
+    }
+    .detail strong { color: rgba(255,255,255,0.8); font-weight: 600; }
+
+    .detail-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: rgba(255,255,255,0.2); align-self: center;
+    }
+
+    .logo {
+      position: absolute; bottom: 52px; left: 52px;
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-weight: 700; font-size: 32px;
+      color: rgba(255,255,255,0.85);
+      letter-spacing: -0.02em; z-index: 10;
+    }
+    .logo span { color: #6C63FF; }
+
+    .corner-tag {
+      position: absolute; bottom: 56px; right: 52px;
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 22px; color: rgba(255,255,255,0.35); z-index: 10;
+    }
+  </style>
+</head>
+<body>
+  <div class="cover">
+    <div class="bg-image"></div>
+    <div class="bg-overlay"></div>
+    <div class="content">
+      <div class="badge"><span class="dot"></span>Live Workshop</div>
+      <h1>Becoming Superhuman</h1>
+      <p class="subtitle">Leveraging Claude Code in your everyday life</p>
+      <div class="details">
+        <div class="detail"><strong>Mon, Feb 23</strong></div>
+        <div class="detail-dot"></div>
+        <div class="detail"><strong>8 PM PST</strong></div>
+        <div class="detail-dot"></div>
+        <div class="detail"><strong>60 minutes</strong></div>
+      </div>
+    </div>
+    <div class="logo">One<span>Day</span></div>
+    <div class="corner-tag">No experience needed</div>
+  </div>
+</body>
+</html>

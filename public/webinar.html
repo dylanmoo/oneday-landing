@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <title>Becoming Superhuman — Live Workshop | OneDay</title>
+  <meta name="description" content="Leveraging Claude Code in your everyday life. $30 live workshop — build your own Life OS and 10x your output. No technical experience needed." />
+  <meta property="og:title" content="Becoming Superhuman — Live Workshop | OneDay" />
+  <meta property="og:description" content="Leveraging Claude Code in your everyday life. Build your own Life OS in 60 minutes. No technical experience needed." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/workshop-cover.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="/workshop-cover.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,700;1,500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #0B0F1A;
+      --surface: #131825;
+      --surface-2: #1A2035;
+      --border: rgba(255, 255, 255, 0.06);
+      --text: #E8ECF4;
+      --text-muted: #8A94A8;
+      --accent: #6C63FF;
+      --accent-hover: #5B52E0;
+      --accent-glow: rgba(108, 99, 255, 0.25);
+      --green: #34D399;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --font-serif: 'Playfair Display', Georgia, serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .container--narrow {
+      max-width: 680px;
+    }
+
+    /* ── Nav ── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 20px 0;
+      background: rgba(11, 15, 26, 0.8);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-logo {
+      font-family: var(--font-sans);
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+
+    .nav-logo span { color: var(--accent); }
+
+    .nav-cta {
+      padding: 10px 24px;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-family: var(--font-sans);
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s, box-shadow 0.2s;
+    }
+
+    .nav-cta:hover {
+      background: var(--accent-hover);
+      box-shadow: 0 0 24px var(--accent-glow);
+    }
+
+    /* ── Hero ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 140px 24px 80px;
+      position: relative;
+    }
+
+    #rings-canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 720px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--accent);
+      letter-spacing: 0.02em;
+      margin-bottom: 32px;
+    }
+
+    .hero-badge .live-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--green);
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    .hero h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(36px, 7vw, 60px);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 em {
+      color: var(--accent);
+      font-style: italic;
+    }
+
+    .hero-sub {
+      font-size: clamp(17px, 2.5vw, 20px);
+      color: var(--text-muted);
+      max-width: 560px;
+      margin: 0 auto 40px;
+      line-height: 1.7;
+    }
+
+    .hero-details {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+
+    .hero-detail {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 15px;
+      color: var(--text-muted);
+    }
+
+    .hero-detail-icon {
+      width: 20px;
+      height: 20px;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .hero-detail strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .hero-cta {
+      display: inline-block;
+      padding: 18px 48px;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      font-family: var(--font-sans);
+      font-size: 18px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+    }
+
+    .hero-cta:hover {
+      background: var(--accent-hover);
+      box-shadow: 0 0 40px var(--accent-glow);
+      transform: translateY(-1px);
+    }
+
+    .hero-price {
+      margin-top: 16px;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .hero-price strong {
+      color: var(--text);
+      font-size: 16px;
+    }
+
+    /* ── What You'll Learn ── */
+    .learn {
+      padding: 120px 24px;
+      border-top: 1px solid var(--border);
+    }
+
+    .label {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: clamp(28px, 5vw, 42px);
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 64px;
+      text-align: center;
+    }
+
+    .learn-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .learn-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 24px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      transition: border-color 0.3s;
+    }
+
+    .learn-card:hover {
+      border-color: rgba(108, 99, 255, 0.3);
+    }
+
+    .learn-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: rgba(108, 99, 255, 0.08);
+      border: 1px solid rgba(108, 99, 255, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .learn-icon svg {
+      width: 22px;
+      height: 22px;
+      stroke: var(--accent);
+      fill: none;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .learn-text h3 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .learn-text p {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ── What You'll Walk Away With ── */
+    .walkaway {
+      padding: 120px 24px;
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .walkaway-card {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 40px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+    }
+
+    .walkaway-badge {
+      display: inline-block;
+      padding: 4px 14px;
+      background: rgba(52, 211, 153, 0.1);
+      border: 1px solid rgba(52, 211, 153, 0.25);
+      border-radius: 100px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--green);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 16px;
+    }
+
+    .walkaway-main h3 {
+      font-family: var(--font-serif);
+      font-size: clamp(24px, 4vw, 32px);
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .walkaway-main > p {
+      font-size: 16px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 28px;
+    }
+
+    .walkaway-features {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .walkaway-feature {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 15px;
+    }
+
+    .walkaway-feature svg {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+      stroke: var(--green);
+    }
+
+    /* ── Who This Is For ── */
+    .audience {
+      padding: 120px 24px;
+    }
+
+    .audience-list {
+      max-width: 640px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .audience-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 18px 22px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      font-size: 16px;
+      transition: border-color 0.3s;
+    }
+
+    .audience-item:hover {
+      border-color: rgba(108, 99, 255, 0.3);
+    }
+
+    .audience-check {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: rgba(52, 211, 153, 0.1);
+      border: 1px solid rgba(52, 211, 153, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .audience-check svg {
+      width: 14px;
+      height: 14px;
+      stroke: var(--green);
+      fill: none;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* ── What You'll Be Able To Do ── */
+    .outcomes {
+      padding: 120px 24px;
+    }
+
+    .outcomes-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .outcome-card {
+      padding: 28px 24px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      text-align: center;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+
+    .outcome-card:hover {
+      border-color: rgba(108, 99, 255, 0.3);
+      transform: translateY(-2px);
+    }
+
+    .outcome-emoji {
+      font-size: 32px;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .outcome-card h3 {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .outcome-card p {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ── About / Instructor ── */
+    .instructor {
+      padding: 120px 24px;
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .instructor-card {
+      max-width: 720px;
+      margin: 0 auto;
+      display: flex;
+      gap: 32px;
+      align-items: center;
+      padding: 40px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+    }
+
+    .instructor-photo {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--border);
+      flex-shrink: 0;
+    }
+
+    .instructor-info h3 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .instructor-info .role {
+      font-size: 14px;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+
+    .instructor-info p {
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* ── FAQ ── */
+    .faq {
+      padding: 120px 24px;
+    }
+
+    .faq-list {
+      max-width: 720px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .faq-item {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: border-color 0.2s;
+    }
+
+    .faq-item.open {
+      border-color: rgba(108, 99, 255, 0.35);
+    }
+
+    .faq-question {
+      width: 100%;
+      background: var(--surface);
+      border: none;
+      padding: 22px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      cursor: pointer;
+      text-align: left;
+      font-family: var(--font-sans);
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text);
+      transition: background 0.2s;
+    }
+
+    .faq-question:hover { background: var(--surface-2); }
+
+    .faq-chevron {
+      flex-shrink: 0;
+      width: 18px;
+      height: 18px;
+      color: var(--accent);
+      transition: transform 0.3s ease;
+    }
+
+    .faq-item.open .faq-chevron { transform: rotate(180deg); }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.35s ease;
+      padding: 0 24px;
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.75;
+    }
+
+    .faq-item.open .faq-answer {
+      max-height: 400px;
+      padding: 0 24px 22px;
+    }
+
+    /* ── Final CTA ── */
+    .final-cta {
+      padding: 120px 24px;
+      text-align: center;
+      position: relative;
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+    }
+
+    .final-cta::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .final-cta h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(28px, 5vw, 42px);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 16px;
+      position: relative;
+    }
+
+    .final-cta .sub {
+      font-size: 18px;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .final-cta .detail-row {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+      position: relative;
+    }
+
+    .final-cta .detail-item {
+      font-size: 15px;
+      color: var(--text-muted);
+    }
+
+    .final-cta .detail-item strong {
+      color: var(--text);
+    }
+
+    .final-cta-btn {
+      display: inline-block;
+      padding: 18px 48px;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      font-family: var(--font-sans);
+      font-size: 18px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+      position: relative;
+    }
+
+    .final-cta-btn:hover {
+      background: var(--accent-hover);
+      box-shadow: 0 0 48px var(--accent-glow);
+      transform: translateY(-2px);
+    }
+
+    .final-cta .fine-print {
+      margin-top: 16px;
+      font-size: 14px;
+      color: var(--text-muted);
+      position: relative;
+    }
+
+    /* ── Footer ── */
+    footer {
+      padding: 48px 24px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    footer p {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      .learn-grid {
+        grid-template-columns: 1fr;
+        max-width: 480px;
+      }
+
+      .outcomes-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+      }
+
+      .instructor-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 32px 24px;
+      }
+
+      .hero-details {
+        flex-direction: column;
+        gap: 12px;
+        align-items: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .nav-cta {
+        padding: 8px 16px;
+        font-size: 13px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav>
+    <div class="nav-inner">
+      <a href="/landing.html" class="nav-logo">One<span>Day</span></a>
+      <!-- TODO: Replace with your Luma event URL -->
+      <a href="#register" class="nav-cta">Join — $30</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <canvas id="rings-canvas" aria-hidden="true"></canvas>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="live-dot"></span>
+        Live Workshop
+      </div>
+      <h1><em>Becoming Superhuman</em></h1>
+      <p class="hero-sub">
+        Leveraging Claude Code in your everyday life. Claude Code is the latest AI tool that people are using to 10x their output — and in 60 minutes, you'll learn how it can uplevel your life and workflow.
+      </p>
+      <div class="hero-details">
+        <div class="hero-detail">
+          <svg class="hero-detail-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          <span><strong>Monday, Feb 23</strong></span>
+        </div>
+        <div class="hero-detail">
+          <svg class="hero-detail-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span><strong>8:00 – 9:00 PM PST</strong></span>
+        </div>
+        <div class="hero-detail">
+          <svg class="hero-detail-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 10l5 5-5 5"/><path d="M4 4v7a4 4 0 0 0 4 4h12"/></svg>
+          <span><strong>Google Meet</strong> (link sent after registration)</span>
+        </div>
+      </div>
+      <!-- TODO: Replace # with your Luma event URL -->
+      <a href="#register" class="hero-cta">Reserve Your Spot</a>
+      <p class="hero-price"><strong>$30</strong> &middot; Limited seats &middot; Recording included</p>
+    </div>
+  </section>
+
+  <!-- What You'll Learn -->
+  <section class="learn">
+    <div class="container">
+      <div class="reveal">
+        <p class="label">What You'll Learn</p>
+        <h2 class="section-title">How this tool can uplevel your life and workflow.</h2>
+      </div>
+      <div class="learn-grid">
+        <div class="learn-card reveal" style="transition-delay: 0.05s;">
+          <div class="learn-icon">
+            <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <div class="learn-text">
+            <h3>Getting Started</h3>
+            <p>We'll get Claude Code up and running on your computer together — Mac or PC, step by step.</p>
+          </div>
+        </div>
+        <div class="learn-card reveal" style="transition-delay: 0.1s;">
+          <div class="learn-icon">
+            <svg viewBox="0 0 24 24"><path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4c0-1.1.9-2 2-2h8a2 2 0 0 1 2 2v5Z"/><path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1"/></svg>
+          </div>
+          <div class="learn-text">
+            <h3>How to Talk to AI</h3>
+            <p>Learn the simple way to ask Claude for what you want — and get great results every time.</p>
+          </div>
+        </div>
+        <div class="learn-card reveal" style="transition-delay: 0.15s;">
+          <div class="learn-icon">
+            <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </div>
+          <div class="learn-text">
+            <h3>Real-Life Examples</h3>
+            <p>See exactly how top AI users are managing their lives, automating busywork, and getting more done.</p>
+          </div>
+        </div>
+        <div class="learn-card reveal" style="transition-delay: 0.2s;">
+          <div class="learn-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+          </div>
+          <div class="learn-text">
+            <h3>Build Your Life OS</h3>
+            <p>Follow along as we build a personal system together — a real project you'll walk away with.</p>
+          </div>
+        </div>
+        <div class="learn-card reveal" style="transition-delay: 0.25s;">
+          <div class="learn-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          </div>
+          <div class="learn-text">
+            <h3>Hidden Superpowers</h3>
+            <p>The techniques top AI users rely on every day — explained simply so anyone can start using them.</p>
+          </div>
+        </div>
+        <div class="learn-card reveal" style="transition-delay: 0.3s;">
+          <div class="learn-icon">
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div class="learn-text">
+            <h3>Live Q&A</h3>
+            <p>Ask anything. Get answers in real-time. No question is too basic — that's the whole point.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What You'll Walk Away With -->
+  <section class="walkaway">
+    <div class="container">
+      <div class="reveal">
+        <p class="label">What You'll Walk Away With</p>
+        <h2 class="section-title">Not just knowledge — a real system you'll use every day.</h2>
+      </div>
+      <div class="walkaway-card reveal">
+        <div class="walkaway-main">
+          <div class="walkaway-badge">Your Takeaway</div>
+          <h3>Your Very Own Life OS</h3>
+          <p>A personal system built by you, during the workshop, that organizes your life — from to-do lists to calendar management to email. You'll leave with something real and working, not just notes from a lecture.</p>
+          <div class="walkaway-features">
+            <div class="walkaway-feature">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+              <span>To-do lists that organize themselves</span>
+            </div>
+            <div class="walkaway-feature">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              <span>Calendar management that works for you</span>
+            </div>
+            <div class="walkaway-feature">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <span>Email that handles itself</span>
+            </div>
+            <div class="walkaway-feature">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+              <span>A system that keeps getting smarter</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Who This Is For -->
+  <section class="audience">
+    <div class="container">
+      <div class="reveal">
+        <p class="label">Who This Is For</p>
+        <h2 class="section-title">You don't need to be technical. You just need to show up.</h2>
+      </div>
+      <div class="audience-list">
+        <div class="audience-item reveal" style="transition-delay: 0.05s;">
+          <div class="audience-check">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <span>You have ideas but don't know how to build them</span>
+        </div>
+        <div class="audience-item reveal" style="transition-delay: 0.1s;">
+          <div class="audience-check">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <span>You've tried ChatGPT but want to go way deeper</span>
+        </div>
+        <div class="audience-item reveal" style="transition-delay: 0.15s;">
+          <div class="audience-check">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <span>You want to launch a product, app, or side project</span>
+        </div>
+        <div class="audience-item reveal" style="transition-delay: 0.2s;">
+          <div class="audience-check">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <span>You're a founder, freelancer, or professional who wants to do more with less</span>
+        </div>
+        <div class="audience-item reveal" style="transition-delay: 0.25s;">
+          <div class="audience-check">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <span>You don't want to get left behind as AI changes everything</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What You'll Be Able To Do -->
+  <section class="outcomes">
+    <div class="container">
+      <div class="reveal">
+        <p class="label">The Possibilities</p>
+        <h2 class="section-title">What becomes possible after one evening.</h2>
+      </div>
+      <div class="outcomes-grid">
+        <div class="outcome-card reveal" style="transition-delay: 0.05s;">
+          <span class="outcome-emoji">&#x1F680;</span>
+          <h3>Launch Your Ideas</h3>
+          <p>Turn concepts into working projects — no developer required.</p>
+        </div>
+        <div class="outcome-card reveal" style="transition-delay: 0.1s;">
+          <span class="outcome-emoji">&#x1F6D2;</span>
+          <h3>Sell Your Products</h3>
+          <p>Build landing pages, tools, and automations to sell what you create.</p>
+        </div>
+        <div class="outcome-card reveal" style="transition-delay: 0.15s;">
+          <span class="outcome-emoji">&#x1F4F1;</span>
+          <h3>Create Apps</h3>
+          <p>Build real, working applications with Claude Code doing the heavy lifting.</p>
+        </div>
+        <div class="outcome-card reveal" style="transition-delay: 0.2s;">
+          <span class="outcome-emoji">&#x2728;</span>
+          <h3>Bring Visions to Life</h3>
+          <p>Things that seemed impossible last month are now within reach.</p>
+        </div>
+        <div class="outcome-card reveal" style="transition-delay: 0.25s;">
+          <span class="outcome-emoji">&#x1F916;</span>
+          <h3>Automate Your Work</h3>
+          <p>Set up systems that handle repetitive tasks while you focus on what matters.</p>
+        </div>
+        <div class="outcome-card reveal" style="transition-delay: 0.3s;">
+          <span class="outcome-emoji">&#x1F4AA;</span>
+          <h3>Multiply Your Output</h3>
+          <p>Do in one evening what used to take weeks. The leverage is real.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Instructor -->
+  <section class="instructor">
+    <div class="container">
+      <div class="reveal">
+        <p class="label">Your Instructor</p>
+        <h2 class="section-title">Learn from someone who does this every day.</h2>
+      </div>
+      <div class="instructor-card reveal">
+        <img src="/dylan.jpg" alt="Dylan" class="instructor-photo" />
+        <div class="instructor-info">
+          <h3>Dylan</h3>
+          <p class="role">Founder, OneDay &middot; Senior Engineering Manager</p>
+          <p>10+ years building products, Techstars graduate, and an everyday Claude Code user. On a mission to make AI accessible to everyone — not just technical people.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq">
+    <div class="container">
+      <div class="reveal">
+        <p class="label">FAQ</p>
+        <h2 class="section-title">Got questions?</h2>
+      </div>
+      <div class="faq-list reveal">
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Do I need any coding experience?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">Absolutely not. This webinar is specifically designed for non-technical people. If you can type and follow along, you're qualified. We start from zero.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            What is Claude Code exactly?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">Claude Code is an AI tool by Anthropic that lets you build software, automate tasks, and create things by describing what you want in plain English. It's like having a world-class engineer working alongside you.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Will I get a recording?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">Yes. Every registered attendee gets access to the full recording, so you can rewatch and follow along at your own pace.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            What do I need to have installed beforehand?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">Just a computer and a browser. We'll walk through the full setup together during the session. You don't need to prepare anything in advance.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Why $30?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">This isn't a generic overview. It's a hands-on, live workshop where you'll walk away with a real working project. $30 ensures a committed group where everyone gets value. Most people tell us the first hour alone is worth 10x that.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            What if I want more help after the webinar?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">We offer 1-on-1 sessions and small group training for people who want to go deeper. We'll share details at the end of the webinar — no pressure, just options.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="final-cta" id="register">
+    <div class="container container--narrow">
+      <div class="reveal">
+        <h2>Ready to become superhuman?</h2>
+        <p class="sub">
+          The people who learn to work with AI now will have a head start for the rest of their lives.
+        </p>
+        <div class="detail-row">
+          <span class="detail-item"><strong>Monday, Feb 23</strong></span>
+          <span class="detail-item"><strong>8 – 9 PM PST</strong></span>
+          <span class="detail-item"><strong>$30</strong></span>
+        </div>
+        <!-- TODO: Replace # with your Luma event URL -->
+        <a href="#" class="final-cta-btn" id="register-btn">Join the Workshop — $30</a>
+        <p class="fine-print">Limited seats &middot; Recording included &middot; 100% beginner-friendly</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p style="margin-bottom: 8px;">
+        <a href="/landing.html">OneDay Training</a> &middot;
+        <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a>
+      </p>
+      <p>&copy; 2026 OneDay. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // ── Scroll Reveal ──
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+    // ── FAQ Accordion ──
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item.open').forEach(el => {
+          el.classList.remove('open');
+          el.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+        });
+        if (!isOpen) {
+          item.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+
+    // ── Concentric Rings (matching main site) ──
+    (function () {
+      const canvas = document.getElementById('rings-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let W, H, cx, cy, rings = [];
+
+      const GROWTH = 1.52, BASE_R = 14, N_PTS = 80;
+      const FILL_PER_RING = 0.30, FILL_PAUSE = 2.0;
+      let fillClock = 0, pausing = false, pauseRemain = 0;
+
+      function buildRings() {
+        rings = [];
+        const maxR = Math.sqrt(W * W + H * H) * 0.68;
+        let r = BASE_R;
+        while (r < maxR) { rings.push(r); r *= GROWTH; }
+      }
+
+      function setSize() {
+        W = canvas.width = canvas.parentElement.offsetWidth;
+        H = canvas.height = canvas.parentElement.offsetHeight;
+        cx = W / 2;
+        cy = H * 0.46;
+        buildRings();
+      }
+
+      const unitX = new Float32Array(N_PTS);
+      const unitY = new Float32Array(N_PTS);
+
+      function computeUnitEllipse(ax, ay, az) {
+        const cax = Math.cos(ax), sax = Math.sin(ax);
+        const cay = Math.cos(ay), say = Math.sin(ay);
+        const caz = Math.cos(az), saz = Math.sin(az);
+        for (let i = 0; i < N_PTS; i++) {
+          const ang = (i / N_PTS) * Math.PI * 2;
+          const px = Math.cos(ang), py = Math.sin(ang);
+          const py1 = py * cax, pz1 = py * sax;
+          const px2 = px * cay + pz1 * say;
+          unitX[i] = px2 * caz - py1 * saz;
+          unitY[i] = px2 * saz + py1 * caz;
+        }
+      }
+
+      function traceEllipse(r, pulse) {
+        const rr = r * pulse;
+        ctx.moveTo(cx + rr * unitX[0], cy + rr * unitY[0]);
+        for (let j = 1; j < N_PTS; j++) ctx.lineTo(cx + rr * unitX[j], cy + rr * unitY[j]);
+        ctx.closePath();
+      }
+
+      function draw(t) {
+        ctx.clearRect(0, 0, W, H);
+        const n = rings.length;
+        const ax = Math.sin(t * 0.23) * 0.44 + Math.sin(t * 0.17) * 0.16;
+        const ay = Math.sin(t * 0.19 + 1.31) * 0.38 + Math.sin(t * 0.13) * 0.14;
+        const az = Math.sin(t * 0.11 + 2.47) * 0.13;
+        const breathe = 1 + Math.sin(t * 0.27) * 0.014;
+        computeUnitEllipse(ax, ay, az);
+
+        for (let i = 0; i < n; i++) {
+          const raw = fillClock / FILL_PER_RING - i;
+          if (raw <= 0) break;
+          if (raw >= 1) continue;
+          const fp = raw * raw * (3 - 2 * raw);
+          ctx.fillStyle = `hsla(255,85%,74%,${(fp * 0.22).toFixed(3)})`;
+          ctx.beginPath();
+          traceEllipse(rings[i], breathe);
+          if (i > 0) { traceEllipse(rings[i - 1], breathe); ctx.fill('evenodd'); }
+          else { ctx.fill(); }
+        }
+
+        for (let i = n - 1; i >= 0; i--) {
+          const progress = i / (n - 1);
+          const phase = i * 0.55;
+          const gp1 = 0.5 + 0.5 * Math.sin(t * 1.10 + phase);
+          const gp2 = 0.5 + 0.5 * Math.sin(t * 0.71 + phase * 1.27);
+          const glow = gp1 * 0.55 + gp2 * 0.45;
+          const rr = rings[i] * (breathe + Math.sin(t * 1.10 + phase) * 0.009);
+          const baseOpacity = 0.022 + progress * progress * 0.20;
+          const opacity = baseOpacity * (0.5 + glow * 0.9);
+          const lw = 0.5 + progress * 0.8;
+          const hue = 248 - progress * 18;
+          const sat = 70 + progress * 20;
+          const lit = 62 + progress * 14;
+          ctx.shadowBlur = (5 + progress * 22) * (0.3 + glow * 0.7);
+          ctx.shadowColor = `hsla(${hue|0},${sat|0}%,${lit|0}%,${(0.18 + progress * 0.45 * glow).toFixed(3)})`;
+          ctx.beginPath();
+          ctx.moveTo(cx + rr * unitX[0], cy + rr * unitY[0]);
+          for (let j = 1; j < N_PTS; j++) ctx.lineTo(cx + rr * unitX[j], cy + rr * unitY[j]);
+          ctx.closePath();
+          ctx.strokeStyle = `hsla(${hue|0},${sat|0}%,${lit|0}%,${opacity.toFixed(3)})`;
+          ctx.lineWidth = lw;
+          ctx.stroke();
+        }
+        ctx.shadowBlur = 0;
+
+        const glowR = (rings[3] || 80) * breathe;
+        const grd = ctx.createRadialGradient(cx, cy, 0, cx, cy, glowR);
+        grd.addColorStop(0, 'rgba(108,99,255,0.09)');
+        grd.addColorStop(0.5, 'rgba(108,99,255,0.04)');
+        grd.addColorStop(1, 'rgba(108,99,255,0)');
+        ctx.fillStyle = grd;
+        ctx.beginPath();
+        ctx.arc(cx, cy, glowR, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      const DT = 0.016;
+      let t = 0;
+
+      function animate() {
+        t += DT;
+        if (pausing) {
+          pauseRemain -= DT;
+          if (pauseRemain <= 0) { pausing = false; fillClock = 0; pauseRemain = 0; }
+        } else {
+          fillClock += DT;
+          if (fillClock >= rings.length * FILL_PER_RING) {
+            pausing = true; pauseRemain = FILL_PAUSE;
+            fillClock = rings.length * FILL_PER_RING;
+          }
+        }
+        draw(t);
+        requestAnimationFrame(animate);
+      }
+
+      setSize();
+      new ResizeObserver(setSize).observe(canvas.parentElement);
+      animate();
+    })();
+  </script>
+</body>
+</html>
