@@ -506,40 +506,44 @@
       border-bottom: 1px solid var(--border);
     }
 
-    .instructor-card {
-      max-width: 720px;
+    .hosts-grid {
+      max-width: 820px;
       margin: 0 auto;
-      display: flex;
-      gap: 32px;
-      align-items: center;
-      padding: 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .host-card {
+      padding: 36px 32px;
       background: var(--bg);
       border: 1px solid var(--border);
       border-radius: 16px;
+      text-align: center;
     }
 
-    .instructor-photo {
-      width: 120px;
-      height: 120px;
+    .host-photo {
+      width: 100px;
+      height: 100px;
       border-radius: 50%;
       object-fit: cover;
       border: 2px solid var(--border);
-      flex-shrink: 0;
+      margin-bottom: 20px;
     }
 
-    .instructor-info h3 {
+    .host-card h3 {
       font-size: 20px;
       font-weight: 700;
       margin-bottom: 4px;
     }
 
-    .instructor-info .role {
+    .host-card .role {
       font-size: 14px;
       color: var(--accent);
-      margin-bottom: 12px;
+      margin-bottom: 14px;
     }
 
-    .instructor-info p {
+    .host-card p.bio {
       font-size: 15px;
       color: var(--text-muted);
       line-height: 1.7;
@@ -731,10 +735,9 @@
         max-width: 400px;
       }
 
-      .instructor-card {
-        flex-direction: column;
-        text-align: center;
-        padding: 32px 24px;
+      .hosts-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
       }
 
       .hero-details {
@@ -980,19 +983,25 @@
     </div>
   </section>
 
-  <!-- Instructor -->
+  <!-- Your Hosts -->
   <section class="instructor">
     <div class="container">
       <div class="reveal">
-        <p class="label">Your Instructor</p>
-        <h2 class="section-title">Learn from someone who does this every day.</h2>
+        <p class="label">Your Hosts</p>
+        <h2 class="section-title">Two people who use AI every day — on a mission to help you do the same.</h2>
       </div>
-      <div class="instructor-card reveal">
-        <img src="/dylan.jpg" alt="Dylan" class="instructor-photo" />
-        <div class="instructor-info">
+      <div class="hosts-grid">
+        <div class="host-card reveal">
+          <img src="/evan.jpg" alt="Evan Grenda" class="host-photo" />
+          <h3>Evan Grenda</h3>
+          <p class="role">Co-Founder &amp; Lead Instructor</p>
+          <p class="bio">Evan has worked in AI since 2018 — from healthcare to consulting at Deloitte to advising companies at AWS on how to build with generative AI. He takes what he learns in those rooms and makes it accessible to everyone.</p>
+        </div>
+        <div class="host-card reveal">
+          <img src="/dylan.jpg" alt="Dylan" class="host-photo" />
           <h3>Dylan</h3>
-          <p class="role">Founder, OneDay &middot; Senior Engineering Manager</p>
-          <p>10+ years building products, Techstars graduate, and an everyday Claude Code user. On a mission to make AI accessible to everyone — not just technical people.</p>
+          <p class="role">Co-Founder &amp; Product Builder</p>
+          <p class="bio">Dylan has been building products for over a decade and using AI in his daily life for the past two years. Techstars alum with a practitioner's perspective — not theory, but real workflows you can use immediately.</p>
         </div>
       </div>
     </div>
