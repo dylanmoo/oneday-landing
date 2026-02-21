@@ -2,196 +2,115 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Workshop Cover</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,700;1,500&display=swap" rel="stylesheet" />
+  <title>V1B — Cormorant Garamond</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,700;1,500&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    body {
-      width: 1080px;
-      height: 1080px;
-      overflow: hidden;
-      font-family: 'Inter', sans-serif;
-      background: #FAF8F5;
-      color: #1A1A1A;
-    }
+    body { width: 1080px; height: 1080px; overflow: hidden; }
 
     .cover {
-      width: 1080px;
-      height: 1080px;
+      width: 1080px; height: 1080px;
       position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
       overflow: hidden;
     }
 
-    /* Soft warm gradient background */
-    .bg-glow {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(120px);
-      pointer-events: none;
+    .bg-image {
+      position: absolute; inset: 0;
+      background: url('/eye-bg.jpg') center center / cover no-repeat;
     }
 
-    .bg-glow-1 {
-      width: 700px;
-      height: 700px;
-      background: radial-gradient(circle, rgba(198, 168, 255, 0.2) 0%, transparent 70%);
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+    .bg-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(10, 8, 20, 0.5) 0%,
+        rgba(10, 8, 20, 0.65) 40%,
+        rgba(10, 8, 20, 0.82) 100%
+      );
     }
 
-    .bg-glow-2 {
-      width: 400px;
-      height: 400px;
-      background: radial-gradient(circle, rgba(255, 200, 150, 0.12) 0%, transparent 70%);
-      top: 10%;
-      right: 5%;
-    }
-
-    .bg-glow-3 {
-      width: 350px;
-      height: 350px;
-      background: radial-gradient(circle, rgba(150, 210, 255, 0.1) 0%, transparent 70%);
-      bottom: 10%;
-      left: 5%;
-    }
-
-    /* Content */
     .content {
-      position: relative;
-      z-index: 10;
+      position: relative; z-index: 10;
       text-align: center;
-      max-width: 900px;
-      padding: 0 60px;
+      max-width: 1000px;
+      padding: 0 40px;
     }
 
     .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 24px;
-      background: rgba(108, 99, 255, 0.08);
-      border: 1px solid rgba(108, 99, 255, 0.18);
+      display: inline-flex; align-items: center; gap: 14px;
+      padding: 16px 40px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.14);
       border-radius: 100px;
-      font-size: 15px;
-      font-weight: 600;
-      color: #6C63FF;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      margin-bottom: 48px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 24px; font-weight: 600;
+      color: rgba(255,255,255,0.8);
+      letter-spacing: 0.08em; text-transform: uppercase;
+      margin-bottom: 56px;
+      backdrop-filter: blur(12px);
     }
 
     .badge .dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #6C63FF;
+      width: 14px; height: 14px;
+      border-radius: 50%; background: #6C63FF;
     }
 
     h1 {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 108px;
-      font-weight: 700;
-      line-height: 1.05;
-      letter-spacing: -0.03em;
-      color: #1A1A1A;
-      margin-bottom: 20px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 164px; font-weight: 700;
+      line-height: 0.95;
+      letter-spacing: -0.02em;
+      color: #fff;
+      margin-bottom: 28px;
     }
 
     .subtitle {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 32px;
-      font-weight: 500;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 52px; font-weight: 500;
       font-style: italic;
-      color: #6C63FF;
-      margin-bottom: 48px;
-      letter-spacing: -0.01em;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 56px;
     }
 
     .details {
-      display: flex;
-      justify-content: center;
-      gap: 32px;
+      display: flex; justify-content: center; gap: 40px;
     }
 
     .detail {
-      font-size: 18px;
-      color: #666;
-      font-weight: 500;
+      font-family: 'Outfit', sans-serif;
+      font-size: 28px; color: rgba(255,255,255,0.45); font-weight: 500;
     }
-
-    .detail strong {
-      color: #1A1A1A;
-      font-weight: 600;
-    }
+    .detail strong { color: rgba(255,255,255,0.8); font-weight: 600; }
 
     .detail-dot {
-      width: 4px;
-      height: 4px;
-      border-radius: 50%;
-      background: #ccc;
-      align-self: center;
+      width: 6px; height: 6px; border-radius: 50%;
+      background: rgba(255,255,255,0.2); align-self: center;
     }
 
-    /* Logo */
     .logo {
-      position: absolute;
-      bottom: 52px;
-      left: 52px;
-      font-family: 'Inter', sans-serif;
-      font-weight: 700;
-      font-size: 22px;
-      color: #1A1A1A;
-      letter-spacing: -0.02em;
-      z-index: 10;
+      position: absolute; bottom: 52px; left: 52px;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700; font-size: 32px;
+      color: rgba(255,255,255,0.85);
+      letter-spacing: -0.02em; z-index: 10;
     }
-
     .logo span { color: #6C63FF; }
 
     .corner-tag {
-      position: absolute;
-      bottom: 56px;
-      right: 52px;
-      font-size: 15px;
-      color: #999;
-      z-index: 10;
+      position: absolute; bottom: 56px; right: 52px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 22px; color: rgba(255,255,255,0.35); z-index: 10;
     }
-
-    /* Thin decorative line */
-    .line-accent {
-      position: absolute;
-      width: 1px;
-      height: 120px;
-      background: linear-gradient(to bottom, transparent, rgba(108, 99, 255, 0.25), transparent);
-      z-index: 5;
-    }
-
-    .line-1 { top: 60px; left: 52px; }
-    .line-2 { bottom: 100px; right: 52px; }
   </style>
 </head>
 <body>
   <div class="cover">
-    <!-- Soft background glows -->
-    <div class="bg-glow bg-glow-1"></div>
-    <div class="bg-glow bg-glow-2"></div>
-    <div class="bg-glow bg-glow-3"></div>
-
-    <!-- Subtle decorative lines -->
-    <div class="line-accent line-1"></div>
-    <div class="line-accent line-2"></div>
-
-    <!-- Content -->
+    <div class="bg-image"></div>
+    <div class="bg-overlay"></div>
     <div class="content">
-      <div class="badge">
-        <span class="dot"></span>
-        Live Workshop
-      </div>
+      <div class="badge"><span class="dot"></span>Live Workshop</div>
       <h1>Becoming Superhuman</h1>
       <p class="subtitle">Leveraging Claude Code in your everyday life</p>
       <div class="details">
@@ -202,8 +121,6 @@
         <div class="detail"><strong>60 minutes</strong></div>
       </div>
     </div>
-
-    <!-- Branding -->
     <div class="logo">One<span>Day</span></div>
     <div class="corner-tag">No experience needed</div>
   </div>
