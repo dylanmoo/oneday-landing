@@ -1,0 +1,1935 @@
+Summary
+
+### Action Items & Next Steps
+
+- [ ]  Dylan to provide pricing for one-on-one training session with Phoebe's assistant
+- [ ]  Dylan to provide pricing for team masterclass
+- [ ]  Phoebe to ensure team downloads command line tools before future sessions
+- [ ]  Phoebe to get GitHub account and request access from developer
+- [ ]  Phoebe to look into Claude enterprise account pricing for team
+- [ ]  Phoebe to pull product inventory for New York trip and Expo West gifting
+- [ ]  Phoebe to create task for identifying wholesale customers not in store locator
+- [ ]  George to follow up on product mention with Simon Hill's podcast
+
+### Setup and Installation
+
+- Installed VS Code and Claude Code extension to enable AI-assisted coding and automation
+- Set up Claude Pro subscription ($100/month) to access advanced features
+- Configured workspace folder structure for organizing projects and files
+- Installed PDF viewer extension to view generated reports directly in VS Code
+- **Important note:** Command line tool installation took 51 hours initially, highlighting the need for users to download these tools in advance
+
+### Shipping Cost Analysis Project
+
+- Uploaded two CSV files comparing warehouse charges (FM3) versus Shopify customer charges to identify overcharging
+- Created Python script to parse orders, match transactions, and calculate discrepancies between what customers were charged versus warehouse costs
+- Initial analysis revealed only $1,500 discrepancy for the 17-day period analyzed, much lower than the expected $20,000 monthly overcharge
+- Identified that shipping charges increased $20,000 despite 30% decrease in sales, suggesting potential systematic overcharging issues
+- Created freight charge audit report with detailed breakdown of discrepancies
+- Created a skill to enable easy reuse of this analysis workflow for future periods
+
+### Analytics Integration
+
+- Connected Claude Code to Triple Whale analytics platform using API key
+- Set up analytics folder to pull MERs (marketing efficiency rates) and ROAS data
+- Generated visualizations showing revenue trends, customer acquisition costs, and profitability metrics
+- Confirmed strong unit economics: 60% gross margins, profitable on first purchase (unlike competitors), 4% conversion rate
+- Identified that ad spend is high but DTC metrics remain strong overall
+- Discussed limitations of Shopify's built-in AI for analytics - it doesn't pull all necessary data and is generally inadequate
+
+### Email Automation
+
+- Attempted to set up Gmail integration using Google Cloud Console and OAuth credentials
+- Configured API access with read-only scopes to maintain security while enabling email reading and draft creation
+- Planned automation to read emails, identify high-priority items, and create draft responses in Phoebe's voice
+- Discussed potential to analyze wholesale emails and cross-reference with store locator to identify missing retailers
+
+### Data Security Considerations
+
+- Addressed concerns about using Claude with sensitive customer data (addresses, names, emails)
+- Confirmed that Anthropic doesn't train on Claude Code conversations by default
+- Claude Code requests permission before executing any commands, ensuring user control over data access
+- Recommended exploring Claude enterprise account for enhanced data protection guarantees
+
+### Brand Guidelines and Content Management
+
+- Discussed using Claude Code to create comprehensive brand guidelines by analyzing existing creative assets, social media, and website content
+- Reviewed Phoebe's pitch deck highlighting Fungi's positioning as a social connection beverage using kava
+- Explored organizing business notes from Apple Notes into categorized folders using Claude
+- Discussed creating voice guidelines for both Fungi brand and personal voice to maintain consistency across different contexts
+
+### Website Development and Developer Concerns
+
+- Identified that Fungi's website is built on Liquid/Shopify and managed through VS Code-like interface
+- Developer claims not to use AI and reports 3 hours for simple button changes, raising concerns about efficiency and costs
+- Recommended requesting GitHub access to enable direct website edits through Claude Code
+- Dylan's company policy: only hire people who use AI due to massive productivity gains
+
+### Customer Service Enhancement Ideas
+
+- Discussed integrating Claude with Gorgias customer service platform to assist Daniela (customer service representative)
+- Proposed using AI to analyze customer issues, draft genuine responses, and automatically create discount codes when appropriate
+- Noted that Gorgias's built-in AI lacks emotional depth and authenticity
+
+### Business Metrics and Growth Strategy
+
+- Current revenue down 30% due to reduced ad spend, but company remains profitable every month since June
+- Flow Fruit Juice represents 60% of all revenue, making it the hero product
+- Moving to new contract manufacturer will save 9 cents per gummy (12 per box), requiring $900K inventory investment for minimum order of 1.5M gummies per SKU
+- Goal: reach $10M in 2026 to unlock private equity funding (typical $10M+ checks)
+- Current metrics: 4% conversion rate, 76 LTV, target 120-150 LTV, profitable on first purchase
+- 105 retail partnerships, 100% inbound (never cold outreach)
+
+### Marketing and Growth Initiatives
+
+- Preparing for Expo West with Polaroid photo frames as business cards alternative - more memorable and engaging
+- Organic podcast mentions drive $40K in daily sales but are unscalable - typical podcast sponsorships cost $40K
+- Working with Simon Hill (Plant Proof podcast) for organic product mention
+- Planning guerrilla marketing with tear-off posters ("Do you want some K?") and free samples at street corners
+- Lettuce Grow partnership creating educational content about herbs and plants
+
+### Future Training Plans
+
+- Dylan hosting public event on Monday with 12 people registered
+- Phoebe to schedule private one-on-one training for assistant (returning from skiing in March) to focus on specific business workflows
+- Team masterclass planned to provide overview and justify Claude subscription investment for entire team
+- Recommended $20/month per team member for Claude Teams plan
+
+### Claude Code Best Practices Learned
+
+- Use separate conversations for different workstreams to maintain context quality
+- Context window degrades after 50-60% capacity - compact or start fresh when needed
+- Create "skills" (slash commands) to package and reuse successful workflows
+- Ask Claude to "interview me" or "ask questions" when uncertain about project direction
+- Tell Claude to "remember" important information or preferences for future reference
+- Always allow bash commands unless they seem suspicious - Claude is respectful of system access
+- Use markdown for documentation as all AI tools read it well
+- Dylan uses 10-12 different Claude Code sessions simultaneously for different projects
+
+### Environmental and Ethical Considerations
+
+- Discussed environmental impact of AI - Phoebe expressed concerns about water usage and resource consumption
+- Dylan acknowledged impact exists but is "not anywhere close to taking a flight"
+- Balanced view that AI might help solve environmental problems it contributes to
+
+### Personal Notes and Context
+
+- Phoebe returning to herb school for plant identification, clinical hours, and herbal first aid training
+- Strong focus on practical survival skills and plant knowledge as counterbalance to tech dependency
+- Preparing for New York trip Monday night despite potential snowstorm
+- Using Fireflies for meeting note-taking with automatic action item distribution
+
+Notes
+
+Overhead:
+
+- staying on top of slack
+- emails with wholesalers
+- financial docs
+- analytics from shopify
+
+IMPORTANT: People need to download command line tools prior
+
+Transcript
+
+And then I actually have something that I really do want to use AI for, but I don't really understand how to do it. Okay.
+
+Oh, sweet. Oh yeah, it's at the door. Yay! I'll get coloring. Okay. They gave you only an eighth of a juice. What? Oh no! Did you get a juice? I got a shot. Oh, okay, that makes sense.
+
+Well, no, I think it was a-Well, OK. I think I need some juice. Okay, well we can split it together. It's a book to read before I get a gift. No, a week before I get a gift,Yes. Oh. Yeah. I didn't have time to make any shots myself, so I was like, I'm just gonna order it.
+
+The tea that you made the other night was so good. Which tea? It was, Okay, when you told me what you were making, it sounded kind of boring, Like you were like, it's like hot water, like lemon. And I was like, oh yeah, that's all I want. And then you were like, fuck. That doesn't sound like quite that interesting. And then I tried it and I was like, oh my god, this is so good.
+
+So good, right? What was it? It's a... I like it.
+
+That's good. That's spicy. Oil oregano is different from, was this one you pulled out?
+
+Yeah. Yeah, I don't think you can turn it on. Okay, that's fine. Yay! Um, so I cheated because it was about your one?
+
+Thank you. Is that too long of a fork? No, it's perfect.
+
+Do you have any towels? I dropped this. Oh, well, he's a god, so it's fine. Perfect. Yeah.
+
+I actually do not have any towels.
+
+But I, it's literally... Lemon, ginger, and then I-it was apple from-Yeah, I've 11 ginger. Have you never had that before from here one? It's a juice. It's literally like 90% ginger with lemon and some apple.
+
+Okay, and you pour that into...
+
+With hot water. And I just do a quarter in the hot water and it's so good. But at home, I do--Do you want a plate or a bowl? No, I'm okay. I'll eat out of it. Thank you, Don. But here you can basically do the exact same thing except instead of the apple, you do a little bit of lemon. Sorry, a little bit of honey. With lemon and ginger You just make like a ginger shot, it's super easy to make. And then you have that, and you should have what I give you in the morning, first thing.
+
+Oh, good idea. Thank you. We want like one or two. Yes. I'm glad he went surprise. Blessings. Bless our food. May this ground us and nourish us and help us go into the world to be better citizens of the earth.
+
+Yay! Yo soy fuerte.
+
+Yo soy pure. Pure. I was with my friend who's a naturopath, the one that I sent to the hospital. What? You don't know this story?
+
+Think it'd help you look at the analytics in Shopify and tell you what's going on? It's really good. I'm okay. I'm like super full now. Yeah, I know.
+
+You're sorry for it. There's like a good one. Okay. So? So like this does not work very well, the AI built in. Yeah. To Shopify. It sucks. It doesn't even pull all of the data that you want. It's just like. It's awful.
+
+So what we'll do... is We'll get some information like in a... We'll get you set up with Cloud Code. And then I'll show you like how basically works and then I'll show you how you can start like kind of connecting it to your different tools.
+
+Ooh, okay.
+
+And then how you can create your own like systems to help you accomplish stuff at work.
+
+And I want to show you something. So... ThisIs a report of a bunch of orders Like, what this person ordered, how much they paid for shipping. Right? What they paid for all of this. The most important is how much they paid for shipping because this is what we charged them. And then this is some of those same orders. They don't match exactly, but some of the same orders. Wait, let me increase.
+
+Is this an image or this is a spreadsheet?
+
+No, this is a spreadsheet. Okay. Same orders. And then this is what we were charged by our warehouse right here. Okay? I need to compare and contrast these so I can see if we're being overcharged. I'm our warehouse. Can you use code to do that? Yeah. Okay, that would be really helpful.
+
+Okay, maybe that's like the first thing that we'll do. So, to start...
+
+Because I think you're being overcharged 20 grand, which is too much.
+
+Yeah. It's too much.
+
+It's crazy.
+
+To start, download VS Code. It's like an application. Just search it on Chrome.
+
+Oh, I don't have Chrome.
+
+Or Safari, whatever.
+
+No, it's okay. I can use Chrome.
+
+Either one. It doesn't matter. Okay.
+
+V-V-S code. Hi, baby. Visual code. Yeah, that one.
+
+And for Mac.
+
+Do I have a Dell or Apple? Oh, I can just download this. Yeah. Okay, great.
+
+Cool. And then do you have a Claude subscription? Yes.
+
+I don't know. We'll find out. So if you go like that, you can-Oh, cool.
+
+Go to your normal browser that you're using. OK. Okay. Cool. Oh, nice. Do get cloud code. Um. At least the pro.
+
+You think I should do this one? Yeah.
+
+Okay. And I would expense it on Funga. Oh no, of course. Let me see if I have this will be the best hundred dollars you ever spent. Sick.
+
+I trust it.
+
+Hi, baby. What do you need? 228.
+
+So George and I have these crazy Okay, cool.
+
+Meetings that we have the first week of March for Expo West.
+
+And instead of business cards for everyone that we meet, we're doing, this is just like, ignore like the yellow, but we're doing these frames for Polaroids that say like our name and we'll take selfies with people.
+
+Oh, that's cool. And it'll say thanks for dropping in with us with like our info.
+
+Isn't that fun?
+
+That's nice, yeah. That's cool.
+
+I'm so excited.
+
+That's a really good idea.
+
+Thank you.
+
+Everyone likes to have like a little Polaroid memento. Even if they toss it, it's like, ah, Do I want those boy? Like what a good quote. Totally.
+
+And they can remove the frame and just have the photo later. But we just wanted something that people would like and they would like think about that was actually like cute. You're good. It's saying that it's unable to create a subscription.
+
+Is your card?
+
+It's not my card, it's just saying unable to create.
+
+Unable to create a sincere joke. Yeah.
+
+Oh no, never mind. It was just the cash. It's done. It says I have it now.
+
+-Okay.
+
+Do you need help? Are you OK? I'm good.
+
+And then you can drag it into the applications folder. OK. I would put it on your like-Your bar down there. Once you open it up, yeah.
+
+I know, isn't this a good playlist?
+
+Yeah, it is. It's called like buttery soft something. Resolve grooves.
+
+But it better be velvety.
+
+Two.
+
+Dude, I know. 'Cause it's a day list and I just created a playlist for it 'cause it was so good.
+
+Most of my plays are custom, but... This one was good. Cool. Go to this, which is called extensions. You can download apps for this program. And then type in Cloud Code. And what this just does, and then install that first one. It adds trust. It adds like a little button to open Cloud Code in here.
+
+Oh, okay. Okay, okay. So I'll be coding in here. Okay. Wait. Why did you be filming this? Sorry. I said I'd make content. Mmm.
+
+Good idea.
+
+That's okay.
+
+Yeah, yeah. Fix my hair.
+
+Cool. Okay.
+
+Cool, now if you... If you open this up full screen. Just so we have a little bit more room.
+
+Just create space.
+
+So organized.
+
+Thank you, try to be.
+
+You can close this build with agent window and Go to the files. Basically, this one here. Basically all this is, is a way to view a folder. This whole thing is just like you're just viewing a folder of stuff and so Go to open folder. And Where's like your main, where's like the main place where you store like a lot of documents and like projects and that sort of thing?
+
+We don't have one central place.
+
+Okay, that's okay. A lot of it's on Slack. Okay, that's okay.
+
+But I can work on creating a central place. I mean, Here has some stuff.
+
+Shared drives there's stuff that other people Okay, we probably I mean, I guess you could put it there.
+
+I mean, if you give me an example of what you mean by stored projects.
+
+It would actually be better to just start with more of a blank slate. And then we can pull stuff in. So if we go to your main like How do we get to your main, uh...
+
+I don't know.
+
+Downloads is kind of my main thing. Oops.
+
+Oops. I'll find our helper. Hold her. Here it is. Phoebe MacPherson.
+
+Okay. Oh, cool. I've never seen this before.
+
+So this is like your main, this is like your root. and in here we're just gonna create a new Oops.
+
+My thing is, if you're trying to back click, it's on the left.
+
+Oh, okay.
+
+It's to them left-handed. Oh, okay. Sorry. New...
+
+New folder. We're just going to call this workspace. And it looks like We'll just do it like that. Then we go back over to VS code Oops.
+
+Four fingers.
+
+There we go. Open folder. We're gonna go to our workspace cool Okay.
+
+Let me trust the authors here.
+
+And when I was in high school, We don't have anything in our folder. Which makes sense, we don't put anything in here. You can close the little agent guy again, I don't know why he keeps popping up. And then hit the little Claude button in the top right. And... Yeah, to install. It might ask you to install a couple of things. Maybe it's asking something on another screen.
+
+So smart. It's okay. Wow, 51 hours? What?
+
+Yikes.
+
+That's not good. It's okay. So we'll just chill here for 51 hours. It's like video stuff back in the day.
+
+Two days later.
+
+Editing videos and opening up Photoshop used to be like this. Like, we used to, You'd make newspapers on InDesign. And sometimes it would take so long to save and export it would be like two hours And we'd be like sitting in the newsroom until like 3:00 a.m. Like waiting for it to export to send it to the printer and it's just likeMm-hmm. Oh my god, awful.
+
+Okay, this isn't good.
+
+So that's happening.
+
+This is a good note that like people. 51 hours, that's funny. I don't think it'll actually take that long, but...
+
+Let's see what it gets to.
+
+Yeah, it'll go hopefully faster. I do think it's like this whole thing is so fascinating. I feel like Getting coding and AI to be really good, you have to know how to use it and how to work with it. And I feel like that's the biggest knowledge gap I'm seeing right now. Is that right?
+
+Yeah, I think so. And I think A lot of people are intimidated by the idea of having to learn how to code. I mean, obviously, it's not an easy thing to do, to code. Yeah. But... These apps make it really easy all of a sudden to like make software and use software. Sick. and You can just talk to it in English and it'll do the things for you. It's crazy. There's no engineer at my company that writes code by hand anymore.
+
+At all. Not a single line.
+
+That's insane.
+
+Not even like editing, like not even like backspace, backspace, like true instead of false. Nada. I don't think we'll ever do it again.
+
+I'm never learning to code. I used to code, I learned to code because of Neopets.
+
+Oh yeah, I love Neopets.
+
+In Myspace, which was amazing. And then I learned to code WordPress sites. And then I coded, I used to be really good at coding, I coded the first website for my student newspaper. There had never been a website and they were, like it was during the time when people were like, is journalism going to be like all digital first? Like no, like we have to be like paper only. And I built our first website by code.
+
+Wow.
+
+That's so cool.
+
+Yeah, it was really fun. It was all HTML. In high school? College? College, my freshman year. Very cool. Yeah.
+
+It was really fun. Yeah.
+
+So... Imagine how fun it was back then, like having this vision for like what you want to make. Yeah, and it's so much easier now. And seeing it to come to life. Now, if you can say your vision in English, you can make it come to life. Yeah. And what is so cool about these tools--But you have to have the vocabulary to division. No. I don't even think so. Not anymore. They're so good. I just think that you need to change I think it is like a shift in how you, Use the tool.
+
+I actually use Cloud Code for for everything. Not just coding, I use it for everything. My workspace is just clod codes everywhere. And I just have a bunch of cloud codes open, like let's see right now. I've got one, two, I don't know how many windows of cloud codes open here. Whoa! These are all different cloud code sessions. And then over here This is also all of these are different cloud code sessions working on different things.
+
+So... And I probably have something in VS Code too, maybe? No, I don't have VS Code open. So... I have like 10 to 12 different like cloud code sessions happening right now and that's where all my work is and then Of course I have like Slack and all this, you know, the stuff that I need to communicate with. Unfortunately, my company, not unfortunately, but we don't allow an integration with Slack and Cloud Code because we don't want people like writing.
+
+and reading from it only using Cloud Code yet.
+
+Wait, why? Mm-mm.
+
+It would just make like, you can send messages in here using Clot if you wanted to, and I think Right now we just haven't done it. done that, I could see us wanting to do it in the future. Fascinating. But like, you as a workspace admin for your company, you could totally enable this for yourself. Yeah, yeah, yeah, for sure.
+
+And especially if it's just like, You and, you know, 10 people max, like, using it.
+
+I don't see... That much harm and enabling it.
+
+I think would be really cool to enable I don't know how I would like use this correctly but I think there's a way to use Claude or Claude code or AI to improve our customer experience with our AI or our customer experience agent like person her name is Daniela she's amazing so talented she's always like give me more work we use something called gorgeous as a customer service bot or customer service thing but their AI sucks so they'll be like oh here's a canvas and it's like so devoid of emotion.
+
+And I'm curious if like cloud code could be incorporated to like work with Daniela who's like the woman. Like hey, this customer's experienced A, B and C. According to your website, you actually don't offer refunds, you don't do this. But here's a way to respond to them like really genuinely. And like this is what I recommend you offer them or something like that. Or like here, I've automatically made a one time use discount code for her.
+
+Yeah.
+
+I'll show you how I've set-just while we're waiting for this thing, which is a bummer. I'll show you how I've set that up for the Mana app and what I'm doing for Mana. Please.
+
+Have you heard of Gorgias before? No. I can show you two, but you show me your thing first. So don't use Notion, is that okay? Yeah. Okay.
+
+So For mana, I've got... And here, let's just like close these. I have everything that I'm doing for the app in one folder, Kalmana. and I have like my My whole iOS, my whole app code base in here, in this folder. I've got my Somewhere here, this is my website, is like inside of this folder.
+
+Whoa.
+
+And then in order to create the Like the rituals, like the audio sessions that people are doing. I wanted to design a system so that I could... I could like create a ritual really quickly, but based on the frameworks that I've put together for like, What are the components of it? Like it has an intro, it has like up to three prompts, the duration can be this long, like kind of all these guidelines similar to how like you have SOPs or maybe frameworks for how people make decisions.
+
+So, Inside of content guides, I createdRitual guidelines. Do you know this type of formatting? Have you seen this type of formatting for a document before?
+
+Kind of.
+
+It's called Markdown. Okay. And what's cool about Markdown is that all AI tools are like very good at reading it. And it's very easy to read for a human because you can actually, you know, this is just like English or like it's all... You know this is how like numbers and stuff yeah, I think I'm familiar with the concept of markdown Okay, but I've never written in markdown before okay, and you don't have to okay and Over here in the top of vs code you can hit this preview button.
+
+Okay. It'll actually show you what this looks like in markdown so if you want to see like What this looks like'Cause I think--Mersha needs that.
+
+Mm-hmm. And Shopify uses it.
+
+Shopify, Apple Notes even uses it. Yeah. So like, You know, the pound is like the biggest title. Multiple pounds is like a smaller title. And so what I did is--And AI uses this.
+
+Like, touch-u-b-t, if it, like, glitches.
+
+Yeah, it creates stuff.
+
+Mm-hmm, it does markdown.
+
+Um... And so I created this guideline basically as a way to say like here is how we want to design rituals who this is for The ritual format, like we got a name, ritual type, recommended time limit, image categories, intro, transition, prompt number one, transition. Explaining a little bit about it. Some notes between prompts transitions are split into two parts. Okay content display rules like All this stuff.
+
+Oh, interesting. Limitations, how to do pauses. When to use pauses. Phrasing for natural speech rhythm.
+
+And so this is what you're feeding into AI?
+
+So this is what I'm feeding into AI when I ask it, help me create a new ritual.
+
+Okay, so you're basically creating an SOP for AI to understand how to work as like a part of your team. Yeah.
+
+Mmm. Yep, these are all the rules.
+
+So really, Claude Code and the guidelines for how to work with you, it all comes from how detailed you are. Yeah. So if you can have psychotically detailed guidelines, it can work really well.
+
+Absolutely. That's what I'm not great at. It's okay.
+
+It's actually okay. Help me make them though.
+
+Cloud Code can help you make them.
+
+Oh, really? Yeah. Okay.
+
+So I didn't have any of this before. And it helped you create all of this?
+
+Uh-huh.
+
+And we just iterated on it together. And every time, look at them, this thing's huge. Massive. Right, Alice? It's awesomeOutro guidelines.
+
+So--Could I use Cloud Code to help me create new brand guidelines based off of all of our creative, all of our social media, all of our website. And then it worked with me to be like, do you actually want these guidelines? Or like, let's create a new one based on everything you have and everything you want in the future.
+
+Yeah, absolutely.
+
+Okay, do you know where all that lives it's all over the place like we've never fully written down our brand guidelines And we're having a designer create a beautiful deck, but she needs to know what the guidelines are Yeah, and it's really just been like what could we download a couple of files? Yeah, like what?
+
+Couple of the brand guideline files.
+
+Yeah, we have none. I'll show you the only one we have. Thank you. Oh my god, how fun is this? We're doing this out-of-home activation. It says we all need to be doing more K, or like, do you want some K? And these are like tear-offs, and these are like this big. And it's going to be a box of fungi attached to each one for people to rip off. And we're just going to go to like street corners and like hang these up and then have my phone filming.
+
+That's awesome.
+
+And then free dime bags. It's going to be chill.
+
+You guys are leaning into the drug.
+
+Just for like social media because we have no money for marketing. So like what can we do to try to go viral?
+
+Yeah. Like something that's just like fun.
+
+Okay, let me find.
+
+Also, what was the first thing that we said we wanted to... To do?
+
+Oh, this.
+
+Looking at the shipping costs.
+
+Okay, download this one. Download both of those.
+
+It's one, do I need, it's two sheets on one. Can I just download the whole document or should I download the individual sheets?
+
+Download both sheets, I think. I don't know when you hit download, does it?
+
+You think it? I think it downloads...
+
+them together Transaction report, XLSM.
+
+It has just that sheet? I think it's...
+
+Okay, I think they were separate.
+
+Yeah, I think they were too.
+
+Cool.
+
+Oh look, and it was installed as well.
+
+Sick. So drag and drop both of those files into that workspace folder. Okay. Cool, and maybe create another folder to put those in them. Oops.
+
+I don't know the command thing before. Oh, it's that one.
+
+I don't know what it is.
+
+It's command shift N. Okay. Okay, cool. Okay, sweet.
+
+Um... Let's go back to VS Code. and hit Cloud AI subscription. OpenAuthorize.
+
+Sweet, switch back.
+
+Oh my god, yay Okay.
+
+Yay, look. Yay!
+
+Yay!
+
+Okay, we'll set this up. Okay. Nice.
+
+Okay, it's gonna watch us. Okay. Yee! No, why don't we just say like Hey, can you see the shipping charges? Folder.
+
+Oh my gosh. I get so nervous when people watch me type. I don't watch.
+
+Let me see the folder, let me look inside. Whoa.
+
+So it's gonna When it's going through your computer, because this is made by Anthropic and they want it to be really safe, it asks you all All the time before it does any command. Because it's actually running on your computer. Like, as in, like... You know when you see like in terminal like yeah, this is like the basic access of like your computer at its core.
+
+Totally and it wants to be respectful. Yeah.
+
+And so it asks you every time, like, hey, do you want to allow this command to happen? OK. For... 99% of the things you're doing Yeah, so you can just like let it rip and just hit like yeah, it's okay. I think if you see something and you're like, that sounds like really unsecure, really strange, then just like take a beat And You can screenshot this or you can take the allow this bash command, you can copy and paste it into another cloud and say, hey, or actually you can even hit no and you can say, hey, is it safe to do that?
+
+Oh. And then I can explain it to you, like what's the risk of doing that or something, you know?
+
+So I guess before I even go any further, A lot of the stuff that we're using is sensitive data because it's customer data. So how safe is it to use Claude with customer data?
+
+How does, So we have our own company subscription to Claude that they promise not to train on any of our data.
+
+Is there a way for me to do that?
+
+Yeah, so you can talk to their enterprise team. Oh, so you have to have an enterprise account?
+
+I guess so. Okay, cool. Let me make a note.
+
+So I would look into it to see what the... Cost would be And also I think we could say like Aw, thanks! My mom used to work for lint or yeah lint ohOh my God, I love it so much. She would like have parties and sell the chocolate.
+
+Oh my god, she's a Tupperware mom!
+
+Yes. Oh, she's been a Tupperware mom for a while.
+
+I've never met someone that had a Tupperware mom. Yeah.
+
+You have parties a lot? She used to sell for a cabbie, which was like this. Yeah, you heard that? Yeah. Of course! I brought multiple.
+
+I know you have a sweet tooth, so I thought I'd brought you three. They were really good. These are the vegan ones, sorry. Oh, they are?
+
+Yeah. Oh, that's cool.
+
+I'm not doing dairy, but I had meat over the weekend. Is that good? Wow. Okay, yeah, there you go. Okay, anyways, I'm just making a note there. Okay, cool.
+
+I think that today Oh, here. I asked Claude, this has customer data. What are the risks of giving it to you? Good question. Here are the key risks. What I can see, any file you open, Database string, API responses, key risk. Anything I read stays in this conversation's context. Anthropics data retention policies apply to conversation data. Oh, although Anthropic doesn't train on cloud code conversations by default.
+
+Oh, that's good. That's good.
+
+Accidental leakage and commits. If I help edit files containing customer data and we commit them, okay, that's not something you need to worry about. Tool execution. Not something you need to worry about, that's not something you need to worry about. That's not something you need to worry about, but I don't do. I don't persist data between sessions. I don't send data to third parties on my own. I don't have internet access except through tools you approve.
+
+Keep customer PII out of files I read when possible. Personal identifiable information. Use anonymized test data for development. Remute commands. Don't start production. I think you're safe. Okay. I probably would not. be concerned with it. Okay. Um... If you were, if you had like a list of credit cards or like, Social security number or something?
+
+Yeah, we definitely know that. It's just like addresses and names in people's emails.
+
+I wouldn't be concerned.
+
+I'm not too concerned either. But all it takes is like one leak and like one call. creepy thing. You know, it's always a risk. Yeah. Okay, cool. So we did Bash. Yeah, sorry.
+
+Folder contains two CSV files. Cool. And it's like, would you like me to look at the contents of these files? It's like, cool, you could. You want me to say we could? Well, we have some questions, right? Okay. Okay. You wanted to do something here, and instead of explaining it to me again, When you're about to start a big project, or like you want to think through something or maybe like come up with a plan, you can tap this to switch between the modes.
+
+Oh, whoa.
+
+And so there's ask before edits, which is like ask every time edit automatically which is automatic and then plan mode and it's just those three okay and which one we would use plan mode yeah okay so um Um... Do you have anything where you can like hold it down? Like I have this tool where I can be like, hey Claude, like I want you to help me with this thing. And then I'll just.
+
+Whoa.
+
+You gotta get it. It's called Whisper Flow. and it can connect to any button and it'll just like Kind of just hovers here.
+
+Dude, what?
+
+Yeah, because you can just talk to your computer like 24-7.
+
+Technology, but my voice, it doesn't like it. It always, like, voice to text sucks for me.
+
+No, no, this is way better. Okay. I mean, you have a cute accent, so maybe it'll, like...
+
+The shit that Siri thinks I'm saying, I'm like, What?
+
+In what world?
+
+I literally, I'm like, what context of all things i text people make you think that i'm trying to communicate that to this person like i know you read my text that's the funny part it comes up with things that like no one has ever said in the history it's like wow no one's ever said that before yeah like why would i be saying that like you know me do you not know me anymore if He was so in love. Siri, babe.
+
+Okay, so we're gonna be in plan mode.
+
+We're in plan mode. I'm gonna talk. You had a whole thing that you were trying to do with this. So I would just explain it.
+
+Okay, so... within each In CSV, there's a column. Four and Order number. Starts with a And is followed by a string of numbers. And somewhere... We're in each CSV, is that okay? Mm-hmm. Will be a column. Four. Oh, you can go back.
+
+Yeah. Real quick. In here you can go to your shipping. Okay, cool. And then you can click on this.
+
+And it'll show me? Oh.
+
+No. It's not gonna show you the nicely formatted thing, yeah.
+
+We'll just do this. Okay, soOne eight is gonna be shipping, okay. So Shipping. One in one CSV. That's like pretty good languaging, right? Okay, and then FM3. Transaction. In the... Okay.
+
+Transaction CSV? Yeah.
+
+But they both say transaction.
+
+Say transaction report, CSV.
+
+Transaction report.csv needs to be compared to the shipping column in the Maybe the exportOne eight CSV. Okay. The exports to each order number Can you please help me? Let me do this.
+
+And then what do you want before you hit send? It's gonna compare the two? Or is this where this... Then somewhere in each.
+
+I was gonna give the context of As a deliverable, I need to see what theDollar difference. is Between what I... Our warehouse charged us. FM3 is between and what we charged our customers shipping. and be able to deliver. ...to our warehouse as evidence of them overcharging us. Okay, is that enough context?
+
+That sounds great, yeah. Okay, cool. Just before you send it, I'm gonna remove it and see one thing. Okay, so anytime you can change the model, You can hit slash and there's a bunch of different commands you can do. And so if you do slash model, you can do switch model. And there's a couple of different ones. Haiku is the smallest one.
+
+Why would we use that?
+
+I've never used it. Okay. Sonnet 4.6 is like... Best everyday one? Okay. That one's good to use. I actually use it a lot, especially when I don't want it to like overthink something.
+
+Oh, but Opus is for like overthinking.
+
+Opus is for overthinking and for like complex tasks and reasoning. Okay. Opus. You can just most of the time just leave it on no post. Yeah.
+
+But isn't that like more wasteful in terms of like environmental impact?
+
+It'll use more. The environmental impact is like on the minimal.
+
+The environmental impact of AI is really bad.
+
+It is. It's not like anywhere close to taking a flight. Okay. Does that make you feel better? Not really, but okay. I mean, it's... I see what you mean, but...
+
+well that'll be for session two We're in a water deficit right now on the planet. Water bankruptcy.
+
+I know. I'm hoping AI can help figure it out.
+
+AI is literally helping cause it.
+
+Yeah. I think it can help figure it out though. Okay, so we have it on Opus.
+
+It's like stabbing you and then being like, don't worry, I have the solution. I just have to take the knife out of you, but like, it feels so good. Can you tell I'm an activist? Yes.
+
+Yeah. Okay, what do I have playing?
+
+It's okay, I'm still using it because I have to make money somehow. There's no money in activism.
+
+But you could save the world if you had a lot of money.
+
+Well, that's where my mind goes to. Yeah. You know, like, I hope I can help a lot of people by making a lot of money. And I try to help people in small ways every day. Yeah, you do.
+
+I think so. I hope so.
+
+You definitely do. Okay, it's going to ask a lot of things. I would just most of the time, yeah, allow. Number two is, like, allow next time, too. Or, like, allow... Uh... So you don't have to ask me again. It's like, don't ask me. And so it's gonna come up with a plan for like how to do that. Philosophizing.
+
+That's so cool. Oh, noodling! That's so fun. It's so cute.
+
+It's trying to be fun and funny. My customer service. My customer service person, Daniela, she's out of Columbia. Sometimes she talks like AI, and I'm like, are you a robot? She says shit, and I'm like, where is this coming from? It sounds like ChatGPT trying to be really hip, but like failing at it. And I'm just like...
+
+Like in real, in person, she sounds like this, or over...
+
+No, in person she does it when she's talking to our customers, and I'm just like, babe, what are you doing?
+
+Maybe she's using bad ChatGPT models.
+
+Maybe. She's using the free version of ChatGPT.
+
+I don't know. you Because she's also really good at what she does. Like, if she's using ChatGPT, and she speaks perfect English, if she's using it, she's still rewriting it for herself. But I see the way she talks, and I'm like, you're like a cartoon character. Like, just talk normally. It's like I say groovy to Chachi Petit and then it takes it to like the umpteenth level.
+
+Yeah.
+
+And she does that and I'm like, babe, it's chill.
+
+So now I was going to ask you some questions. What format would you like to deliverable? Nice. For the difference calculation, should I flag all orders where FM freight differs from shipping or only orders where they're not overcharged? Maybe all differences, 'cause then you could compare and see like what ratios.
+
+This is so interesting. It's like actually competent.
+
+I'm so excited. Discombobulating! That's one of my favorite words.
+
+I love this combobulation.
+
+It's a good one.
+
+It's so good. It's like, it's like, um, Mary Poppins vocabulary. You know what I mean?
+
+Like it doesn't sound real.
+
+Yeah. I love it. Cogitating. Oh, I haven't heard that one before.
+
+I haven't seen that. What's up babe? What puppy? Do you need some attention?
+
+Do you know who is so needy? It's Lou, Alexa's dog. Oh, really?
+
+I went to go see her. I had like literally 35 minutes and I was about to tell her a story and then I realized I had to jump on a call so I left her with a cliffhanger.
+
+It felt so bad. But anyways, we're hanging out and we're sitting and she's like, just remember Lou's really jealous. Literally, a bee comes on her thing and Lou comes sprinting across the thing and tries to sprint off the bee and then is licking her. "Dude, chill!" And then they're sitting there like whining, and I was like, "Babe, we're like literally talking for 15 minutes, like you're gonna be fine." And then they literally had to like sit on her lap, and she's like a big dog.
+
+I was like, "Bro." Okay. Accept this plan?
+
+So now it came up with a plan for you. Whoa!
+
+Oh, this is so cool. Fulfillment versus Shopify. The warehouse fulfillment. Maybe overcharging for shipping. We need to compare. Okay. Wow, wow, wow, it was actually charged.
+
+Okay, data sources. That's a wrap. That's metadata. Cool. Plan, create a Python script. Okay, it's gonna parse the orders, match and compare. And you can kind of like, you know, you're like, okay, this sounds pretty legit. I think that sounds like the right thing. Verification, it'll spot check a couple. Okay, yes and auto accept. Or if you didn't like the plan, you can just type back and be like, no, I didn't.
+
+You actually got the files wrong. Or like, actually, it doesn't look like the order number that I'm specifying here is going to relate to this. Let's try this other thing.
+
+Dude, this is so cool. Oh my God.
+
+So what else is cool is that Um...
+
+What were we saying? What was the other thing that we wanted to do?
+
+You should definitely be doing, like, selling, like, masterclasses in this.
+
+Yeah, I am. Okay, good. I'm hosting an event on Monday. Really? Yeah. Oh, if I wasn't in New York. We have 12 people signed up.
+
+Wait, do you have, I'll post it on my story. Yeah? Dude, are you kidding me? I told you. I'll always share stuff. You just gotta send it to me.
+
+I'll tag you in it.
+
+I'm here to support the homies, always.
+
+I'll tag you in it.
+
+Like, that's the purpose of life.
+
+Let's see what we got.
+
+Like help, you know?
+
+Yeah, 12 going.
+
+Oh my god, this is so exciting.
+
+But you're getting the full spiel. This will be like really quick.
+
+Dude, I'm stoked. I'm so honored. Like, yeah, I owe you big time, homie.
+
+No, you don't. You got me dinner.
+
+Okay, but I feel like this is like way more than dinner.
+
+No, we're cool.
+
+Well, you get to be my friend, so... What? Well, you get to be my friend, so obviously...
+
+I know as long as I can continue being your friend.
+
+Okay?
+
+Yeah, I got some hot goss. So what else is cool is like, this is kind of taking a while so we can start another Cloud Code session just by tapping up here.
+
+Whoa, okay, cool.
+
+And then it'll ping you when it needs your attention. So he's asking us for stuff.
+
+What's bash again? Bash is just any command.
+
+Yeah, bash is like basic commands. Okay. Yeah, I love Python 3. Okay. Um I think that it would be cool to connect to Shopify if we can.
+
+Yeah. Right? Yeah.
+
+So just ask it, hey, can you connect to Shopify? Because I want to pull... analytics on our customers and see how they're doing and run analysis on them. Um... Let's use And then-Yeah. Aw, that was sweet. And now I'll give you some options probably. I don't have the ability to authenticate with or maintain persistent Use the Shopify admin API. If you have a Shopify API access token from a custom app in your store's admin, I can write scripts to be, okay.
+
+Um, Do you have um If you have the Shopify, I see a lot of stuff I can write in. I would say, uh... How do I do that? So it says, unfortunately I can't connect directly, I can't directly connect to Shopify. I don't have the ability to do that. However, there are a few ways I can help you. Oh, how? And then so it's got three.
+
+Find my admin API access code. Yeah.
+
+I actually think, Between the two? When it says, uh... Maybe just like... Like a quick help note is that there's like three ways for Cloud Code to connect to other services. One of them is through an API, which is usually hosted by the Shopify in this case. We'll expose an API for people to use. Okay. And those will always require you to like... Create a API token that you can hand Claude and it's basically like a password that Claude can use to talk to the service.
+
+Okay, yeah, yeah, yeah. I get APIs. Okay. 'Cause I feel like we have a ton of stuff with APIs all the time that I have to--So all those things can connect to Cloud Code? Okay. Sick. Okay, let's look at the apps. Sorry, I feel like it's time for like hair to go back. Yeah, we're in it now.
+
+Yeah, I forgot my sunglasses though.
+
+So bright. I know, it's so intense. Oh, this was stuff that I was going to show you. But OK, so if we go in here, these are all of our apps. Um... Oh, I don't think this is a... thing, but I need to talk to Claude. We're being... Something happened where the AI of Shopify recategorized our products. and then stopped charging tax on half of them. So now we owe like $20,000 in tax. It's so bad. And we owe it as in our customers never paid tax, but we still have to pay it.
+
+So like, fucked. Okay, but let's do this. So it's this, and then it's...
+
+Settings, apps and channels. Wait, we're in settings. No apps and channels. Oh, here, apps. Sorry, I can turn up the volume. You're like, Phoebe, what the fuck? I'll make it bigger.
+
+Nice. With your old eyes. Nice, thank you. Okay.
+
+Develop apps. Develop apps. Okay, so a little break there. We've got to calm down. We're going to kill our eyes. Create an app. Oh, I can vote in the Dev dashboard? Whoa, okay, this is too intense for me.
+
+What was it saying? Is this what it said to do?
+
+Okay. Create an app analytics.
+
+Allow custom app development.
+
+But this is just the new platform for it. Um, oh no, I guess this is the way I have to do it now. Okay. Okay.
+
+Cool. Put that in here. Create app. Sweet.
+
+Oh, it says I can do this too. And it was saying something about CLIs here.
+
+I would actually use the CLI. Just tell Claude, hey, let's connect to the CLI instead.
+
+Connect to the...
+
+You're so patient. Oh, it's... Thanks. You're welcome.
+
+I'm not very good with technology and so...
+
+Well, I'm trying to be better. This is what it's like.
+
+Because it's like just kind of working through these like-Little things and then it feels like a lot of modern coding is just being a problem solver Definitely and just like creating logic Or understanding logic.
+
+No Node.js installed. Okay.
+
+Okay, so it's saying to just export data.
+
+No, we don't want to do that. We want to have like a consistent way. You can tell it too. Now we want to have a consistent way to pull analytics. And I don't want to download them every time.
+
+I wonder, can you connect a triple wheel?
+
+What's that?
+
+Triple Whale is another analytics platform.
+
+It can connect to Spotify. Okay. For sure. Um... I wonder if it's true that the CLI can't do analytics. I don't know why it's giving you sass. Oh, I would just ask it.
+
+Oh.
+
+And those theme have not user facing analytics. Oh, there you go. Oh, okay.
+
+Looks like it's true.
+
+I wonder why, okay. Okay, so we want to use the API then.
+
+API, okay. Oh, so I can do APIs for both. So what's cool is Triple Whale is important 'cause Triple Whale is doing stuff that's not in Shopify. Okay. So Triple Whale is a way for us to understand our MERs, our marketing efficiency rate. and our ROAS.
+
+Is this it?
+
+Mm-hmm.
+
+Do we wanna just connect to Triple Whale?
+
+We can start here and then go from there. Okay, sick.
+
+So it gave you some log in to settings, API keys, generate an API key.
+
+Maybe Okay.
+
+Are you an admin? Yeah.
+
+Then you definitely have the ability to... Do an API key.
+
+Is this the main, this is like the main area of Triple Whale?
+
+Oh, maybe here, APIs. There we go.
+
+That's weird.
+
+Out of description. Can I ask? Oh, give it CLI analytics? Or should I say Claude Code?
+
+Whatever you want.
+
+Cloud, CLI, analytics. Yeah. All of them?
+
+What does it say to do? Whoops.
+
+Flex scopes. You likely want. Not all of them?
+
+Oh, summary page.
+
+Like simmering and stewing is literally something this customer service would say. She's like, I'm simmering on a solution right now. And I'm like, what? What do you mean? Like, dude. She's very whimsical. Like she spends her time like knitting and then gardening. So I think she's just like... Like manic pixie vibes, you know?
+
+Good call. Honestly, it depends. Here are the available scopes.
+
+Oh, these are the only two for... Oh, you can do a bunch of writing stuff. I think you can... Yeah, just do the reading. Copy that.
+
+Cool, go back.
+
+I'm just scared I'm gonna lose it. Yeah. Okay.
+
+Let me go back.
+
+Here's the API. I just pasted it. Sorry. I didn't mean to double text.
+
+Yeah, allow curl.
+
+Girl is like a network request. Okay. I don't know why it's called curl.
+
+I don't know either. I'd like to... Oh, curl. Oh, I thought you were saying like crawl. Like a baby's like crawling or like crawling intimate.
+
+That would make more sense. Right? Yeah, curl.
+
+Okay, weird.
+
+Okay, where should I set up the triple analytics? I can create a new folder.
+
+Sure. Sounds great.
+
+Yeah, sounds awesome. Sick.
+
+I'm just going to do. Keep going, true. And I'm gonna check on our other guy over here. Oh, what happened?
+
+My flight. I have to fly out Monday night, but I guess there's a snowstorm.
+
+Snowstorm where?
+
+New York. Puzzling. Yeah, I know. Okay, so view.
+
+Oh yeah, hit view. Yeah, allow pip3 list for this project. We just allow. No, keep it. Do a yes a lot. Pip through, yeah. Then I won't ask you in the future, which would be nice. Okay.
+
+Oh, number two means that it remembers it. But number one is like just this time. Yep. I thought it was reversed. Got it. Okay. This is so fascinating. Let's start doing this.
+
+And I think the other one finished. Oh. Everything looks good. Here's what was produced. Report files over the big exchange.
+
+Ready to top net.
+
+Oh, only $1,500?
+
+Whoa.
+
+Sonette Overcharge That doesn't make any sense. We paid an extra $20,000, so where's that money? What are we being charged for?
+
+You paid an extra 20. I mean, you can talk to it.
+
+So we had let our sales decrease by 30% last month because we had to slash ad spend, right? Which is fine. We were like more profitable, but our shipping charges went up by $20,000. Which is like insane. Okay, this is super fascinating. Um...
+
+And if you don't believe it, you can say, hey, double check your work. Because this-Because our shipping charges were 20k more than we... And I like giving it a lot of context because you know, the more that it has to like work off of and the more it understands your goal and what you're worried about and what you're thinking about, it can like, It may even be like, well, let's go look at the analytics that we had from...
+
+from Triple Whale. Yeah. And actually, see, like, reflect... something else and it can actually piece things together.
+
+So it'll, I don't know, I was gonna keep doing that stuff. Yeah, allow.
+
+This is super fascinating.
+
+AndWhoa.
+
+Okay, cool. I mean, I trust it. It just means that we, I mean, they might literally just be charging us for nothing, which is really scary. 'Cause I just like, I don't go through every transaction report every time, and that would really suck.
+
+How often do they send that to you?
+
+We get charged weekly for everything.
+
+Where do they send it?
+
+Emails. But I'm not always going through it line by line. Yeah. I'm just like paying the amount. I'm just like whatever.
+
+You could build an automation to that.
+
+You can chat with him if you want. No, it's okay. I'm not really interested in talking to him. I got so excited telling people I was vibe coding today.
+
+Yeah? Yeah, I was like, guys, I'm learning how to vibe code. And we were like, oh my god! I was like, I know!
+
+Oh, interesting. Here's a good catch. Two rows in the warehouse data have order numbers without the prefix. Neither exists in the Shopify experts. They don't affect the match comparison, but I should capture them for completeness and unmatchless. Cool. What's your Shopify store URL?
+
+Oh, no it's not. It's a different URL. OK.
+
+You get hit. Yeah. You find it?
+
+Yeah. That's it?
+
+It looks like, is it not something like that?
+
+No, it's just basing it off my email. So, our website...
+
+But look, it's asking... What's your Shopify?
+
+I need the Shopify command. Yeah, so your Shopify is different from your actual URL. It's your store domain. Oh, okay. Stop my shop. Oh, okay.
+
+I see.
+
+Yeah, it's basically like back-end versus front-end. Yeah. And then this is what you use until you have a custom domain. So anyone who types this in, it'll automatically go back to your website. So if you take this-Go to your Shopify. Yeah. Oops. Oh my god, that's not what I wanted. Yeah. So fun, right? I like her website. It needs a complete overhaul, but I still like it. Yes. Oh, whoops. I didn't mean to do that.
+
+Sorry. No, it's great.
+
+Yes.
+
+This is like most of my job nowadays. Really?
+
+Just saying yes. Can't you use AI to automatically say yes for you?
+
+You can. Yeah, but I want to like kind of watch what it's doing.
+
+Yeah, I understand it. Okay.
+
+Now it's saying zero.
+
+I think it did some calculations to make sure that it had all the-The checks. Seven orders manually.
+
+You know what's really cool?
+
+You can say, Uh...
+
+Yeah?
+
+Yeah. Okay, I don't know if you're being saying nice from like a...
+
+No, it's great. Okay. No, it's a great... Idea. Thanks. Yeah.
+
+Everyone, people are very sensitive in the workplace. You have to make sure that you're always being like as diplomatic as possible. company name. Oh. Professional audit. Huh?
+
+Thanks for asking.
+
+It asks good questions. It does ask good questions. And at any time, you can say, like-If you don't know what you want to do, but you want it to ask you questions, you can say, interview me or ask me questions.
+
+Oh, I love that.
+
+So that it can get a better idea of what you're trying to do.
+
+That's cool. I've used AI or Claude specifically. So I'm doing a partnership right now with Lettuce Grill. And I'm contracted to basically make a bunch of videos about like the history of different plants and like herbs that you can grow with Lettuce Grow and how to like incorporate them into your life. And I used Claude and I was like, hey, look at my social media and read all of my writing that I've done and like all of my videos.
+
+Does my script match who I am or does it feel to this or to that? And then it gave me feedback. That's great.
+
+Yeah, it was really cool.
+
+I was like, this is awesome. That would be great stuff to store in here. Like voice.
+
+But how do I do voice for Fungi versus voice for me personally?
+
+You just store them in two separate things. And then tell it when to use which one.
+
+Sick. I love this. Okay, cool. I want to learn that. Okay, yes, auto accept. Yeah. Okay, and then on this one, this stuff, yes.
+
+Data is flowing.
+
+That's good. Yeah.
+
+Just a small format with none values. Let me fix that.
+
+So it's just like writing a bunch of code to like... do what you asked and then it's Creating scripts and this is so cool I think we should open another one and say, hey, I want to connect to my... I want to be able to like read my email Draft responses.
+
+Read email and draft responses.
+
+You can even have it send emails if you want. But you don't have to do that for now. Yeah.
+
+Maybe go through my junk and motions andAnd then before you hit submit, to Um...
+
+Dude, I want to be able to... Do this often so Once we get this working, let's create a skill. for it. and a skill and then you can ascend. Mm-mm. Nice.
+
+A skill is...
+
+is just a slash command, so you hit slash. And what it does is it like packages up like something that it's done before, like a tool or like a flow. Yeah. And it just like stores it there. So that way, next time you're like... You know, if maybe we do something with the analytics where you like pull all of it and it gives you like a nice dashboard, you could be like, oh, let's just call that, create a skill that's like, that'll do that and show me the dashboard.
+
+And you do slash dashboard. Then you don't have to remember all the commands and then it also doesn't get confused because it'll try to do You know, it's basically like starting, it's a fresh start every time you ask it to do stuff. So there's no, like... It's not always going to try the same thing.
+
+Oh, true. Okay.
+
+So it's kind of nice to like store something that works.
+
+Yeah.
+
+For later. Storing memory. So it learns more. And also if something works or it does something that you didn't like or you did like. Yeah. You can actually just say, hey, can you remember that for later? Or, "Hey, can you remember that you did that?" Fuck.
+
+So cool. So cool!
+
+-Okay, so we need to, I think we need to start from scratch, which is okay. I did this with Kelsey. It doesn't take very long.
+
+And then should we look at this one?
+
+Yeah, your triple analytics code.
+
+Cool. Do you like save?
+
+Whoa, that doesn't make sense. 3x, 5x, blended. Dropped 98%. What? Doesn't make any sense. Oh, CPA. Okay, okay, okay.
+
+Say, hey, can we save? Like I want to be able to save this to a skill so I can interact with our analytics. Yeah, later.
+
+It doesn't even matter what you say. You're just basically like, I want to reuse
+
+And with our analytics later. Okay, cool. And then... Oh my god. So... Oh my gosh, this is so cool. How do I look at the document?
+
+If you tap on it, so it looks like it made it over here.
+
+I think if you, I thought if you tapped on it, it should open it. Maybe you hit command and open. Oh wait. Copy link.
+
+Would I just go into, oh, here, PDF.
+
+Um... Do, uh... Yeah, see if open anyway works. Okay, go to the extensions. And type in PDF. And see if there's like a PDF viewer or something. Display PDF, yeah. This? Mm-hmm. Okay. I also look for ones, if you're going to download something, look for ones that has a lot of stars, a lot of downloads. Okay. Because then you know it's safe.
+
+10 million downloads is a lot.
+
+That's like insane. And so now if you go back, it should be working now if you click on the PDF. Freight charge audit report. Let's see if it opens up in here.
+
+Oh. But there's supposed to be a second one. Oh, no, no, no, okay, just this. Oh, this is so fascinating. Sick. And what's cool is if you're like, So this was just for, actually this makes more sense because this was just for 17 days.
+
+Oh, okay. Just for half the amount. Okay.
+
+So I could, could I save this skill? I guess like I want to be able to do this again, but I want to pull two months worth of data. Could I pull, can I save this chat and say like, hey, I actually just pulled two months of data. Can you do that same thing? Or how would I do that?
+
+I would just say, hey, I'm going to do this again with more months of data.
+
+Do I make this a skill?
+
+I think it did a good job, so you could. Okay.
+
+Thank you so much. Mm-hmm. This is... Phenomenal work. Could I?
+
+So that later, I would say like, What your goal is so that it knows like how you're gonna use it in the future.
+
+Okay. Okay, now we can go to other.
+
+Okay, the next one, this one we'll have to follow. Yeah, so open up Google. I'm sorry. Can you walk me through how I would Set up a email integration with you with Google. that I can... read my email and create drafts.
+
+Click the project at top, new project. This is Select a Project.
+
+And then you can do an organization or you can do new project. I can, I might be able to read it here for you too. You can name it whatever. Maybe you name it Fungi or just Phoebe. Mm-mm.
+
+Parent resource. Should I have no organization? It says you do not have the required resource manager to create projects in this.
+
+Can you... Oh. Can you select that one? No. Um, Is this your fun guy? Yeah.
+
+Is there a way... Like, should I go to the admin? Consume Um...
+
+Maybe just do cancel. And do select project. And just go to No organization.
+
+I wonder if you need a project. Oh. What does that mean?
+
+I don't know. Did something change?
+
+It's just like...
+
+New stuff keeps popping up every time.
+
+It's just like kind of cracking up.
+
+Maybe try it again. New project. That's fine, you have 12 projects remaining. You do not have the required okay Double click on that. Triple click actually. Copy paste? Yeah, and copy. And then put it into the cloud code.
+
+Now I know. I got this when I was young. Are you the admin?
+
+Mm-hmm. Okay.
+
+How would you like to proceed?
+
+It means you're logging into a work or school account management organization that restricts You could type other and be like, I own the organization. Yeah.
+
+I own the organization. Just Tell me what to change. Mm-hmm. Was that the dog?
+
+I thought you were a dog.
+
+I was like Hazel. You were the dog. Who did I do that with the other night? Oh, I was at Paisita and I was meeting this photographer just for like photo stuff, right? And there was this dog that like we kept seeing and I thought the dog was like touching me and I was like, oh cute. But we were like playing footsie together for like 10 minutes. And I was like, I need a moment. I got a little one. So funny, I died.
+
+I own the orange, just tell me what to change. In the admin console. Question. Okay, sit back. So here's the thing. So the admin console is, I'm an admin, but sometimes the admin console, like I can go to the admin console here, but sometimes they have to go to hello at fungi.com. Would you just like our catch all? But maybe I just go to the admin console here. Click project or drop down to the very Since you own the orb...
+
+But that's, okay. Project org drop down. But it's not there. Wait. Wait, what? Click project on drop down.
+
+There is no organization. Oh.
+
+Wait, what? Dude.
+
+Yo, there's... Okay, we can probably do it now. And then... Fungi and then do a new project inside of it. I don't know why. Cool.
+
+Okay, that's so funny. We both learned something new.
+
+Okay.
+
+Moving.
+
+It's like, okay, go to I am, I guess you already have.
+
+Yeah.
+
+So you can just refer to this then.
+
+Oh, okay.
+
+Okay, so we're gonna go to...
+
+Select the project, name it something like Claude Gima. Oh, I should have done that.
+
+It's okay. Okay. Then go to EPA Services Library. Okay cool, yeah. Yeah.
+
+APA Services Library.
+
+Type in Gmail. Okay.
+
+Gmail. Oops. Gmail. Gmail API? Mm-hmm. Yeah.
+
+Enable. I forget what it asks next. Let's go back to the thing. credentials create credentials oauth client id okayAPR services.
+
+Well, first I think I have to enable.
+
+Okay, and then credentials.
+
+So we're gonna credentials I think it'll make you do this a lot.
+
+Yeah, do configure a lot, consent screen. and then fill out these details. So you're basically going to create an app that only you have access to.
+
+So the app name. Should I call it like Claude Gmail? Yeah. User SupportPhoebe at fungi, great.
+
+Only you will be able to see this. This will be external. I think, yeah. Really? Yeah, you'll be the only test user. You can double check. On the side thing. It says choose external. Yeah.
+
+Okay, cool. External, next.
+
+Contact You can just write your own email address in there.
+
+My personal or my work?
+
+Your work. Whatever. Okay. Oh, you don't have to add all three of them.
+
+Okay, that is a duck. I was like, oh my god, are you hearing a duck? Oh my god, you're crazy. I'm not used to hearing the ducks. Oh, Jesus. Okay. Create a web client. Cool.
+
+I think it's... Test stop.
+
+desktop Do I name it something? Claude.
+
+Gmail. Yeah. Okay, cool. Now you'll need some of these. So what does it ask you to save? Download the JSON. That's what it asks you. Cool allow Okay, and then go back and it'll ask you for either the client ID or the cliOh wait, you needed one of those. Oh, let's see.
+
+It says it's right here. Oh, you're good. Okay.
+
+And you can take Woah. Oh, do you not know this command?
+
+No.
+
+Oh my god, it's the best. You hold Command, and then you can tab switches between your apps. And so if you just want to go to the last app, you just do Command Tab. If you want to go two back. Do you want to go to... Right, you can just move between them.
+
+Oh, I do it like this.
+
+Well, that moves, that's moving like your screens.
+
+'Cause usually I have one app per screen, that's why.
+
+Got it. See, I have it all on here and I can just like, You know. But it is helpful. This is so cool, I'm like a daughter. Yeah. If you go to Finder. Yeah. And yeah, let's drag, basically drag and drop that into the chat GPT bar, or you can, Oh yeah. Nice. Here it is.
+
+Thank you.
+
+I might need this for an hour or two to get it.
+
+You're using it really well. Thanks. You can be like fun with it because it's gonna figure it out.
+
+Oh wait, I should show you this screenshot. I sent it to Stoney. I had been having like this bad day and Stoney came to like sit with me for like literally four hours. So sweet. But I talked to ChatGPT. And I was like, Oh yeah, can you create an image based off how you think I treat you? They gave me that?
+
+Aww. And this is like after having the shittiest day and I was like oh my god.
+
+That's so sweet.
+
+I know, I was like. She likes me. 'Cause I named it too, and I was like, yay. What's her name? Kai.
+
+Aw, that's cute. See? Yeah, that's exactly the vibe.
+
+I died. It was so sweet. Very you. Isn't that so nice? Yeah. Oh my god, I'm gonna frame this.
+
+It was so sweet. And then wait, you have to see, where is this? Save this screenshot of something Stoney said to me that was like... So good. And I was like, I'm getting this printed because it was like amazing. Oh yeah.
+
+Your curse. -Aww.
+
+So cute, right? He sent you this? Stoney.
+
+Aww, that's so sweet.
+
+Yeah. He's like, "You can't say like this forever, it's physics."It's physics.
+
+Like he walked into my house, 'cause like I was just like going, he's like, "I'm turning around, like don't move, like I'm coming over." And he like, he's such a dude, he's like, We've got to stop crying. He's like, we've done enough crying. We're done with the crying. He's like, it's been like two months. I was like... I'm like crying, crying, crying. And he's like, "Pheebs, we're in the Desperado vibes.
+
+We need to get out of the Desperado vibes." He's like such a guy. He's such a guy. But like I needed that. Like I needed the young like, come on, we're good. Like do you want me to call a guy to fuck you? Like do you want a vape? Like what do you want?
+
+What do you want? What do you need right now? He's like, you need to touch some grass. Like come on, we're not desperate.
+
+I'm like, okay.
+
+He's like, it's so big brother. He's hilarious.
+
+He's so funny. It's why I love him so much. He would just like give it to me straight. And like he would like check in on me. He's like, driving by your house. Are you okay? He's like, are we desperado vibes today? Better. No...
+
+Like he's just, I love him. I love him.
+
+We've had a lot of fun together.
+
+Oh, cool. Select the BB Up fungi one. Hell yeah.
+
+Hell yeah. Cool.
+
+This is so cool.
+
+This is crazy. Like you really don't need a code anymore. Yeah. So what is the future of coding? Just logic making? Like meaning making?
+
+Well, I think... Coding is like a way to build, 90% of cloud code is written by Claude Codd.
+
+That's scary.
+
+It's like humans writing You know, like telling it to write itself, but like... The kind of writing itself, But right now at the end of the day there's still like someone on the other side like telling it what to make. And I think coding will just be more like that.
+
+They'll just be I think there's people that want to create tools for other people to help other people and there's people that couldn't care less about doing that for you know a physical therapist is like doesn't really want to do that no but they probably want like i think it's really fascinating to use claude code and like voice to like record like all of your patient sessions and then turn it into notes because like every time i've worked with like doctors therapists pts them doing the like after care they're like okay let me send you the exercise you need to do these are like the notes Yeah, and it's like all of that admin stuff is like really something that this could be incredible for like just using Fireflies is like note takers.
+
+Yeah, I saved so much time. Have you used fireflies before?
+
+I've used some other note-taking apps.
+
+They're amazing and it sends action items to everyone that's on the call Oh cool after the meeting automatically cool automatically and it screen records it records everything it does summary full full recording obviously and then it's like these are the things that everyone needs to do and I'm sending out items and then you can connect it to slack and it could send it out to each individual person too if they were all in slack sick insane and then before meetings like if it's a reoccurring meeting we'll be like hey last time you had this meeting this is what we talked about these are the things that you need to follow up on oh nice isn't that sick yeah which is huge for me because like half the time i'm going from meeting to meeting and i have like no time in between You are Phoebe's Whoa Okay.
+
+So that's pretty cool, it's connected to your email. I would say Like... Look through my latest emails and for the top priority thing,That's a response that's in, My voice. And it won't send it. But it'll create a draft in your email.
+
+Can you go through my emails please and create draft responses for anything?
+
+High priority.
+
+This is crazy.
+
+Wow. It feels like the first day of school when you're just like hit with everything and you're like, fuck. I don't know if you had this, but like I skipped my freshman year of college. Not like I did my freshman year, like I was a freshman, but I'd done like all the freshman classes in high school because of like AP. Oh, wow.
+
+I mean, it was pretty normal, like where I went to school, like everyone basically did that. So I remember I was a freshman going into all these like sophomore level, like 200 level classes.
+
+And I remember sitting in and like after the first year, I was like, oh. Oh my god, this is so intense. This is how I feel right now. I'm just like, what?
+
+Wait, it feels like a lot of information to take in at once?
+
+Yeah, it feels like really overwhelming.
+
+Or do you feel like you're learning a lot?
+
+I'm learning a lot. I'm just like, Whoa, the capability is so big and it's so vast. It's like when you start learning about space and you're like, fuck. Like this is like, I'm too sober for this.
+
+I feel like too sober. It's almost like an existential.
+
+Yeah, like okay, there's all these ways that I can incorporate it, but if I allow myself to think too much about it, it's gonna overwhelm me. But like this is so powerful, and I feel like where I am and where this can take me, like it's a huge gap, and like how do I Find like the safety to build the bridge and not get overwhelmed because I feel like something like this you can get so lost like let me play around but it's like no you have to like settle down and be like okay what's actually going to be productive rather than what's going to be like the next shiny object.
+
+Yeah. You know what I mean so I can actually implement it to help my life.
+
+And You can actually talk to it to like strategize about that. Okay. Right? If you're like... Hey, like I have all these tools, the data is kind of spread out amongst all these places. I'm trying to figure out like why are this is going down and why this is going up. Like,How can we figure this out? Yeah. And have it come up with a plan for you?
+
+Okay, so I could do like,'Cause I can use, so. analytics analytics Why? Two hour. Net margins. Seems so.
+
+Also show me Do you like also show me a graph of it or something?
+
+Oh, okay.
+
+I mean, why not? Yeah.
+
+All right. Visualizations help me understand it.
+
+Sing.
+
+It didn't do anything.
+
+It's working, I think.
+
+It's not even saying anything, it's thinking. Did I do it wrong?
+
+Yeah, that's true. I don't think he did it wrong. You can also, yeah, copy. If at any point it gets stuck to you, you can do clear. To clear the conversation, or you can just trash this one. And you can start a new one. Oh, and we can--And if you wanna go back to that one, you can-Go back in here.
+
+And then I can just pull it in?
+
+I don't know why I got stuck.
+
+I don't know either.
+
+Great question. Cool.
+
+So it'll work on that for you while we go over here. Come on. What's really cool is if you can take A bunch of... files, whatever it is, and copy it into this folder, all of a sudden it gets like really smart because it has way more context about your business. So if you can like Download random stuff that's like really important. Even if you said We could do this too, like go through my Apple notes and import all the things that you think are important into this folder.
+
+that are related to fungi, that are business ideas, and categorize and organize everything for me. You wanna do that? Yeah.
+
+Just tell it that. I heard.
+
+What? AndYeah.
+
+that you think is relevant to me. My business.
+
+So, key. Yes.
+
+Some key words. words are fun guy fun guyI'm trying to think about like things that I talk about.
+
+You don't need it. I would like think like What are the things that you care about? Research about Kana, business ideas.
+
+I just have a lot of like random notes like this.
+
+Doesn't matter.
+
+And like they're helpful. Like... Oh, I want to go surfing at this place.
+
+Travel ideas.
+
+Okay. Freezer spells. Recipes. They just develop.
+
+You don't even need to.
+
+Oh, just let it do its thing.
+
+Give it much information, yeah. Okay. I wouldn't be too explicit about it. Yeah. I know, who really helped him?
+
+This is so nuts It should just be able to go into your file. Wait, this is kind of crazy because like when the robots take over, they're already going to have, like this is a Black Mirror episode. Yeah. Does that freak you out? As someone who's in it every day, like you know people who work in social media, they don't like their kids have social media. You want some? Hmm. Maybe one. I don't really like dried fruit, but thank you.
+
+I know, I'm weird. Are these your favorite red peaches? Dried apple pie.
+
+I don't have sugar on them.
+
+I mean, you are from Georgia, so that makes sense.
+
+Very nice.
+
+I like banana chips. You have a lot of notes. I do have a lot of notes.
+
+A lot of notes here. Oh, that one's good.
+
+wait i'll show you my depth too Oopsie. What? I just asked to...
+
+Get all the notes. By going to the full folder on my computer, can you access that? And it goes, yeah. Let me go straight to the Apple Nets database on disk and set. That's way faster.
+
+Oh, perfect.
+
+Sometimes yeah like sometimes while watching it if it's like doing something silly you can kind of question it. Yeah and you can be like hey is there another way that we could go about doing this? I just did this yesterday, so I know. Bye.
+
+There's Why these issues? Mm-hmm. Can you tell me?
+
+Open your heart?
+
+Open the heart. Aww.
+
+Yeah. That's beautiful. Thank you.
+
+Open the heart again.
+
+Yay!
+
+They say that like actual likeRaises, quit and reopen. Let's see if it works with that.
+
+Four fingers.
+
+Can be better than like a hostWe're in strength.
+
+Oh, that's interesting.
+
+Is that going right now? Oh yeah, she is. I think she's still in JT, right?
+
+Yeah, she sent me some photos from Yosemite.
+
+Oh yeah, she's seeing the um...
+
+The, whatchamacallit, the property.
+
+Um, I might be hiking Mount Shasta with her.
+
+Oh, that would be fun. I know. Where's Mount Shasta?
+
+Um, Northern California. Oh, I think she's there right now?
+
+Yeah, here we go. Where is she?
+
+Are you Posa? Wow.
+
+This is the... The property?
+
+Yeah, that's pretty cool. Whoa. Retro.
+
+Wow.
+
+She does cool shit.
+
+Yeah, she's like a partner all of a sudden in this hotel chain.
+
+It's insane. We're like, oh, what?
+
+That's pretty, it's pretty like quirky eclectic.
+
+It is eclectic. But that's like kind of, I'm into it.
+
+Why not?
+
+Yeah, they can vibe it out. Mm-hmm.
+
+Okay. Sack, I have shipping on it. Now walk you through the workflow. Sick.
+
+Cool. Wait, what's this about?
+
+This was the shipping stuff. Oh, okay. Okay, cool. And now this is on my actual--Computer. Does this take Internet What do you mean? Do I need internet to use code? No.
+
+Really? You need internet to use Claude. Oh. But you can open this application and look at all this stuff. This is just stored files on your computer.
+
+But this isn't like enough knowledge that I can use it without the internet. I have to have the internet. Yeah. Okay.
+
+There's some that you can run locally like on your machine. Well that's what I was thinking.
+
+But they're really slow.
+
+Like really, really slow.
+
+How many years do you think it'll take to get there? I also read this article and I want you to read it and tell me what you think.
+
+On Apple there's local, On the iPhone there's some local ones, but it kind of sucks.
+
+Okay. Who sent this to me? Alexa. She sent me this article about AI and like AI is where people thought it was gonna be like in ten years and it's gotten there in like the last six months So I'd love your opinion. I would...
+
+Matt Schumer article? Yeah. Oh yeah. You read it? Yeah. Josser sent it to me.
+
+Really?
+
+Yeah. Yeah, I mean it has like three million views last time I checked.
+
+Oh.
+
+An insane amount of views. I think...
+
+I'm not that... That technology like that. I need to be more in it, but I feel like I have no more capacity in my brain for anything. I'd have to take out like plant knowledge. And I just feel like when the apocalypse happens, it'll be really good that I have plant knowledge, you know? Like I'll be able to save us by like foraging in Southern California. Yeah. That's what I tell myself. Like, at least I have plant knowledge.
+
+I can do like, oh sorry, I keep thinking it's hazel. I can do like herbal first aid.
+
+Oh yeah.
+
+Yeah, it's something.
+
+Why don't you go on my team because I'll just be like, uh...
+
+God!
+
+But like, do you ever think about that? Was Sovaline on tape?
+
+Technology like if you were dropped in the forest would you be able to survive? No.
+
+No, I wouldn't be able to survive.
+
+Does that not concern you? It concerns me.
+
+A little bit. I mean, it hasn't happened yet.
+
+It really concerns me. Yeah.
+
+Well, let's stick together so that you can save us. Save me and Kelsey.
+
+I'm going back to herb school. And it's like self-guided for like a lot of the theory. But part of it is I go and do plant walks in Santa Barbara like every other week or like once a month. And then herbal first aid in the wild. And then clinical hours. So I like sit with people and like do intakes.
+
+Yeah, I'm super stoked. The class in Santa Barbara? The school in Santa Barbara.
+
+No, no, no. Most everything's online. I would just go to Santa Barbara like twice a month and then do like clinical, but most of it is the plant ID. So like part of like the next part of like clinical is I'll be like on walks and be like, okay, this is how we use this plant. Like this is exactly the plant that it is and being able to identify and then pull everything back and then like present. You have to like take photos to prove that like you knew what you were finding.
+
+Cool. And you do it with no phone.
+
+So like understanding like navigation and using plants to navigate you.
+
+Oh, yeah. I'm really excited.
+
+It feels like good life skills to have. Yeah, absolutely. You know?
+
+Okay, well.
+
+Your CFO is absolutely right and so is Triple Wild just Where are they getting the cogs? Oh.
+
+Ohhhhhhh Fuck Yeah, our ad spend is too high.
+
+This is what happens. Ad spend is way too fucking high. Crazy. Oh, it's actually really strong for a DTC brand. That's great. Thank God.
+
+Wow, this is so cool. So cool. So helpful.
+
+Thank you. I'm going to add this to my picture.
+
+You can have it create a pitch deck for you too. Oh, I have one.
+
+You already have a... Do you want to see? Have you seen it?
+
+No, I don't think you sent it to me.
+
+Oh, really? I'm sorry. It's okay.
+
+You could also ask it to review your pitch deck and tellOoh. See if it can make any changes. Or like has any feedback on it, you know this one This is our opening.
+
+Humans don't crave substances, they crave connection. I know, look at your girly pop.
+
+She's so cute.
+
+Is this good though? Yeah. And then we talk about the social dilemma of like drinking and the gap of like...
+
+I like that line. The don't...
+
+Oh my God, thank you, I came up with this. That's good.
+
+Thank you. It's a great connection, yeah.
+
+And it allows us to talk about psychedelics without talking about psychedelics, which is really important because investors are scared. And then we talk about social lubricants.
+
+Wait, sorry, what's the social dilemma?
+
+People were really connected but completely disconnected, yeah? And drinking's all the time low, people are reducing consumption, people are more sober curious but they still wanna connect. But cannabis doesn't work, sobriety doesn't work, cavern, kratom, like, cavern completely wrecks your liver just like alcohol does and people don't realize it. It's not safe for daily consumption. And kratom, like, it's just literally killing people.
+
+I think I've heard you say that on your K, your K rants.
+
+Mm-hmm. And I mean, look, half is amazing, but this is the problem. We have this plight of plants in the hands of humanity where our problem with overconsumption ruins it. Right. It's not a problem with the plant. It's a problem with our own usage. Yeah. Why kind of so amazing because you can abuse it and you can't hurt you. So we talk about Kana, confident in the connection without the come down. And then we talk about what Kana is and then our hero products.
+
+60% of all of our revenue just come from our flow fruit juice.
+
+Isn't that crazy?
+
+Wow. I know. which is why we're moving into a new contract manufacturer because each box, So insane. Each gummy we will save Something like 9 cents per gummy. Wow. It's 12 gummies a box.
+
+Oh my god.
+
+We're gonna save literally so much fucking money Wow, but the problem is we have to make a million and a half gummies per skew at once. Oh And that's like a scale problem It's a money problem. So to be able to do that, we have to-this is what we're raising for. I get it to it down here. These are rays. Inventory. Like literally 900K is just going to go straight to inventory for us to be able to even move into a larger contract manufacturer.
+
+Then we need to hire people, but people aren't cheap. They're fucking expensive, right? Marketing and then product development, which is like super chill. But basically I know exactly what our entire product roadmap looks like, but we just don't have money to do it. Team, product roadmap. So like exactly what we're doing. We're getting to 10 million in 2026. Go to market.
+
+I know, look at her. So cute, right?
+
+Yeah.
+
+And then our unit economics, which are actually pretty killer. And then... 7 to 10 million. I want us to get to 10. If we can get to 10 million this year, I will fucking cry. This one's really fun.
+
+Wait, am I going backwards?
+
+Yeah, you are. Sorry. You want to go forwards. I went backwards.
+
+Oh, I see.
+
+So opportunity, wine now, 9 to 12 on the market. The next big thing in wellness is social connection. And we're the vehicle for moving the cultural zeitgeist forward.
+
+I know.
+
+It's very like... whatever, but it works.
+
+I think it'd be cool if you showed 2027 and 2028.
+
+Ooh, that's good to know. 'Cause those would be big numbers, right? Yeah.
+
+Oopsie, that's not what I wanted. I wanted to comment. Yeah, and the big thing is if we can hit 10 million next year, they won't get private equity money, which is like $10 million checks. And we have a ton of interest in private equity, but we're just not big enough yet. So we're at this really weird, funky stage where until you hit 10 million in top line revenue, you're not like that interesting to a lot of people.
+
+Wow. Yeah.
+
+Okay, and then those are unit economics. Which if you're not in this space, it doesn't really make sense, but like this is what they always ask for. Unlike all of our competitors, we're profitable on the first purchase. None of our competitors are. And that's not proven, but it's like insider information. They're all like betting on people coming back again and again. It doesn't, we don't need that.
+
+We're profitable first.
+
+Nice. Yeah. We, we customer rates really high.
+
+Our gross margins are really high. These are actually higher. What's the best number on air?
+
+What do you mean? They're all crazy impressive.
+
+Yeah. Wow. Yeah.
+
+The only thing that's not that impressive is LTV to CAAT because I want to be at a three to one. But this is really impressive that we're profitable on the first purchase in this. So 105 retail, 100% inbound. We've never asked a brand, hey, we want to be a part of your store. It's them reaching out to us organically, which is really impressive. And then our conversion rate is almost 4%, which is also really high.
+
+Do you not want to put 100% inbound?
+
+No, because then they're like, why aren't you reaching out to people? If they ask, we tell them. And then they get this whole thing of like, oh, well, you need to go into like big box retail. You need to go through like a distributor. And I was like, we're not ready for that. Yeah, because distribution is insane. You have to give 15 percent to the distributor and we don't have the margins for that.
+
+And then on top of that, you don't get paid for 90 days. So you're giving it's like people we go through we not part of the strategy No, no people go through reasons just to be able to afford to go into retail because they take so much money. Yeah, and then And then we have our go-to-market, so we're doing huge focus on retention right now. We want to get to an LTV of like 120 to 150. Our LTV right now is like 76.
+
+So like if we can get to this, literally all of our money problems go away.
+
+Yeah, that's a big jump though.
+
+It's a huge jump. I know. Well, George is like, it's easy. We just have to do this. I was like, do you realize how hard this is? He's like, no, it's fine. We just like email people and give them a discount. I was like, no, it's...
+
+It's sweet. It's sweet.
+
+Quite the opposite. It's almost like you need to raise prices.
+
+And well, we already raised prices. We can't raise prices again because it won't work.
+
+But I remember Raya was like, I mean, to change ours even like cents, you know, we have to do like really dramatic things.
+
+It's insane. I mean, we raised everything $2. No one actually freaked out about it. No one got mad at us, which is cool.
+
+I hope not.
+
+No, but podcast mentions literally... If we get organically mentioned any time, we'll do like 40k in a day. It's like it's the most unscalable unrealistic thing.
+
+Why is it unscalable?
+
+because it's like it's saying like hey I just want lightning to strike again and again and again right and podcast mentions they only work if they feel really organic not like paid for right there's this really famous one of Joe Rogan talking about neuro gum um And he goes, have you had this before? Like literally my assistant just gave it to me and I've been chewing it and dude, this shit fucking works.
+
+And it was totally organic. And that is like, it's hard to get people to be like organic and authentic. But it's definitely something we can work on. So Andre, he has Know Thyself. We're working with him. I met someone who is a studio manager for like 15 podcasts in one studio and I made a huge care package for them. Oh, one of my...
+
+Wait, who's that? Jake? Simon Hill. Oh. Simon Hill from Plant Proof?
+
+Yeah!
+
+Yeah, cool!
+
+How do you know him?
+
+From Plant Proof, I don't know him.
+
+Oh, okay. So he's dating Tony Janay. Who's that? George's ex. She's an LL model and they're still very close. Okay. So they're dating. I've followed Planned Parenthood for like literally 15 years.
+
+Yeah, I've been following them for a while.
+
+Right?
+
+And so when Tawny told me she was dating him.
+
+He's in Venice, right? Yeah, they live together.
+
+George is like literally best friends with them. Oh, wow.
+
+Yeah, they hang out all the time. I don't because...
+
+I'm not friends with George anymore. But I love them. They're super cool. Anyways, he has a podcast and he's finally going to talk about our product on the podcast organically. And he's going to wear the sweatsuit on the podcast.
+
+Sick. And it's like that kind of stuff. You can't just approach a podcast and be like, oh, they want money.
+
+Yeah. A lot of money. And he wants to do it for fun. He's just going to do it for shits and giggles. Nice.
+
+And like that's what we need. And that's kind of like what we're talking about here. That's cool.
+
+We're just trying to find people that will organically mention us. Yeah. Because I don't want to pay for an ad. I want, I would literally pay money for someone to behind the scenes or like be in the recording, be like, wait, bro, have you had this? Wait, pause this podcast for a second. Like I need this. Yeah.
+
+I don't know why that's my... It's okay. Jake Hurwitz, this guy's in my men's group. Men's group is only a couple.
+
+couple people Oh my god, I want to get on this podcast so bad. Yeah? Yeah.
+
+How do I get on this podcast? He's interviewed a ton of people in Venice. Um...
+
+Yeah, I mean, I think we should talk to Cloud Code about it.
+
+That's smart. Yeah. But the average podcast, they want 40 grand.
+
+That's a lot.
+
+And that's why I'm saying it's not scalable.
+
+Yeah. Oh look, this guy's Brooks.
+
+Yeah, Brooks Bash.
+
+I don't know him personally.
+
+He's in the hood, right? Yeah. I know him. I know a lot of the people that he's interviewed. Oh, yeah? Mm-hmm. It's a cool podcast. Okay, so anyways, I'll download this. I mean we can send this to cloud code.
+
+That looks like Nick Bendel.
+
+It does, but like in kind of an uglier version.
+
+Like if you... Yeah. It's like, oh, there's Nick.
+
+Yeah.
+
+This generation is very soft.
+
+That one was really good. Really?
+
+Yes. This guy is...
+
+Far out, right? Feels so heavy.
+
+Also like his voice, it's nice. He's a good voice.
+
+You should get on these podcasts.
+
+That would be fun.
+
+Do you have an NDA with places that you can't? No?
+
+No, I mean, NDAs aren't... I don't think you can...
+
+I don't think you can... They hold up and...
+
+California.
+
+No, they don't. I know because I went through that. Someone tried to sue me. Nice. I was like, it doesn't hold up. Let's go. And they were like, fuck you. And I was like, fuck you back. Okay, cool. Okay, so this was super fascinating.
+
+So some fun things I like to do are like create a... Um... HTML Visualization Um... Through drafts, okay, we can look at those graphs. Are those drafts? They should be in your... Wait, you don't use that, you use this. I don't know where your email is. Let's see if they're in there. Inbox, oh yeah.
+
+Oh my god, could I tell, see this is why I'm like, I just need to like sit and think. Could I tell Claude, hey Claude, go through all of my emails that are tagged wholesale and see which ones aren't located in my store, in the store locator on Fungi and make a list?
+
+Yeah.
+
+Totally. Sick. I need that.
+
+Yeah, just spin up another one. Oh, and one thing to note is like the reason I'm saying like go to another one is if you're like doing another, like work stream, I would always start a new conversation because the context window is only so big. Basically the conversation is only so big. Every time you send a new message, it sends the entire thread that you have to the LLM and says, tell me the response.
+
+And so It's a hugeIt gets bigger and bigger. And so at some point, In order for the context window to not be so big that it can't respond, because I think Opus is now 1 million tokens, which is actually like super huge, but... Um... What it'll do is it'll compact it. So it'll actually say like to itself, it'll say summarize our conversation to like this big and now like continue the chat. When it gets to that point, it's...
+
+it'll be much worse. In fact, if it's at like 50%, 60%, it starts declining at how good it is.
+
+How do I know that?
+
+It'll actually show you if you do slash, Being compact at any time.
+
+What was it called? Compact is when it makes it small like you just said.
+
+Yeah, which you don't really wanna do. Okay. Context. Oh yeah, that's it.
+
+Okay, while you're doing that, I need to... Hey, is there any more product that you need to send out? Because I think we need to bring Stuff with us to New York and I need to go pack it tomorrow. Plus I need to pull stuff out for a gifting that we're a part of for Expo West, which needs a product on Sunday. In short, I think I'm going to wipe out all of the reserves that we have at the office right now, if that's okay with you.
+
+Okay, sorry. It's OK.
+
+Okay, it's not doing anything.
+
+Yeah, it doesn't look like it's doing anything.
+
+But yeah, you can tell it to do all this stuff. And I don't know if these email responses look good.
+
+Yeah, they look cool. And I can just go to my drafts and send them, yeah?
+
+Yeah. And what you can do too is you can be like, you could create, you You could ask it to like read through your emails, create like a voice guide or something. And then you can add As you respond to emails too, you could even say like, hey, look at how I've responded to emails in the past and create SOPs. based on the things that I've said in the past. and come up with any like incongruencies and Okay, so when my assistant gets back from school, skiing.
+
+Figure out how much you charge and we're gonna hire you and you're gonna teach her how to do all of this. Sick. But I think an assistant doing this would be insane. 'Cause she has access to all of my emails, all of my stuff, and if she could be creating SOPs and doing that, and she's super trainable. She's really, really sweet, but think about it. I wanna do, I don't know, maybe a few sessions with you.
+
+Sweet, I'd be happy to.
+
+So think about it, we're gonna budget for it.
+
+Send me a little, whatever it cost, please.
+
+She's back in March. It's like an insane, I think it's an insane investment. Yeah, absolutely. Are you kidding me? The amount of stuff that it just opens the ability to do. Right now you could ask it like, "Hey, look at our analytics and just like, come up with insights. Try to uncover things that I've never seen before. And you don't even need, I mean, that's like... How much does a corporate account of Claude?
+
+if I wanted my team to have it.
+
+I don't know how much it's-I think you can add people to your team through there. Really? I don't know.
+
+Max plan? Oh, upgrade plan. Teams.
+
+There we go. Team, $20 per suite, all cloud features plus more usage than pro, premium suite. This is what you have. I think you would do $100 per month. I mean, that's awesome. That's how much you're paying anyway.
+
+But does it include-oh, it does include cloud code.
+
+And co-work. Yeah. This is what we have.
+
+Jay-Z 0-500 kick on the roll base. Yeah, I don't know.
+
+Still no model training on your contacts by default.
+
+That's amazing. Yeah.
+
+Okay. Pretty sweet. Okay.
+
+Let's check. Next week. Okay, yeah, think about how much you would charge for this for a training and then also like a private master class for my team.
+
+Training as in what's What's the difference between the two in your mind?
+
+I think for my assistant, I want you to do one-on-one, sit with her. I will have a list of things like, hey, I want you guys to figure this out for me. I want her to be able to understand A, B, and C, and then just work with her. But I think it would be cool if you did an overview master class for my team so people can start exploring it, and then that justifies us even getting Claude. Then they can all have their, There are ways of like, okay, this is how I'm thinking about it.
+
+And like, as a business, as a brand, this is how we're approaching the use of AI and cloud code. So you guys can all do your job better.
+
+Yeah. Yeah. So think about it. Think about it.
+
+That's cool. I was talking to...
+
+It'd be really cool to bring you in to do that for us.
+
+Yeah, I would love to. I was talking to Evan about how to How to price it and how much time. I think depending on like how much time would be it. Like if it's like a... Two to three hour session it'd be X if it's like, you knowAn offset, yeah.
+
+A five hour thing or something.
+
+But I think like people probably don't wanna do like more than a two. I mean we've been here,We've only really been doing this for two hours and--Yeah. Got a lot done. We got a lot done. Connected to a bunch of tools.
+
+But I think it's different when you have like groups. And groups is also harder.
+
+Groups are harder. But you can definitely do like, I mean, I'm going to be practicing on Monday. Yeah. What it's like to do it with like 50 people, ideally. Sick.
+
+Okay, well let me know. This has been so good.
+
+You're welcome. So much fun. And I hope that it... Oh, yeah. Did it make something for you? Where does every dollar go?
+
+This is crazy. So I just made this little website for you. Revenue. Chris Arjun, the prophet.
+
+And you probably already know all this stuff.
+
+I know, I already know all of this. Wow. Crazy. Yes, your revenue's down so much. You're averaging like way higher but our profits up. So it's like, When like we're still net income positive. So we haven't had a red month or like an even month since June of last year. You've been in the green every single month. It's amazing. So that's like, okay.
+
+You also Ask it about your website analytics. Where are people dropping off? What would you... do for conversions like How can you improve Sales, you know? Do you have access to the kill base?
+
+I don't know what that means.
+
+Dude. The website Is like someone is managing the website and like editing it has access to the code base so that they can like edit the code right? Do you know where that code is stored?
+
+I'm going to just show you And you can tell me, oh no. Right here. If it loads. View code, edit code.
+
+It's on here.
+
+Okay It's liquid.
+
+Is Liquid uh... Oh, sick! Look, you're in VS Code.
+
+And-I have no idea what that means, but okay.
+
+I mean, it's the same interface, you know? Oh, okay. As we were in earlier. Oh! Because it's actually the same program.
+
+Whoa, that's so sick.
+
+So what you could do is This is...
+
+Oh, sweet.
+
+Okay, I know this sounds crazy, but you can tell, oh, here it is, Fungi Main. Okay. Do you have a GitHub account?
+
+No, it's our developer.
+
+He should give you access to it.
+
+Okay. Yeah.
+
+Tell them to add, you can create a GitHub account and tell them to add you to it. Okay. But you can, does your developer work full time? No. You can ask Cloud Code, like, hey, on the website, like... I want to change the buttons on the top. I want to do this. I want to do this. And it can do all of it. For sure. Absolutely. I want to change the image to be this. I want to drag and drop this.
+
+It doesn't work on...
+
+Safari. It just like shits the bed. Yeah. But he's totally overcharging us by using code.
+
+I mean, he better be using it.
+
+He's literally saying that a button change took him like three hours.
+
+I mean Yeah. It probably didn't unless he's not using Cloud Code. Some people are resistant to it. I charge people over for small things if it's just one-off because it's like, oh, I've got to make time for it. I've got to set up the project.
+
+I like him. I don't care how much you pay him. I just think it'd be funny if he is doing that and not telling us. Because I was like, do you use code?
+
+He's like, no, I've never used AI.
+
+I don't believe in it. He said that? Oh, you should fire him. You're paying for him to waste his time.
+
+Or he's not.
+
+He's not, and he's just not telling me because, I don't know, some people are weird about it.
+
+Oh, my gosh. you We don't hire anyone who doesn't use AI.
+
+That's smart. That's super smart.
+
+You can do so much stuff with it, you know? With AI, yeah.
+
+Yeah. Are you gonna go to the party? I think so. Jack's there. Oh, that's good. That'll be fun. Do you want to go? No.
+
+Thank you. Oh my gosh, so much to do. Go home and stare at a wall so I can integrate everything.
+		
+
+Summary
+
+### Session Overview
+
+- Phoebe completed a two-hour learning session with @Dylan Moore focused on cloud code
+- The session aimed to help Phoebe understand how to implement AI into their business
+
+### Participant Background
+
+- Phoebe described themselves as not tech savvy and does not code
+- Had previously felt scared by AI and lacked confidence in this area
+
+### Key Outcomes
+
+- Phoebe reported feeling comfortable, safe, and educated throughout the learning experience
+- Gained practical tools to implement AI into their business
+- Feels significantly more capable and confident than before the session
+- Described the experience as mind-expanding and expressed excitement about moving forward
+
+Notes
+
+Transcript
+
+Hi, my name is Phoebe. I just spent the last two hours with Dylan learning about Claude Code. As someone who's not tech savvy and doesn't code and is very scared by AI, I have never felt so comfortable, safe, and educated. I feel like I finally have the tools to actually implement AI into my business to help me get to the next level. It feels like my mind has exploded. I'm so excited, because I feel so much more capable than I ever have in the past. Thanks to Dylan and One day! I'll be sharing this masterclass to everyone I know.
