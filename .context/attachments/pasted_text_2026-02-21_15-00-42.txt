@@ -1,0 +1,118 @@
+### Action Items & Next Steps
+
+- [ ]  Dylan to provide pricing for one-on-one training session with Phoebe's assistant
+- [ ]  Dylan to provide pricing for team masterclass
+- [ ]  Phoebe to ensure team downloads command line tools before future sessions
+- [ ]  Phoebe to get GitHub account and request access from developer
+- [ ]  Phoebe to look into Claude enterprise account pricing for team
+- [ ]  Phoebe to pull product inventory for New York trip and Expo West gifting
+- [ ]  Phoebe to create task for identifying wholesale customers not in store locator
+- [ ]  George to follow up on product mention with Simon Hill's podcast
+
+### Setup and Installation
+
+- Installed VS Code and Claude Code extension to enable AI-assisted coding and automation
+- Set up Claude Pro subscription ($100/month) to access advanced features
+- Configured workspace folder structure for organizing projects and files
+- Installed PDF viewer extension to view generated reports directly in VS Code
+- **Important note:** Command line tool installation took 51 hours initially, highlighting the need for users to download these tools in advance
+
+### Shipping Cost Analysis Project
+
+- Uploaded two CSV files comparing warehouse charges (FM3) versus Shopify customer charges to identify overcharging
+- Created Python script to parse orders, match transactions, and calculate discrepancies between what customers were charged versus warehouse costs
+- Initial analysis revealed only $1,500 discrepancy for the 17-day period analyzed, much lower than the expected $20,000 monthly overcharge
+- Identified that shipping charges increased $20,000 despite 30% decrease in sales, suggesting potential systematic overcharging issues
+- Created freight charge audit report with detailed breakdown of discrepancies
+- Created a skill to enable easy reuse of this analysis workflow for future periods
+
+### Analytics Integration
+
+- Connected Claude Code to Triple Whale analytics platform using API key
+- Set up analytics folder to pull MERs (marketing efficiency rates) and ROAS data
+- Generated visualizations showing revenue trends, customer acquisition costs, and profitability metrics
+- Confirmed strong unit economics: 60% gross margins, profitable on first purchase (unlike competitors), 4% conversion rate
+- Identified that ad spend is high but DTC metrics remain strong overall
+- Discussed limitations of Shopify's built-in AI for analytics - it doesn't pull all necessary data and is generally inadequate
+
+### Email Automation
+
+- Attempted to set up Gmail integration using Google Cloud Console and OAuth credentials
+- Configured API access with read-only scopes to maintain security while enabling email reading and draft creation
+- Planned automation to read emails, identify high-priority items, and create draft responses in Phoebe's voice
+- Discussed potential to analyze wholesale emails and cross-reference with store locator to identify missing retailers
+
+### Data Security Considerations
+
+- Addressed concerns about using Claude with sensitive customer data (addresses, names, emails)
+- Confirmed that Anthropic doesn't train on Claude Code conversations by default
+- Claude Code requests permission before executing any commands, ensuring user control over data access
+- Recommended exploring Claude enterprise account for enhanced data protection guarantees
+
+### Brand Guidelines and Content Management
+
+- Discussed using Claude Code to create comprehensive brand guidelines by analyzing existing creative assets, social media, and website content
+- Reviewed Phoebe's pitch deck highlighting Fungi's positioning as a social connection beverage using kava
+- Explored organizing business notes from Apple Notes into categorized folders using Claude
+- Discussed creating voice guidelines for both Fungi brand and personal voice to maintain consistency across different contexts
+
+### Website Development and Developer Concerns
+
+- Identified that Fungi's website is built on Liquid/Shopify and managed through VS Code-like interface
+- Developer claims not to use AI and reports 3 hours for simple button changes, raising concerns about efficiency and costs
+- Recommended requesting GitHub access to enable direct website edits through Claude Code
+- Dylan's company policy: only hire people who use AI due to massive productivity gains
+
+### Customer Service Enhancement Ideas
+
+- Discussed integrating Claude with Gorgias customer service platform to assist Daniela (customer service representative)
+- Proposed using AI to analyze customer issues, draft genuine responses, and automatically create discount codes when appropriate
+- Noted that Gorgias's built-in AI lacks emotional depth and authenticity
+
+### Business Metrics and Growth Strategy
+
+- Current revenue down 30% due to reduced ad spend, but company remains profitable every month since June
+- Flow Fruit Juice represents 60% of all revenue, making it the hero product
+- Moving to new contract manufacturer will save 9 cents per gummy (12 per box), requiring $900K inventory investment for minimum order of 1.5M gummies per SKU
+- Goal: reach $10M in 2026 to unlock private equity funding (typical $10M+ checks)
+- Current metrics: 4% conversion rate, 76 LTV, target 120-150 LTV, profitable on first purchase
+- 105 retail partnerships, 100% inbound (never cold outreach)
+
+### Marketing and Growth Initiatives
+
+- Preparing for Expo West with Polaroid photo frames as business cards alternative - more memorable and engaging
+- Organic podcast mentions drive $40K in daily sales but are unscalable - typical podcast sponsorships cost $40K
+- Working with Simon Hill (Plant Proof podcast) for organic product mention
+- Planning guerrilla marketing with tear-off posters ("Do you want some K?") and free samples at street corners
+- Lettuce Grow partnership creating educational content about herbs and plants
+
+### Future Training Plans
+
+- Dylan hosting public event on Monday with 12 people registered
+- Phoebe to schedule private one-on-one training for assistant (returning from skiing in March) to focus on specific business workflows
+- Team masterclass planned to provide overview and justify Claude subscription investment for entire team
+- Recommended $20/month per team member for Claude Teams plan
+
+### Claude Code Best Practices Learned
+
+- Use separate conversations for different workstreams to maintain context quality
+- Context window degrades after 50-60% capacity - compact or start fresh when needed
+- Create "skills" (slash commands) to package and reuse successful workflows
+- Ask Claude to "interview me" or "ask questions" when uncertain about project direction
+- Tell Claude to "remember" important information or preferences for future reference
+- Always allow bash commands unless they seem suspicious - Claude is respectful of system access
+- Use markdown for documentation as all AI tools read it well
+- Dylan uses 10-12 different Claude Code sessions simultaneously for different projects
+
+### Environmental and Ethical Considerations
+
+- Discussed environmental impact of AI - Phoebe expressed concerns about water usage and resource consumption
+- Dylan acknowledged impact exists but is "not anywhere close to taking a flight"
+- Balanced view that AI might help solve environmental problems it contributes to
+
+### Personal Notes and Context
+
+- Phoebe returning to herb school for plant identification, clinical hours, and herbal first aid training
+- Strong focus on practical survival skills and plant knowledge as counterbalance to tech dependency
+- Preparing for New York trip Monday night despite potential snowstorm
+- Using Fireflies for meeting note-taking with automatic action item distribution
