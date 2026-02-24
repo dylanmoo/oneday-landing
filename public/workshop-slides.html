@@ -531,7 +531,7 @@
   <!-- ════════════════════════════════════════════ -->
   <div class="slide active" data-notes="Title card while people join. Hold until scheduled start time.">
     <div class="slide-inner" style="text-align: center;">
-      <p class="section-label" style="font-size: 16px; margin-bottom: 24px;"><img src="/favicon.svg" class="favicon-inline" alt="">OneDay Presents</p>
+      <p class="section-label" style="font-size: 16px; margin-bottom: 24px; display: inline-flex; align-items: center; gap: 8px; justify-content: center;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" class="favicon-inline" style="margin: 0;"><rect width="32" height="32" rx="7" fill="#0f0d20"/><defs><radialGradient id="orb-title" cx="44%" cy="40%" r="56%"><stop offset="0%" stop-color="#e0ddff"/><stop offset="45%" stop-color="#6C63FF"/><stop offset="100%" stop-color="#2e2870"/></radialGradient></defs><circle cx="16" cy="16" r="11.5" fill="none" stroke="#6C63FF" stroke-width="0.9" opacity="0.30"/><circle cx="16" cy="16" r="7.5" fill="url(#orb-title)"/></svg>OneDay Presents</p>
       <h1 style="font-size: 72px; margin-bottom: 16px;">Becoming <span class="accent">Superhuman</span></h1>
       <div class="divider" style="margin: 24px auto;"></div>
       <p style="font-size: 28px; max-width: 600px; margin: 0 auto 32px;">Leveraging Claude Code in Your Everyday Life</p>
@@ -547,6 +547,7 @@
       <h2>Welcome</h2>
       <div class="divider"></div>
       <p style="font-size: 28px; color: var(--text); margin-bottom: 24px;">Tonight we're building the foundation of your <span class="accent">Life OS</span> — a personal operating system for organizing your life and getting things done.</p>
+      <p style="font-size: 22px; margin-bottom: 32px;">We're going to learn how to leverage Claude Code by building something meaningful: your own LifeOS.</p>
       <p style="font-size: 22px; margin-bottom: 32px;">The vision: one home base for <strong style="color: var(--text);">all</strong> your work. Your notes, your priorities, your plans — organized and actionable.</p>
       <ul style="margin-top: 24px;">
         <li>Stay on mute, drop questions in chat</li>
@@ -563,9 +564,9 @@
       <h2>Quick Setup Check</h2>
       <div class="divider" style="margin: 24px auto;"></div>
       <ol class="steps" style="text-align: left; max-width: 700px; margin: 32px auto;">
-        <li>Open <strong>VS Code</strong></li>
-        <li>Click the <strong>Claude icon</strong> in the sidebar</li>
-        <li>See the Claude Code panel? Drop a <strong style="color: var(--green);">thumbs-up</strong> in chat</li>
+        <li>Open <strong>VS Code</strong> (or <strong>Visual Studio Code</strong>)</li>
+        <li>Click the <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" style="width: 22px; height: 22px; vertical-align: middle; margin: 0 4px;"><g fill="#D97757" transform="translate(50,50)"><ellipse rx="4" ry="28" transform="rotate(0)"/><ellipse rx="4" ry="28" transform="rotate(30)"/><ellipse rx="4" ry="28" transform="rotate(60)"/><ellipse rx="4" ry="28" transform="rotate(90)"/><ellipse rx="4" ry="28" transform="rotate(120)"/><ellipse rx="4" ry="28" transform="rotate(150)"/></g></svg> <strong>Claude icon</strong> in the sidebar</li>
+        <li>See the Claude Code panel? Drop a 👍 in chat</li>
       </ol>
       <p style="margin: 32px auto 0; font-size: 20px; text-align: center;">Stuck? Drop your issue in chat — we'll help you in the background.</p>
     </div>
@@ -574,22 +575,40 @@
   <!-- ════════════════════════════════════════════ -->
   <!-- SLIDE 3: Mental Model -->
   <!-- ════════════════════════════════════════════ -->
-  <div class="slide" data-notes="This audience already uses AI — don't over-explain. Quick reframe: they've been using AI as a conversation, tonight it becomes a collaborator that acts. The skill is communication, not coding.">
+  <div class="slide" data-notes="This audience already uses AI — don't over-explain. Reframe: you're the CEO of a small startup. Every Claude Code conversation is like talking to a new employee. You decide who's on your team and what they do. The skill is leadership, not coding.">
     <div class="slide-inner">
       <h2>The Key Idea</h2>
       <div class="divider"></div>
       <div class="quote" style="margin: 32px 0;">
-        You've been using AI as a conversation.<br>
-        Tonight you'll use it as a <span class="accent">collaborator</span> that can actually <em>do things</em> on your computer.
+        Think of yourself as the <span class="accent">CEO</span> of a small startup.<br>
+        Every time you open Claude Code, you're starting a conversation with a new employee.
       </div>
-      <p style="font-size: 26px; color: var(--text); margin-top: 32px;">Think of it as your personal operating system — one you control with plain English.</p>
-      <p style="font-size: 22px; margin-top: 12px;">It reads your files, organizes your notes, builds tools, creates documents.<br>You just tell it what you want.</p>
-      <p style="font-size: 26px; color: var(--accent); margin-top: 32px; font-weight: 600;">The skill is not coding. The skill is knowing what to ask for.</p>
+      <p style="font-size: 26px; color: var(--text); margin-top: 32px;">You get to decide who's on your team — assistants, researchers, managers, mentors, scientists, engineers, designers — you name it.</p>
+      <p style="font-size: 22px; margin-top: 12px;">You define the role. You set the context. You give the direction.</p>
+      <p style="font-size: 26px; color: var(--accent); margin-top: 32px; font-weight: 600;">Great CEOs don't do the work — they communicate clearly what needs to be done.</p>
     </div>
   </div>
 
   <!-- ════════════════════════════════════════════ -->
-  <!-- SLIDE 4: First Prompt -->
+  <!-- SLIDE 4: Create Your Workspace -->
+  <!-- ════════════════════════════════════════════ -->
+  <div class="slide" data-notes="Walk them through this step by step. This ensures Claude Code runs inside their life-os folder. If anyone struggles, help in chat. Keep it simple — just two steps.">
+    <div class="slide-inner">
+      <div class="section-label">Getting Started</div>
+      <h2>Create Your <span class="accent">Workspace</span></h2>
+      <div class="divider"></div>
+      <p style="margin-bottom: 24px;">Before we start using Claude Code, let's set up our project folder:</p>
+      <ol class="steps" style="max-width: 900px;">
+        <li>Open <strong>Finder</strong>, go to your <strong>Desktop</strong>, and create a new folder called <strong style="color: var(--accent); font-family: var(--font-mono);">life-os</strong></li>
+        <li>In <strong>VS Code</strong>, go to <strong>File → Open Folder</strong> and select the <strong style="color: var(--accent); font-family: var(--font-mono);">life-os</strong> folder you just created</li>
+        <li>Open the <strong>Claude Code</strong> panel in the sidebar — this is where we'll work for the rest of the workshop</li>
+      </ol>
+      <p style="margin-top: 24px; font-size: 20px;">Claude Code works best when it's inside a project folder — this gives it context about what you're building.</p>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════ -->
+  <!-- SLIDE 5: First Prompt -->
   <!-- ════════════════════════════════════════════ -->
   <div class="slide" data-notes="Have everyone type this prompt. When Claude asks for permission to run a bash command — PAUSE. First permissions teachable moment. Say: 'Claude will never do anything without asking. It shows you the exact command. Creating a folder? Safe. Click Allow.' Then move to the next prompt.">
     <div class="slide-inner">
@@ -598,11 +617,11 @@
       <div class="divider"></div>
       <p style="margin-bottom: 8px;">Type this into Claude Code:</p>
       <div class="prompt-block">
-        Create a new folder on my Desktop called life-os
+        Set up a folder structure for my life-os with sections for notes, projects, and plans
         <span class="copy-hint">click to copy</span>
       </div>
       <p style="font-size: 22px; color: var(--green); margin: 24px 0; font-weight: 500;">When Claude asks for permission — pause.</p>
-      <p>Claude will <strong style="color: var(--text);">never</strong> do anything without asking you first. It shows you the exact command. Creating a folder? <strong style="color: var(--green);">Safe.</strong> Click Allow.</p>
+      <p>Claude will <strong style="color: var(--text);">never</strong> do anything without asking you first. It shows you the exact command. Creating folders? <strong style="color: var(--green);">Safe.</strong> Click Allow.</p>
     </div>
   </div>
 
@@ -623,41 +642,23 @@
   </div>
 
   <!-- ════════════════════════════════════════════ -->
-  <!-- SLIDE 6: Interview Pattern -->
+  <!-- SLIDE 6: Interview + Apple Notes Import -->
   <!-- ════════════════════════════════════════════ -->
-  <div class="slide" data-notes="Acknowledge their AI experience — 'Most of you use AI regularly, but I bet you haven't done this.' Have everyone type the prompt. Demo the first question live, then give ~2 minutes for attendees to answer their own. This personalizes the entire rest of the workshop.">
-    <div class="slide-inner">
-      <h2>The <span class="accent">Interview</span> Pattern</h2>
-      <div class="divider"></div>
-      <p style="margin-bottom: 8px;">Most of you use AI regularly. But I bet you've never done this:</p>
-      <div class="prompt-block" style="font-size: 18px;">
-        I want to build a personal organization system. Before you start building anything, interview me about my life, my priorities, and what I struggle with. Ask me 5 questions, one at a time.
-        <span class="copy-hint">click to copy</span>
-      </div>
-      <p style="margin-top: 24px; font-size: 26px; color: var(--text); font-weight: 500;">When you don't know what you want,<br>tell Claude to ask <span class="accent">you</span> questions first.</p>
-      <p style="margin-top: 16px;">Answer Claude's questions. Take 2 minutes. Be honest about what you actually struggle with.</p>
-      <div class="secret-box">
-        <p><strong>Explaining your goal, limitations, and any non-obvious context</strong> is absolutely critical to getting what you want. The more Claude understands about your situation, the better its output will be.</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- ════════════════════════════════════════════ -->
-  <!-- SLIDE 7: Apple Notes Import -->
-  <!-- ════════════════════════════════════════════ -->
-  <div class="slide" data-notes="WOW MOMENT #1. Call out their #1 pain: most said organizing info overwhelms them. Claude uses AppleScript to access Notes. Permissions moment #2: 'It's reading your notes and saving as files — not sending anywhere. Safe.' macOS may also prompt for Notes access — click Allow. Some people may have few Notes — that's okay, they see it on your screen.">
+  <div class="slide" data-notes="WOW MOMENT #1. Combines two teaching moments: the interview pattern AND Apple Notes import. The prompt asks Claude to interview them first, then organize their notes based on the answers. This personalizes everything AND delivers the wow moment. Permissions moment #2: 'It's reading your notes and saving as files — not sending anywhere. Safe.' macOS may also prompt for Notes access — click Allow. Give ~2 minutes for the interview, then watch the magic happen.">
     <div class="slide-inner">
       <div class="section-label">Building Your Life OS</div>
       <div class="wow-badge">Wow Moment #1</div>
-      <h2>Import Your <span class="accent">Apple Notes</span></h2>
+      <h2>Import <span class="accent">What's Important</span></h2>
       <div class="divider"></div>
-      <p style="margin-bottom: 16px; font-size: 20px;">Most of you said <strong style="color: var(--text);">organizing information</strong> is what overwhelms you most. Watch this:</p>
-      <div class="prompt-block" style="font-size: 18px;">
-        Go through my Apple Notes on this Mac, and organize them into my life-os folder. Interview me with 3 questions to determine the organization.
+      <p style="margin-bottom: 8px;">Most of you use AI regularly. But I bet you've never done this:</p>
+      <div class="prompt-block" style="font-size: 17px;">
+        I want to build a personal organization system. First, interview me with 5 questions about my life, my priorities, and what I struggle with — ask one at a time. Then, find the group.com.apple.notes folder in ~/Library/Group Containers/ and import all my Apple Notes from there, converting them to markdown files organized into my life-os folder based on what you learned about me.
         <span class="copy-hint">click to copy</span>
       </div>
-      <p style="margin-top: 24px; font-size: 22px; color: var(--green); font-weight: 500;">Watch your sidebar — folders are appearing in real time.</p>
-      <p style="margin-top: 12px;">Claude just read through all your notes and organized them by topic. In about 30 seconds.</p>
+      <p style="margin-top: 20px;">Answer Claude's questions honestly. Take 2 minutes. Then watch your sidebar — <strong style="color: var(--green);">folders are appearing in real time.</strong></p>
+      <div class="secret-box">
+        <p><strong>This is the interview pattern.</strong> When you don't know what you want, tell Claude to ask <em>you</em> questions first. The more it understands about your situation, the better its output will be.</p>
+      </div>
     </div>
   </div>
 
@@ -701,14 +702,15 @@
   <div class="slide" data-notes="WOW MOMENT #2. Claude writes HTML/CSS and creates the file. Permissions: 'Claude wants to create a file. Safe — click Allow.' Show them how to open in browser (right-click → Open with Live Server, or find on Desktop and double-click). The reveal: a beautiful personalized dashboard.">
     <div class="slide-inner">
       <div class="wow-badge">Wow Moment #2</div>
-      <h2>Build Your <span class="accent">Dashboard</span></h2>
+      <h2>Build Your <span class="accent">About Me</span> Dashboard</h2>
       <div class="divider"></div>
       <div class="prompt-block" style="font-size: 18px;">
-        Based on everything you know about me, create an HTML page called dashboard that shows: my top priorities ranked by importance, a categorized list of open tasks and ideas, any deadlines. Make it look clean and modern.
+        Based on everything you know about me, create a beautiful HTML dashboard called "about-me" that visualizes my entire organization system at a glance — who I am, what I care about, my top priorities, what I'm working on, and what's coming up. Make it feel like a personal command center.
         <span class="copy-hint">click to copy</span>
       </div>
-      <p style="margin-top: 24px; font-size: 26px; color: var(--text); font-weight: 500;">Open it in your browser.</p>
-      <p style="margin-top: 12px;">You just built a <strong style="color: var(--accent);">web page</strong> from your own data. No coding. 60 seconds.</p>
+      <p style="margin-top: 24px; font-size: 20px;">Feel free to add your own vibe — make it <strong style="color: var(--text);">wabi-sabi</strong>, <strong style="color: var(--text);">Bauhaus</strong>, or <strong style="color: var(--text);">ADHD-friendly</strong>. It's your dashboard.</p>
+      <p style="margin-top: 16px; font-size: 26px; color: var(--text); font-weight: 500;">Open it in your browser.</p>
+      <p style="margin-top: 12px;">You just turned your life into a <strong style="color: var(--accent);">visual command center</strong>. No coding. 60 seconds.</p>
     </div>
   </div>
 
@@ -744,9 +746,10 @@
         <div>
           <h3>Keep It Clean</h3>
           <ul>
-            <li>Different projects = <strong>different conversations</strong></li>
+            <li>Long conversations = more context = <strong>more tokens used</strong></li>
+            <li>Use <strong>different conversations</strong> for different projects</li>
             <li>Think of it like different notebooks for different subjects</li>
-            <li>Don't mix your Life OS work with a different project</li>
+            <li>There's a limit to context (<strong>1M tokens</strong> for Sonnet &amp; Opus) — at that point the conversation will summarize itself (called <strong style="color: var(--accent);">compacting</strong>)</li>
           </ul>
         </div>
       </div>
@@ -815,7 +818,7 @@
           <tr>
             <td class="level safe">Always safe<br><span style="font-size: 16px; font-weight: 400; color: var(--text-muted);">Say yes</span></td>
             <td>Creating, reading, or writing files. Running analysis scripts. Installing common packages.</td>
-            <td class="examples">Creating folders, reading Notes, writing HTML, making PDFs</td>
+            <td class="examples">Creating folders, reading Notes, writing HTML, reading your calendar</td>
           </tr>
           <tr>
             <td class="level glance">Glance first<br><span style="font-size: 16px; font-weight: 400; color: var(--text-muted);">3 seconds</span></td>
@@ -836,88 +839,76 @@
   <!-- ════════════════════════════════════════════ -->
   <!-- SLIDE 15: Create a Skill -->
   <!-- ════════════════════════════════════════════ -->
-  <div class="slide" data-notes="Explain: a 'skill' is a reusable command. Claude creates a file in .claude/commands/. After it's created, test it by typing /weekly-review. 'From now on, every Sunday, one command and you're organized.' This shows the system is reusable, not a one-time trick.">
+  <div class="slide" data-notes="Explain: a 'skill' is a reusable command. Claude creates a file in .claude/commands/. This is a complex task so we switch to Plan Mode first — Claude will plan before acting. After it's created, test it by typing /morning-briefing. 'From now on, every morning, one command and you know exactly what to focus on.' This shows the system is reusable, not a one-time trick.">
     <div class="slide-inner">
       <div class="section-label">Level Up</div>
       <h2>Create a <span class="accent">Skill</span></h2>
       <div class="divider"></div>
-      <p style="margin-bottom: 8px;">A skill is a reusable command you can run anytime:</p>
+      <p style="margin-bottom: 8px;">A skill is a reusable command you can run anytime. This is a complex task, so first:</p>
+      <p style="font-size: 22px; color: var(--accent); font-weight: 600; margin-bottom: 16px;">Switch to <strong>Plan Mode</strong> — click the mode selector and choose "Plan"</p>
+      <p style="margin-bottom: 8px; font-size: 18px; color: var(--text-muted);">This tells Claude to think through the approach and get your approval before doing anything.</p>
       <div class="prompt-block" style="font-size: 17px;">
-        Create a skill called /weekly-review that does the following when I run it: look through all my notes for anything that's changed since the last time I ran this skill, summarize what I accomplished, list what's still pending, suggest my top 3 priorities for next week, and save the output as a markdown file with today's date.
+        Create a skill called /morning-briefing that does the following when I run it: read through my life-os folder, summarize my top priorities for the day, flag anything overdue or urgent, and save the output as a clean markdown file with today's date.
         <span class="copy-hint">click to copy</span>
       </div>
-      <p style="margin-top: 24px;">Now test it — type <strong style="color: var(--accent); font-family: var(--font-mono);">/weekly-review</strong></p>
-      <p style="margin-top: 12px; font-size: 22px;">Every Sunday night, one command, and you're organized for the week.</p>
+      <p style="margin-top: 20px;">Review the plan, approve it, then test it — type <strong style="color: var(--accent); font-family: var(--font-mono);">/morning-briefing</strong></p>
+      <p style="margin-top: 12px; font-size: 22px;">Every morning, one command, and you know exactly what to focus on.</p>
     </div>
   </div>
 
   <!-- ════════════════════════════════════════════ -->
-  <!-- SLIDE 16: PDF Weekly Plan -->
+  <!-- SLIDE 16: Calendar Integration -->
   <!-- ════════════════════════════════════════════ -->
-  <div class="slide" data-notes="WOW MOMENT #3. Claude will install a PDF library and generate a real PDF. Permissions: 'Claude wants to install a package to create PDFs. Safe, say yes.' Open the PDF — a beautiful personalized weekly plan. If time permits, follow up with Calendar integration on the next slide.">
-    <div class="slide-inner">
-      <div class="wow-badge">Wow Moment #3</div>
-      <h2>Your Weekly Plan — as a <span class="accent">PDF</span></h2>
-      <div class="divider"></div>
-      <div class="prompt-block" style="font-size: 17px;">
-        Based on everything you know about me, create a beautifully formatted PDF called "My Weekly Plan" for this week. Include: top priorities, a day-by-day schedule, deadlines from my notes, and a motivational quote that fits my situation. Make it professional enough to print.
-        <span class="copy-hint">click to copy</span>
-      </div>
-      <p style="margin-top: 24px; font-size: 22px;">Open the PDF. That's your personalized weekly plan — ready to print.</p>
-      <div class="secret-box">
-        <p><strong>Push Claude to try.</strong> There's usually a way. If something doesn't work the first time, ask it to try an alternative approach. Claude is resourceful — it just needs permission to experiment.</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- ════════════════════════════════════════════ -->
-  <!-- SLIDE 17: Calendar Integration -->
-  <!-- ════════════════════════════════════════════ -->
-  <div class="slide" data-notes="Same AppleScript pattern as Notes — no OAuth, no API keys. macOS will prompt for Calendar access. This shows connecting to a real service. Cuttable if behind on time — the PDF already works great without it.">
+  <div class="slide" data-notes="Same AppleScript pattern as Notes — no OAuth, no API keys. macOS will prompt for Calendar access. This shows connecting to a real service AND updating an existing skill. After updating, have them re-run /morning-briefing to see the calendar events incorporated. Cuttable if behind on time.">
     <div class="slide-inner">
       <h2>Add Your <span class="accent">Calendar</span></h2>
       <div class="divider"></div>
-      <p style="margin-bottom: 8px;">Now let's connect to a real service — your Apple Calendar:</p>
-      <div class="prompt-block">
-        Read my Apple Calendar events for this week and incorporate them into my weekly plan PDF.
+      <p style="margin-bottom: 8px;">Now let's make our skill smarter — connect it to your real calendar:</p>
+      <div class="prompt-block" style="font-size: 17px;">
+        Update my /morning-briefing skill so that it also reads my Apple Calendar events for today and this week and takes them into account when creating my briefing.
         <span class="copy-hint">click to copy</span>
       </div>
       <p style="margin-top: 24px;">Same pattern as Notes — your Mac asks for permission, no setup needed.</p>
-      <p style="margin-top: 12px;">Your PDF now has your <strong style="color: var(--text);">real calendar events</strong> alongside your priorities.</p>
+      <p style="margin-top: 16px;">Now re-run it:</p>
+      <div class="prompt-block">
+        /morning-briefing
+        <span class="copy-hint">click to copy</span>
+      </div>
+      <p style="margin-top: 16px;">Your morning briefing now has your <strong style="color: var(--text);">real calendar events</strong> alongside your priorities — and it will <strong style="color: var(--accent);">every time</strong> you run it.</p>
     </div>
   </div>
 
   <!-- ════════════════════════════════════════════ -->
   <!-- SLIDE 18: What's Possible -->
   <!-- ════════════════════════════════════════════ -->
-  <div class="slide" data-notes="NOT a live demo — talk through examples. Tailored to THIS audience: 48% entrepreneurs, 24% creatives. Lead with business owner + freelancer/creative examples. Bridge to upsell: 'Everything tonight is the foundation. In a 1:1, we go deep on YOUR workflow.' Cuttable if behind — weave into upsell.">
+  <div class="slide" data-notes="NOT a live demo — talk through examples to inspire. These are possibilities for what you can build with Claude Code. Don't push 1:1s here — just let the ideas breathe and hint at what's possible.">
     <div class="slide-inner">
       <h2>What's <span class="accent">Possible</span></h2>
       <div class="divider"></div>
-      <p style="margin-bottom: 24px;">Here's what we build in 1:1 sessions:</p>
+      <p style="margin-bottom: 24px;">Everything you built tonight is the foundation. Here's where it can go:</p>
       <div class="teaser-grid">
         <div class="teaser-card">
-          <div class="label">For Business Owners</div>
-          <h4>Shipping Cost Audit</h4>
-          <p>Uploaded two CSVs, found $1,500 in overcharges in 17 days — work that would take hours manually.</p>
+          <div class="label">Grocery Automation</div>
+          <h4>Instacart + Apple Notes</h4>
+          <p>Connect to the Instacart API to automate your weekly grocery buying — have it pull from your latest grocery note in Apple Notes.</p>
         </div>
         <div class="teaser-card">
-          <div class="label">For Freelancers & Creatives</div>
-          <h4>Client Proposal Generator</h4>
-          <p>Drop in a project brief, get a polished proposal with scope, timeline, and pricing — in your voice, in 60 seconds.</p>
+          <div class="label">Email Automation</div>
+          <h4>SOPs → Email Drafts</h4>
+          <p>Connect to your SOPs and automatically create email drafts based on workflows that push projects forward.</p>
         </div>
         <div class="teaser-card">
-          <div class="label">For Creatives & Marketers</div>
-          <h4>Brand Guidelines</h4>
-          <p>Analyzes your existing social media and creative assets to create comprehensive brand docs.</p>
+          <div class="label">Analytics & Prioritization</div>
+          <h4>Data-Driven Decisions</h4>
+          <p>Analyze analytics across Shopify, Mixpanel, user feedback, and more — then prioritize bug fixes and features automatically.</p>
         </div>
         <div class="teaser-card">
-          <div class="label">For Teams</div>
-          <h4>Analytics Dashboards</h4>
-          <p>Connected to analytics APIs, built dashboards better than what Shopify gives you out of the box.</p>
+          <div class="label">Content Strategy</div>
+          <h4>Social Media Marketing</h4>
+          <p>Build a flow that analyzes proven hooks, applies them to your strategy, and tells you what to create for high-virality content.</p>
         </div>
       </div>
-      <p style="margin-top: 24px; font-size: 22px; color: var(--accent); font-weight: 500;">Everything you built tonight is the foundation. In a 1:1, we go deep on your workflow.</p>
+      <p style="margin-top: 24px; font-size: 22px; color: var(--text-muted);">The same patterns you learned tonight — context, memory, skills — power all of this.</p>
     </div>
   </div>
 
@@ -934,8 +925,8 @@
         <li>Imported and organized <strong>all your Apple Notes</strong> automatically</li>
         <li>Got a personal analysis of your priorities and themes</li>
         <li>Built a <strong>visual dashboard</strong> from your own data</li>
-        <li>Created a <strong>reusable skill</strong> you can run every week</li>
-        <li>Generated a professional <strong>PDF weekly plan</strong> with your calendar</li>
+        <li>Created a <strong>reusable skill</strong> — your own <strong>/morning-briefing</strong></li>
+        <li>Connected your <strong>real calendar</strong> to make it smarter</li>
       </ol>
       <p style="margin-top: 32px; font-size: 26px; color: var(--text); font-weight: 500;">None of that required a single line of code.</p>
     </div>
@@ -944,35 +935,43 @@
   <!-- ════════════════════════════════════════════ -->
   <!-- SLIDE 20: Cheatsheet -->
   <!-- ════════════════════════════════════════════ -->
-  <div class="slide" data-notes="Live generation — type this prompt and let Claude create the cheatsheet. 'This is now in your life-os folder. Permanent reference guide.' Quick and satisfying closing moment.">
+  <div class="slide" data-notes="Live demo by the presenter. Show a /recap skill that takes a meeting transcript and creates a recap doc. Drop in the transcript from this current workshop into Claude Code and run /recap. The audience watches — the file won't be in their life-os folder, but we can share it with them afterward.">
     <div class="slide-inner">
       <h2>Your <span class="accent">Cheatsheet</span></h2>
       <div class="divider"></div>
-      <p style="margin-bottom: 8px;">One last trick — your permanent reference guide:</p>
+      <p style="margin-bottom: 16px;">Watch this — I built a skill called <strong style="color: var(--accent); font-family: var(--font-mono);">/recap</strong> that takes a meeting transcript and creates a recap doc to help retain what you learned and apply it to new problems.</p>
+      <p style="margin-bottom: 24px;">I'm going to drop in the transcript from <strong style="color: var(--text);">tonight's workshop</strong> and run it live:</p>
       <div class="prompt-block" style="font-size: 17px;">
-        Create "becoming-superhuman-cheatsheet.md" with: a summary of everything we learned tonight, the key concepts (context, memory, skills, models, modes, permissions), the permissions safety framework, the top 5 prompts we used tonight, and tips for continuing on your own.
+        /recap
         <span class="copy-hint">click to copy</span>
       </div>
-      <p style="margin-top: 24px;">This file is now in your life-os folder. <strong style="color: var(--text);">Permanent reference guide.</strong></p>
+      <p style="margin-top: 24px;">This is the kind of skill you can build for yourself — turn any meeting into actionable notes in seconds.</p>
+      <p style="margin-top: 12px; font-size: 20px; color: var(--text-muted);">We'll share the recap with everyone after the workshop.</p>
     </div>
   </div>
 
   <!-- ════════════════════════════════════════════ -->
   <!-- SLIDE 21: Upsell -->
   <!-- ════════════════════════════════════════════ -->
-  <div class="slide" data-notes="Bridge: 'Tonight was a general Life OS. In a 1:1, we build YOUR system.' This room is 48% entrepreneurs, 24% creatives — reference THOSE roles. Social proof: Phoebe's $1,500 overcharge discovery. Drop booking link with 48-hour discount.">
+  <div class="slide" data-notes="Introduce the 1:1 offering. We build systems for founders, entrepreneurs, and creatives. Personalized systems to 10x daily workflow. We train individuals or teams. Mention 20% discount and $200 referral bonus. Booking link will NOT be sent in chat — it will be shared separately.">
     <div class="slide-inner" style="text-align: center;">
       <h2>Go <span class="accent">Deeper</span></h2>
       <div class="divider" style="margin: 24px auto;"></div>
       <div class="quote" style="text-align: left; max-width: 800px; margin: 32px auto;">
-        Tonight we built a general Life OS.<br>
-        In a 1:1, we build <span class="accent">your</span> system — tailored to your job, your tools, your actual daily workflow.
+        We build systems for founders, entrepreneurs, and creatives to give them time back to focus on driving their business forward.
       </div>
-      <p style="font-size: 24px; margin: 32px auto; max-width: 700px;">You walk out with something ready to use Monday morning.</p>
-      <div style="background: var(--surface); border: 1px solid rgba(108, 99, 255, 0.3); border-radius: 16px; padding: 32px; max-width: 500px; margin: 32px auto;">
-        <p style="font-size: 20px; color: var(--accent); font-weight: 600; margin-bottom: 8px;">Limited 48-hour discount</p>
-        <p style="font-size: 18px;">Booking link is in the chat right now</p>
+      <p style="font-size: 22px; margin: 24px auto; max-width: 750px; text-align: left;">We create <strong style="color: var(--text);">deeply personalized systems</strong> to 10x your daily workflow. We train individuals or teams. Reach out to us for a personalized plan.</p>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 700px; margin: 32px auto;">
+        <div style="background: var(--surface); border: 1px solid rgba(108, 99, 255, 0.3); border-radius: 16px; padding: 28px;">
+          <p style="font-size: 36px; font-weight: 700; color: var(--accent); margin-bottom: 4px;">20% off</p>
+          <p style="font-size: 18px;">1:1 services for all workshop attendees</p>
+        </div>
+        <div style="background: var(--surface); border: 1px solid rgba(52, 211, 153, 0.3); border-radius: 16px; padding: 28px;">
+          <p style="font-size: 36px; font-weight: 700; color: var(--green); margin-bottom: 4px;">$200</p>
+          <p style="font-size: 18px;">Referral bonus for anyone who sends us a client</p>
+        </div>
       </div>
+      <p style="font-size: 18px; margin-top: 24px; color: var(--text-muted);">Booking link will be shared with you directly.</p>
     </div>
   </div>
 
@@ -983,8 +982,8 @@
     <div class="slide-inner" style="text-align: center;">
       <h1 style="font-size: 72px;">Thank <span class="accent">You</span></h1>
       <div class="divider" style="margin: 24px auto;"></div>
-      <p style="font-size: 24px; margin: 0 auto 16px;">Whether you book a session or not, you now have Claude Code on your computer, a working Life OS, and the skills to keep building.</p>
-      <p style="font-size: 20px;">The recording will be in your inbox tomorrow.</p>
+      <p style="font-size: 24px; margin: 0 auto 16px;">You now have Claude Code on your computer, a working Life OS, and the skills to keep building.</p>
+      <p style="font-size: 20px; text-align: center;">The recording will be in your inbox tomorrow.</p>
       <p style="margin: 48px auto 0; font-size: 18px; color: var(--text-muted); text-align: center;">Evan Grenda & Dylan Moore &middot; OneDay</p>
     </div>
   </div>
@@ -994,7 +993,7 @@
 <!-- Bottom bar -->
 <div class="bottom-bar">
   <div class="progress-bar" id="progress"></div>
-  <span class="slide-counter" id="counter">1 / 23</span>
+  <span class="slide-counter" id="counter">1 / 22</span>
   <span class="key-hints">
     <span><kbd>&larr;</kbd> <kbd>&rarr;</kbd> Navigate</span>
     <span><kbd>N</kbd> Speaker notes</span>
