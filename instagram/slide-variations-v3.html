@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Slide 1 — Font Exploration (Warm Earth Layout)</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;0,9..144,900;1,9..144,300;1,9..144,400;1,9..144,500;1,9..144,600;1,9..144,700;1,9..144,800;1,9..144,900&family=Young+Serif&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;0,6..96,700;0,6..96,800;0,6..96,900;1,6..96,400;1,6..96,500;1,6..96,600;1,6..96,700;1,6..96,800;1,6..96,900&family=Gilda+Display&family=Sorts+Mill+Goudy:ital@0;1&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=DM+Serif+Display:ital@0;1&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Newsreader:ital,opsz,wght@0,6..72,200;0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;0,6..72,800;1,6..72,200;1,6..72,300;1,6..72,400;1,6..72,500;1,6..72,600;1,6..72,700;1,6..72,800&family=DM+Sans:wght@300;400;500&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #1a1816;
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 80px;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .label {
+    color: rgba(255,255,255,0.2);
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: -60px;
+    align-self: flex-start;
+    max-width: 1080px;
+    width: 100%;
+  }
+
+  .label span {
+    color: rgba(255,255,255,0.4);
+  }
+
+  .slide {
+    width: 1080px;
+    height: 1080px;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+    background: #f0ebe3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 100px 100px 100px 120px;
+  }
+
+  .stroke {
+    position: absolute;
+    top: 140px;
+    right: 80px;
+    width: 320px;
+    height: 520px;
+    border-radius: 60% 40% 50% 50% / 45% 55% 45% 55%;
+    background: linear-gradient(160deg, #c8a87c 0%, #d4b896 40%, #e0c8a8 100%);
+    opacity: 0.35;
+    transform: rotate(-8deg);
+  }
+
+  .tag {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #8a7a68;
+    margin-bottom: 48px;
+    font-weight: 400;
+  }
+
+  .sub {
+    margin-top: 40px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 26px;
+    color: #8a7a68;
+    line-height: 1.6;
+    font-weight: 300;
+    max-width: 550px;
+  }
+
+  /* ============ FONT VARIATIONS ============ */
+
+  /* 1 — Fraunces: Soft, wonky old-style with quirky curves */
+  .f1 h1 {
+    font-family: 'Fraunces', serif;
+    font-size: 82px;
+    font-weight: 600;
+    font-optical-sizing: auto;
+    color: #2c2520;
+    line-height: 1.12;
+    letter-spacing: -1px;
+    position: relative;
+    z-index: 2;
+  }
+  .f1 h1 em {
+    font-style: italic;
+    font-weight: 700;
+    color: #7a5a30;
+  }
+
+  /* 2 — Young Serif: Tender, generous, rounded warmth */
+  .f2 h1 {
+    font-family: 'Young Serif', serif;
+    font-size: 84px;
+    font-weight: 400;
+    color: #2c2520;
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+    position: relative;
+    z-index: 2;
+  }
+  .f2 h1 em {
+    font-style: normal;
+    color: #8a6840;
+    /* Young Serif has no italic, use color to differentiate */
+  }
+
+  /* 3 — EB Garamond: Humanist imperfection, hand-cut origins */
+  .f3 h1 {
+    font-family: 'EB Garamond', serif;
+    font-size: 92px;
+    font-weight: 500;
+    color: #2c2520;
+    line-height: 1.12;
+    letter-spacing: 0px;
+    position: relative;
+    z-index: 2;
+  }
+  .f3 h1 em {
+    font-style: italic;
+    font-weight: 600;
+    color: #6a5030;
+  }
+
+  /* 4 — Bodoni Moda: High-contrast editorial drama */
+  .f4 h1 {
+    font-family: 'Bodoni Moda', serif;
+    font-size: 88px;
+    font-weight: 500;
+    font-optical-sizing: auto;
+    color: #2c2520;
+    line-height: 1.08;
+    letter-spacing: -0.5px;
+    position: relative;
+    z-index: 2;
+  }
+  .f4 h1 em {
+    font-style: italic;
+    font-weight: 600;
+    color: #6a5030;
+  }
+
+  /* 5 — Gilda Display: Refined curves, elegant proportions */
+  .f5 h1 {
+    font-family: 'Gilda Display', serif;
+    font-size: 82px;
+    font-weight: 400;
+    color: #2c2520;
+    line-height: 1.14;
+    letter-spacing: 0px;
+    position: relative;
+    z-index: 2;
+  }
+  .f5 h1 em {
+    font-style: normal;
+    color: #7a5a30;
+    /* Gilda has no italic, use color */
+  }
+
+  /* 6 — Sorts Mill Goudy: Old-world warmth, Goudy's character */
+  .f6 h1 {
+    font-family: 'Sorts Mill Goudy', serif;
+    font-size: 88px;
+    font-weight: 400;
+    color: #2c2520;
+    line-height: 1.12;
+    letter-spacing: 0px;
+    position: relative;
+    z-index: 2;
+  }
+  .f6 h1 em {
+    font-style: italic;
+    color: #6a5030;
+  }
+
+  /* 7 — Playfair Display: Classic editorial, high contrast */
+  .f7 h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 84px;
+    font-weight: 500;
+    color: #2c2520;
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+    position: relative;
+    z-index: 2;
+  }
+  .f7 h1 em {
+    font-style: italic;
+    font-weight: 600;
+    color: #6a5030;
+  }
+
+  /* 8 — DM Serif Display: Warm, distinctive modern serif */
+  .f8 h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 84px;
+    font-weight: 400;
+    color: #2c2520;
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+    position: relative;
+    z-index: 2;
+  }
+  .f8 h1 em {
+    font-style: italic;
+    color: #6a5030;
+  }
+
+  /* 9 — Lora: Calligraphic roots, contemporary feel */
+  .f9 h1 {
+    font-family: 'Lora', serif;
+    font-size: 84px;
+    font-weight: 500;
+    color: #2c2520;
+    line-height: 1.12;
+    letter-spacing: -0.5px;
+    position: relative;
+    z-index: 2;
+  }
+  .f9 h1 em {
+    font-style: italic;
+    font-weight: 600;
+    color: #6a5030;
+  }
+
+  /* 10 — Newsreader: Warm editorial character, built for reading */
+  .f10 h1 {
+    font-family: 'Newsreader', serif;
+    font-size: 86px;
+    font-weight: 500;
+    font-optical-sizing: auto;
+    color: #2c2520;
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+    position: relative;
+    z-index: 2;
+  }
+  .f10 h1 em {
+    font-style: italic;
+    font-weight: 600;
+    color: #6a5030;
+  }
+
+</style>
+</head>
+<body>
+
+<!-- 1: Fraunces -->
+<div class="label">01 — <span>Fraunces</span> · Soft wonky old-style, quirky rounded curves. Inspired by Windsor & Souvenir.</div>
+<div class="slide f1">
+  <div class="stroke"></div>
+  <div class="tag">A Claude Code Skill</div>
+  <h1>I built an AI that<br><em>summarizes anything</em><br>in seconds</h1>
+  <p class="sub">YouTube videos. Podcasts. PDFs. Articles.<br>One command. Instant knowledge.</p>
+</div>
+
+<!-- 2: Young Serif -->
+<div class="label">02 — <span>Young Serif</span> · Tender, generous rounded b/f curves. By NoirBlancRouge, Paris.</div>
+<div class="slide f2">
+  <div class="stroke"></div>
+  <div class="tag">A Claude Code Skill</div>
+  <h1>I built an AI that<br><em>summarizes anything</em><br>in seconds</h1>
+  <p class="sub">YouTube videos. Podcasts. PDFs. Articles.<br>One command. Instant knowledge.</p>
+</div>
+
+<!-- 3: EB Garamond -->
+<div class="label">03 — <span>EB Garamond</span> · 16th-century hand-cut origins. Humanist imperfection. The wabi-sabi classic.</div>
+<div class="slide f3">
+  <div class="stroke"></div>
+  <div class="tag">A Claude Code Skill</div>
+  <h1>I built an AI that<br><em>summarizes anything</em><br>in seconds</h1>
+  <p class="sub">YouTube videos. Podcasts. PDFs. Articles.<br>One command. Instant knowledge.</p>
+</div>
+
+<!-- 4: Bodoni Moda -->
+<div class="label">04 — <span>Bodoni Moda</span> · High-contrast Didone. Fashion editorial drama. Hairline serifs.</div>
+<div class="slide f4">
+  <div class="stroke"></div>
+  <div class="tag">A Claude Code Skill</div>
+  <h1>I built an AI that<br><em>summarizes anything</em><br>in seconds</h1>
+  <p class="sub">YouTube videos. Podcasts. PDFs. Articles.<br>One command. Instant knowledge.</p>
+</div>
+
+<!-- 5: Gilda Display -->
+<div class="label">05 — <span>Gilda Display</span> · Refined high-contrast curves. Classic proportions, finest serif treatment.</div>
+<div class="slide f5">
+  <div class="stroke"></div>
+  <div class="tag">A Claude Code Skill</div>
+  <h1>I built an AI that<br><em>summarizes anything</em><br>in seconds</h1>
+  <p class="sub">YouTube videos. Podcasts. PDFs. Articles.<br>One command. Instant knowledge.</p>
+</div>
+
+<!-- 6: Sorts Mill Goudy -->
+<div class="label">06 — <span>Sorts Mill Goudy</span> · Frederic Goudy revival. Old-world warmth, antique bookplate feel.</div>
+<div class="slide f6">
+  <div class="stroke"></div>
+  <div class="tag">A Claude Code Skill</div>
+  <h1>I built an AI that<br><em>summarizes anything</em><br>in seconds</h1>
+  <p class="sub">YouTube videos. Podcasts. PDFs. Articles.<br>One command. Instant knowledge.</p>
+</div>
+
+<!-- 7: Playfair Display -->
+<div class="label">07 — <span>Playfair Display</span> · European Enlightenment. Transitional serif with optical refinement.</div>
+<div class="slide f7">
+  <div class="stroke"></div>
+  <div class="tag">A Claude Code Skill</div>
+  <h1>I built an AI that<br><em>summarizes anything</em><br>in seconds</h1>
+  <p class="sub">YouTube videos. Podcasts. PDFs. Articles.<br>One command. Instant knowledge.</p>
+</div>
+
+<!-- 8: DM Serif Display -->
+<div class="label">08 — <span>DM Serif Display</span> · Modern serif with warmth. Designed for large-scale display.</div>
+<div class="slide f8">
+  <div class="stroke"></div>
+  <div class="tag">A Claude Code Skill</div>
+  <h1>I built an AI that<br><em>summarizes anything</em><br>in seconds</h1>
+  <p class="sub">YouTube videos. Podcasts. PDFs. Articles.<br>One command. Instant knowledge.</p>
+</div>
+
+<!-- 9: Lora -->
+<div class="label">09 — <span>Lora</span> · Rooted in calligraphy. Moderate contrast, brushed curves. Contemporary warmth.</div>
+<div class="slide f9">
+  <div class="stroke"></div>
+  <div class="tag">A Claude Code Skill</div>
+  <h1>I built an AI that<br><em>summarizes anything</em><br>in seconds</h1>
+  <p class="sub">YouTube videos. Podcasts. PDFs. Articles.<br>One command. Instant knowledge.</p>
+</div>
+
+<!-- 10: Newsreader -->
+<div class="label">10 — <span>Newsreader</span> · By Production Type. Warm editorial workhorse. Built for immersive reading.</div>
+<div class="slide f10">
+  <div class="stroke"></div>
+  <div class="tag">A Claude Code Skill</div>
+  <h1>I built an AI that<br><em>summarizes anything</em><br>in seconds</h1>
+  <p class="sub">YouTube videos. Podcasts. PDFs. Articles.<br>One command. Instant knowledge.</p>
+</div>
+
+</body>
+</html>

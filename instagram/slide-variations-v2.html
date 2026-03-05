@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Slide 1 Variations — Wabi-Sabi</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Instrument+Serif:ital@0;1&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #1a1816;
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 80px;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .label {
+    color: rgba(255,255,255,0.2);
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: -60px;
+    align-self: flex-start;
+    max-width: 1080px;
+    width: 100%;
+  }
+
+  .slide {
+    width: 1080px;
+    height: 1080px;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  /* ============================================================
+     V1: WARM EARTH — Cream bg, off-center serif, single brushstroke
+     ============================================================ */
+  .v1 {
+    background: #f0ebe3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 100px 100px 100px 120px;
+  }
+
+  .v1 .stroke {
+    position: absolute;
+    top: 140px;
+    right: 80px;
+    width: 320px;
+    height: 520px;
+    border-radius: 60% 40% 50% 50% / 45% 55% 45% 55%;
+    background: linear-gradient(160deg, #c8a87c 0%, #d4b896 40%, #e0c8a8 100%);
+    opacity: 0.35;
+    transform: rotate(-8deg);
+  }
+
+  .v1 .tag {
+    font-size: 15px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #8a7a68;
+    margin-bottom: 48px;
+  }
+
+  .v1 h1 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 86px;
+    font-weight: 400;
+    color: #2c2520;
+    line-height: 1.1;
+    letter-spacing: -1px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .v1 h1 em {
+    font-style: italic;
+    color: #8a6840;
+  }
+
+  .v1 .sub {
+    margin-top: 40px;
+    font-size: 26px;
+    color: #8a7a68;
+    line-height: 1.6;
+    font-weight: 300;
+    max-width: 550px;
+  }
+
+  /* ============================================================
+     V2: DARK STONE — Deep warm charcoal, quiet serif, single line
+     ============================================================ */
+  .v2 {
+    background: #1c1917;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 100px;
+  }
+
+  .v2 .line-accent {
+    position: absolute;
+    top: 120px;
+    left: 100px;
+    width: 1px;
+    height: 300px;
+    background: linear-gradient(180deg, rgba(200,168,124,0.4) 0%, transparent 100%);
+  }
+
+  .v2 h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 94px;
+    font-weight: 300;
+    color: #e8e0d4;
+    line-height: 1.12;
+    letter-spacing: -1px;
+  }
+
+  .v2 h1 em {
+    font-style: italic;
+    font-weight: 400;
+    color: #c8a87c;
+  }
+
+  .v2 .sub {
+    margin-top: 44px;
+    font-size: 24px;
+    color: rgba(232,224,212,0.35);
+    line-height: 1.7;
+    font-weight: 300;
+    max-width: 500px;
+  }
+
+  /* ============================================================
+     V3: SAND PAPER — Warm tan with noise texture, centered
+     ============================================================ */
+  .v3 {
+    background: #d9cdbf;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 100px;
+  }
+
+  .v3::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E");
+    opacity: 0.5;
+  }
+
+  .v3 .content { position: relative; z-index: 2; }
+
+  .v3 .tag {
+    font-size: 14px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: #7a6b58;
+    margin-bottom: 56px;
+  }
+
+  .v3 h1 {
+    font-family: 'Source Serif 4', serif;
+    font-size: 82px;
+    font-weight: 300;
+    color: #2e2822;
+    line-height: 1.15;
+    letter-spacing: -0.5px;
+  }
+
+  .v3 h1 em {
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  .v3 .divider {
+    width: 40px;
+    height: 1px;
+    background: #8a7a68;
+    margin: 44px auto;
+    opacity: 0.4;
+  }
+
+  .v3 .sub {
+    font-size: 24px;
+    color: #6a5d4e;
+    line-height: 1.7;
+    font-weight: 300;
+    max-width: 600px;
+  }
+
+  /* ============================================================
+     V4: TORN EDGE — Asymmetric layout, raw organic shape
+     ============================================================ */
+  .v4 {
+    background: #f5f0e8;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 100px;
+  }
+
+  .v4 .organic-shape {
+    position: absolute;
+    bottom: -40px;
+    right: -40px;
+    width: 580px;
+    height: 620px;
+    background: #c8b89c;
+    border-radius: 70% 30% 50% 50% / 55% 45% 55% 45%;
+    opacity: 0.25;
+    transform: rotate(12deg);
+  }
+
+  .v4 .organic-shape-2 {
+    position: absolute;
+    top: -80px;
+    left: -60px;
+    width: 300px;
+    height: 340px;
+    background: #b8a48c;
+    border-radius: 40% 60% 50% 50% / 55% 35% 65% 45%;
+    opacity: 0.12;
+    transform: rotate(-20deg);
+  }
+
+  .v4 h1 {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 78px;
+    font-weight: 400;
+    color: #2a2420;
+    line-height: 1.15;
+    position: relative;
+    z-index: 2;
+    max-width: 750px;
+  }
+
+  .v4 h1 em {
+    font-style: italic;
+    color: #7a6040;
+  }
+
+  .v4 .sub {
+    margin-top: 44px;
+    font-size: 24px;
+    color: #8a7a68;
+    line-height: 1.7;
+    font-weight: 300;
+    max-width: 480px;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* ============================================================
+     V5: DUSK — Dark warm gradient, bottom-heavy type
+     ============================================================ */
+  .v5 {
+    background: linear-gradient(175deg, #2a2018 0%, #1e1812 40%, #1a1510 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 100px;
+  }
+
+  .v5 .glow {
+    position: absolute;
+    top: 60px;
+    right: 100px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(200,168,124,0.06) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .v5 .tag {
+    font-size: 14px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: rgba(200,168,124,0.35);
+    margin-bottom: 48px;
+  }
+
+  .v5 h1 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 92px;
+    font-weight: 400;
+    color: #e8ddd0;
+    line-height: 1.1;
+    letter-spacing: -1px;
+  }
+
+  .v5 h1 em {
+    font-style: italic;
+    color: #c8a87c;
+  }
+
+  .v5 .sub {
+    margin-top: 40px;
+    font-size: 24px;
+    color: rgba(232,221,208,0.3);
+    line-height: 1.7;
+    font-weight: 300;
+    max-width: 520px;
+  }
+
+  /* ============================================================
+     V6: NEGATIVE SPACE — Mostly empty, type floats in vast cream
+     ============================================================ */
+  .v6 {
+    background: #ede7dd;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding: 80px 100px;
+    text-align: right;
+  }
+
+  .v6 .dot {
+    position: absolute;
+    top: 180px;
+    left: 160px;
+    width: 12px;
+    height: 12px;
+    background: #b09878;
+    border-radius: 50%;
+    opacity: 0.4;
+  }
+
+  .v6 h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 88px;
+    font-weight: 300;
+    color: #3a3228;
+    line-height: 1.12;
+    letter-spacing: -0.5px;
+    max-width: 700px;
+  }
+
+  .v6 h1 em {
+    font-style: italic;
+    font-weight: 500;
+  }
+
+  .v6 .sub {
+    margin-top: 36px;
+    font-size: 22px;
+    color: #8a7e70;
+    line-height: 1.7;
+    font-weight: 300;
+    max-width: 440px;
+  }
+
+  /* ============================================================
+     V7: HORIZON — Inspired by golden hour, gradient horizon line
+     ============================================================ */
+  .v7 {
+    background: #1a1610;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 100px;
+  }
+
+  .v7 .horizon-glow {
+    position: absolute;
+    top: 45%;
+    left: 0;
+    right: 0;
+    height: 300px;
+    background: linear-gradient(180deg,
+      transparent 0%,
+      rgba(210,150,80,0.06) 30%,
+      rgba(210,150,80,0.1) 50%,
+      rgba(180,100,60,0.06) 70%,
+      transparent 100%
+    );
+  }
+
+  .v7 .horizon-line {
+    position: absolute;
+    top: 52%;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, rgba(200,168,124,0.2) 30%, rgba(200,168,124,0.2) 70%, transparent 100%);
+  }
+
+  .v7 .content { position: relative; z-index: 2; }
+
+  .v7 h1 {
+    font-family: 'Source Serif 4', serif;
+    font-size: 86px;
+    font-weight: 300;
+    color: #e8ddd0;
+    line-height: 1.12;
+    letter-spacing: -0.5px;
+    margin-bottom: 36px;
+  }
+
+  .v7 h1 em {
+    font-style: italic;
+    font-weight: 400;
+    color: #d4a868;
+  }
+
+  .v7 .sub {
+    font-size: 24px;
+    color: rgba(232,221,208,0.3);
+    line-height: 1.7;
+    font-weight: 300;
+    max-width: 550px;
+  }
+
+  /* ============================================================
+     V8: CLAY — Rich terracotta tones, organic offset layout
+     ============================================================ */
+  .v8 {
+    background: #2c2018;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 100px 80px 100px 120px;
+  }
+
+  .v8 .clay-circle {
+    position: absolute;
+    top: 100px;
+    right: 100px;
+    width: 380px;
+    height: 380px;
+    border-radius: 50%;
+    border: 1px solid rgba(200,160,110,0.12);
+  }
+
+  .v8 .clay-circle-2 {
+    position: absolute;
+    top: 130px;
+    right: 130px;
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    border: 1px solid rgba(200,160,110,0.08);
+  }
+
+  .v8 .tag {
+    font-size: 14px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: rgba(200,160,110,0.35);
+    margin-bottom: 56px;
+  }
+
+  .v8 h1 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 86px;
+    font-weight: 400;
+    color: #e8d8c4;
+    line-height: 1.1;
+    letter-spacing: -1px;
+    max-width: 700px;
+  }
+
+  .v8 h1 em {
+    font-style: italic;
+    color: #d4a868;
+  }
+
+  .v8 .sub {
+    margin-top: 44px;
+    font-size: 24px;
+    color: rgba(232,216,196,0.3);
+    line-height: 1.7;
+    font-weight: 300;
+    max-width: 480px;
+  }
+
+  /* ============================================================
+     V9: LINEN — Light warm bg, vertical text accent, Japanese zen
+     ============================================================ */
+  .v9 {
+    background: #eee8de;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 100px;
+    padding-left: 160px;
+  }
+
+  .v9 .vertical-text {
+    position: absolute;
+    top: 100px;
+    left: 60px;
+    writing-mode: vertical-rl;
+    font-size: 13px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #b0a090;
+    opacity: 0.5;
+  }
+
+  .v9 .vert-line {
+    position: absolute;
+    top: 80px;
+    left: 100px;
+    width: 1px;
+    height: 920px;
+    background: linear-gradient(180deg, transparent 0%, rgba(160,140,120,0.15) 20%, rgba(160,140,120,0.15) 80%, transparent 100%);
+  }
+
+  .v9 h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 84px;
+    font-weight: 300;
+    color: #2e2822;
+    line-height: 1.14;
+    letter-spacing: -0.5px;
+    max-width: 720px;
+  }
+
+  .v9 h1 em {
+    font-style: italic;
+    font-weight: 500;
+    color: #6a5540;
+  }
+
+  .v9 .sub {
+    margin-top: 44px;
+    font-size: 23px;
+    color: #8a7e6e;
+    line-height: 1.7;
+    font-weight: 300;
+    max-width: 480px;
+  }
+
+  .v9 .bottom-note {
+    position: absolute;
+    bottom: 60px;
+    right: 80px;
+    font-size: 14px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #b0a090;
+    opacity: 0.4;
+  }
+
+  /* ============================================================
+     V10: ECLIPSE — Near-black, single warm arc, whisper-quiet
+     ============================================================ */
+  .v10 {
+    background: #131110;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 100px;
+  }
+
+  .v10 .arc {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 640px;
+    height: 640px;
+    border-radius: 50%;
+    border: 1px solid rgba(200,168,124,0.08);
+  }
+
+  .v10 .arc-inner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    border: 1px solid rgba(200,168,124,0.05);
+  }
+
+  .v10 .warm-glow {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 500px;
+    height: 300px;
+    background: radial-gradient(ellipse, rgba(200,160,100,0.04) 0%, transparent 70%);
+  }
+
+  .v10 .content { position: relative; z-index: 2; }
+
+  .v10 .tag {
+    font-size: 13px;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: rgba(200,168,124,0.25);
+    margin-bottom: 60px;
+  }
+
+  .v10 h1 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 90px;
+    font-weight: 400;
+    color: rgba(232,221,208,0.85);
+    line-height: 1.12;
+    letter-spacing: -1px;
+  }
+
+  .v10 h1 em {
+    font-style: italic;
+    color: #c8a87c;
+  }
+
+  .v10 .sub {
+    margin-top: 40px;
+    font-size: 23px;
+    color: rgba(232,221,208,0.2);
+    line-height: 1.7;
+    font-weight: 300;
+    max-width: 520px;
+  }
+
+</style>
+</head>
+<body>
+
+<!-- V1: WARM EARTH -->
+<div class="label">01 — Warm Earth</div>
+<div class="slide v1">
+  <div class="stroke"></div>
+  <div class="tag">A Claude Code Skill</div>
+  <h1>I built an AI that<br><em>summarizes anything</em><br>in seconds</h1>
+  <p class="sub">YouTube videos. Podcasts. PDFs. Articles.<br>One command. Instant knowledge.</p>
+</div>
+
+<!-- V2: DARK STONE -->
+<div class="label">02 — Dark Stone</div>
+<div class="slide v2">
+  <div class="line-accent"></div>
+  <h1>I built an AI<br>that <em>summarizes<br>anything</em> in seconds</h1>
+  <p class="sub">YouTube videos. Podcasts. PDFs. Articles.<br>One command. Instant knowledge.</p>
+</div>
+
+<!-- V3: SAND PAPER -->
+<div class="label">03 — Sand Paper</div>
+<div class="slide v3">
+  <div class="content">
+    <div class="tag">A Claude Code Skill</div>
+    <h1>I built an AI that<br><em>summarizes anything</em><br>in seconds</h1>
+    <div class="divider"></div>
+    <p class="sub">YouTube videos. Podcasts. PDFs. Articles.<br>One command. Instant knowledge.</p>
+  </div>
+</div>
+
+<!-- V4: TORN EDGE -->
+<div class="label">04 — Torn Edge</div>
+<div class="slide v4">
+  <div class="organic-shape"></div>
+  <div class="organic-shape-2"></div>
+  <h1>I built an AI<br>that <em>summarizes<br>anything</em> in seconds</h1>
+  <p class="sub">YouTube videos. Podcasts. PDFs.<br>Articles. One command.</p>
+</div>
+
+<!-- V5: DUSK -->
+<div class="label">05 — Dusk</div>
+<div class="slide v5">
+  <div class="glow"></div>
+  <div class="tag">A Claude Code Skill</div>
+  <h1>I built an AI that<br><em>summarizes anything</em><br>in seconds</h1>
+  <p class="sub">YouTube videos. Podcasts. PDFs. Articles.<br>One command. Instant knowledge.</p>
+</div>
+
+<!-- V6: NEGATIVE SPACE -->
+<div class="label">06 — Negative Space</div>
+<div class="slide v6">
+  <div class="dot"></div>
+  <h1>I built an AI<br>that <em>summarizes<br>anything</em> in seconds</h1>
+  <p class="sub">YouTube videos. Podcasts. PDFs.<br>Articles. One command.</p>
+</div>
+
+<!-- V7: HORIZON -->
+<div class="label">07 — Horizon</div>
+<div class="slide v7">
+  <div class="horizon-glow"></div>
+  <div class="horizon-line"></div>
+  <div class="content">
+    <h1>I built an AI that<br><em>summarizes anything</em><br>in seconds</h1>
+    <p class="sub">YouTube videos. Podcasts. PDFs. Articles.<br>One command. Instant knowledge.</p>
+  </div>
+</div>
+
+<!-- V8: CLAY -->
+<div class="label">08 — Clay</div>
+<div class="slide v8">
+  <div class="clay-circle"></div>
+  <div class="clay-circle-2"></div>
+  <div class="tag">A Claude Code Skill</div>
+  <h1>I built an AI that<br><em>summarizes anything</em><br>in seconds</h1>
+  <p class="sub">YouTube videos. Podcasts. PDFs. Articles.<br>One command. Instant knowledge.</p>
+</div>
+
+<!-- V9: LINEN -->
+<div class="label">09 — Linen</div>
+<div class="slide v9">
+  <div class="vertical-text">A Claude Code Skill</div>
+  <div class="vert-line"></div>
+  <h1>I built an AI<br>that <em>summarizes<br>anything</em> in seconds</h1>
+  <p class="sub">YouTube videos. Podcasts. PDFs.<br>Articles. One command.</p>
+  <div class="bottom-note">Swipe</div>
+</div>
+
+<!-- V10: ECLIPSE -->
+<div class="label">10 — Eclipse</div>
+<div class="slide v10">
+  <div class="arc"></div>
+  <div class="arc-inner"></div>
+  <div class="warm-glow"></div>
+  <div class="content">
+    <div class="tag">A Claude Code Skill</div>
+    <h1>I built an AI that<br><em>summarizes anything</em><br>in seconds</h1>
+    <p class="sub">YouTube videos. Podcasts. PDFs. Articles.<br>One command. Instant knowledge.</p>
+  </div>
+</div>
+
+</body>
+</html>

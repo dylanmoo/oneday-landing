@@ -8,7 +8,7 @@
 
 Hey!
 
-We're so excited to have you at **Becoming Superhuman** on Monday at 8 PM PST.
+We're so excited to have you at **Becoming Superhuman** on Monday at 6 PM PST.
 
 To make sure you can follow along and actually build something during the workshop, we need you to do a few things beforehand. It takes about 30 minutes total, but one of the downloads runs in the background for ~20 minutes, so we recommend **doing this by Monday afternoon (before 5 PM)** — that way if anything comes up, you have time to sort it out before we start.
 
@@ -82,10 +82,35 @@ Here's a visual walkthrough: [Installing Xcode Command Line Tools](https://www.y
 
 ---
 
-**That's everything.** On Monday we'll handle the rest together, live. You don't need to know what any of these tools do yet — that's the whole point of the workshop.
+**Step 6: Create a free Vercel account** (2 minutes)
+
+During the workshop, we'll deploy your website to the internet so you get a live URL you can share. Vercel is the free service we'll use for that.
+
+1. Go to [vercel.com](https://vercel.com)
+2. Click **Sign Up**
+3. Sign up with your email (or GitHub if you have one — either works)
+4. Confirm your email if prompted
+5. That's it — you don't need to do anything else in Vercel yet
+
+---
+
+**Step 7 (Optional): Install Talktastic for voice-to-text** (2 minutes)
+
+One of the key things we'll teach is that talking to Claude naturally gets better results than trying to craft the perfect prompt. Talktastic lets you speak instead of type — it's optional but highly recommended.
+
+1. Go to the Mac App Store and search for **Talktastic**
+2. Download and install it (it's free)
+3. Open it once to make sure it's working — you'll see it in your menu bar
+
+If you don't want to install it, no worries — you can type everything instead. But voice makes the braindumping exercise much more natural.
+
+---
+
+**That's everything.** Unlike our first workshop, we will NOT be doing setup during the session — so please make sure all steps are complete before Monday. You don't need to know what any of these tools do yet — that's the whole point of the workshop.
 
 **Quick check that you're ready:**
-Open VS Code, click the Claude icon in the top right, and make sure you're signed in. If Claude Code is open and waiting, you're set.
+1. Open VS Code, click the Claude icon in the top right, and make sure you're signed in
+2. Make sure you have a Vercel account at [vercel.com](https://vercel.com)
 
 If you hit any snags, just reply to this email and we'll help you out before Monday.
 
