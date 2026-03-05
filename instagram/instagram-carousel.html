@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Instagram Carousel - /summarize Skill</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Young+Serif&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #1a1816;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    padding: 40px;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .slide {
+    width: 1080px;
+    height: 1080px;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  /* ============ COLOR TOKENS ============ */
+  :root {
+    --bg-cream: #f0ebe3;
+    --bg-warm-dark: #2a2420;
+    --text-dark: #2c2520;
+    --text-heading: #2c2520;
+    --text-accent: #8a6840;
+    --text-muted: #8a7a68;
+    --text-light: #e8ddd0;
+    --text-light-accent: #d4a868;
+    --text-light-muted: rgba(232,221,208,0.4);
+    --shape-tan: #c8a87c;
+    --shape-tan-light: #e0c8a8;
+    --border-warm: rgba(200,168,124,0.15);
+  }
+
+  /* ============ SLIDE 1 - HOOK ============ */
+  .slide-1 {
+    background: var(--bg-cream);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 100px 100px 100px 120px;
+  }
+
+  .slide-1 .stroke {
+    position: absolute;
+    top: 140px;
+    right: 80px;
+    width: 320px;
+    height: 520px;
+    border-radius: 60% 40% 50% 50% / 45% 55% 45% 55%;
+    background: linear-gradient(160deg, var(--shape-tan) 0%, #d4b896 40%, var(--shape-tan-light) 100%);
+    opacity: 0.35;
+    transform: rotate(-8deg);
+  }
+
+  .slide-1 .badge {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 48px;
+    font-weight: 400;
+  }
+
+  .slide-1 h1 {
+    font-family: 'Young Serif', serif;
+    font-size: 84px;
+    font-weight: 400;
+    color: var(--text-heading);
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .slide-1 h1 span {
+    color: var(--text-accent);
+  }
+
+  .slide-1 .subtitle {
+    margin-top: 40px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 26px;
+    color: var(--text-muted);
+    line-height: 1.6;
+    font-weight: 300;
+    max-width: 550px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .slide-1 .terminal-hint { display: none; }
+  .slide-1 .orb-bottom { display: none; }
+  .swipe-indicator { display: none; }
+  .slide-number { display: none; }
+
+  /* ============ SLIDE 2 - WHAT IT DOES ============ */
+  .slide-2 {
+    background: var(--bg-warm-dark);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 100px;
+  }
+
+  .slide-2 .stroke-2 {
+    position: absolute;
+    bottom: -60px;
+    left: -40px;
+    width: 400px;
+    height: 460px;
+    border-radius: 50% 60% 40% 50% / 55% 45% 55% 45%;
+    background: linear-gradient(140deg, rgba(200,168,124,0.08) 0%, rgba(200,168,124,0.03) 100%);
+    transform: rotate(15deg);
+  }
+
+  .slide-2 .section-label { display: none; }
+
+  .slide-2 h2 {
+    font-family: 'Young Serif', serif;
+    font-size: 74px;
+    font-weight: 400;
+    color: var(--text-light);
+    line-height: 1.12;
+    margin-bottom: 48px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .slide-2 h2 span {
+    color: var(--text-light-accent);
+  }
+
+  .content-types {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    flex: 1;
+    position: relative;
+    z-index: 2;
+  }
+
+  .content-card {
+    border-bottom: 1px solid var(--border-warm);
+    padding: 28px 0;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .content-card .icon {
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    opacity: 0.7;
+  }
+
+  .content-card h3 {
+    font-family: 'Young Serif', serif;
+    font-size: 32px;
+    font-weight: 400;
+    color: var(--text-light);
+  }
+
+  .content-card p { display: none; }
+
+  /* ============ SLIDE 3 - HOW IT WORKS ============ */
+  .slide-3 {
+    background: var(--bg-cream);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 100px;
+  }
+
+  .slide-3 .stroke-3 {
+    position: absolute;
+    top: -80px;
+    left: -60px;
+    width: 350px;
+    height: 380px;
+    border-radius: 40% 60% 50% 50% / 55% 35% 65% 45%;
+    background: linear-gradient(160deg, var(--shape-tan) 0%, var(--shape-tan-light) 100%);
+    opacity: 0.2;
+    transform: rotate(-20deg);
+  }
+
+  .slide-3 .section-label { display: none; }
+
+  .slide-3 h2 {
+    font-family: 'Young Serif', serif;
+    font-size: 72px;
+    font-weight: 400;
+    color: var(--text-heading);
+    margin-bottom: 48px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .terminal {
+    background: var(--bg-warm-dark);
+    border: 1px solid rgba(200,168,124,0.1);
+    border-radius: 16px;
+    overflow: hidden;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 2;
+  }
+
+  .terminal-header {
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid rgba(200,168,124,0.08);
+  }
+
+  .terminal-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+  }
+
+  .terminal-dot.red { background: #c87a6a; }
+  .terminal-dot.yellow { background: #c8a87c; }
+  .terminal-dot.green { background: #8a9a6a; }
+
+  .terminal-title { display: none; }
+
+  .terminal-body {
+    padding: 36px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 26px;
+    line-height: 2;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .terminal-line {
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+  }
+
+  .terminal-line .prompt {
+    color: var(--text-light-accent);
+    white-space: nowrap;
+  }
+
+  .terminal-line .command {
+    color: var(--text-light);
+  }
+
+  .terminal-line .command .flag {
+    color: var(--text-light-accent);
+  }
+
+  .terminal-line .command .url {
+    color: var(--text-light);
+    opacity: 0.6;
+    text-decoration: underline;
+    text-decoration-color: rgba(212,168,104,0.3);
+  }
+
+  .terminal-line .command .string {
+    color: #8a9a6a;
+  }
+
+  .terminal-output {
+    color: var(--text-light-muted);
+    padding-left: 24px;
+    border-left: 1px solid var(--border-warm);
+    margin-left: 4px;
+    font-size: 22px;
+    line-height: 1.8;
+  }
+
+  .terminal-output .highlight {
+    color: var(--text-light-accent);
+    font-weight: 500;
+  }
+
+  /* ============ SLIDE 4 - USE CASES ============ */
+  .slide-4 {
+    background: var(--bg-warm-dark);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 100px;
+  }
+
+  .slide-4 .stroke-4 {
+    position: absolute;
+    top: 80px;
+    right: -60px;
+    width: 300px;
+    height: 500px;
+    border-radius: 55% 45% 50% 50% / 40% 60% 40% 60%;
+    background: linear-gradient(160deg, rgba(200,168,124,0.06) 0%, rgba(200,168,124,0.02) 100%);
+    transform: rotate(-12deg);
+  }
+
+  .slide-4 .section-label { display: none; }
+
+  .slide-4 h2 {
+    font-family: 'Young Serif', serif;
+    font-size: 68px;
+    font-weight: 400;
+    color: var(--text-light);
+    margin-bottom: 48px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .use-cases {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    position: relative;
+    z-index: 2;
+  }
+
+  .use-case {
+    display: flex;
+    align-items: flex-start;
+    gap: 28px;
+    padding: 32px 0;
+    border-bottom: 1px solid var(--border-warm);
+  }
+
+  .use-case:last-child {
+    border-bottom: none;
+  }
+
+  .use-case-number {
+    font-family: 'Young Serif', serif;
+    font-size: 42px;
+    font-weight: 400;
+    color: var(--text-light-accent);
+    line-height: 1;
+    min-width: 56px;
+    opacity: 0.5;
+  }
+
+  .use-case-content h3 {
+    font-family: 'Young Serif', serif;
+    font-size: 36px;
+    font-weight: 400;
+    color: var(--text-light);
+    margin-bottom: 0;
+  }
+
+  .use-case-content p { display: none; }
+  .use-case-content .command { display: none; }
+
+  /* ============ SLIDE 5 - CTA ============ */
+  .slide-5 {
+    background: var(--bg-cream);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 100px;
+  }
+
+  .slide-5 .stroke-5a {
+    position: absolute;
+    top: -100px;
+    left: -80px;
+    width: 360px;
+    height: 400px;
+    border-radius: 45% 55% 50% 50% / 50% 40% 60% 50%;
+    background: linear-gradient(160deg, var(--shape-tan) 0%, var(--shape-tan-light) 100%);
+    opacity: 0.2;
+    transform: rotate(10deg);
+  }
+
+  .slide-5 .stroke-5b {
+    position: absolute;
+    bottom: -120px;
+    right: -60px;
+    width: 400px;
+    height: 440px;
+    border-radius: 55% 45% 50% 50% / 40% 60% 40% 60%;
+    background: linear-gradient(140deg, var(--shape-tan) 0%, var(--shape-tan-light) 100%);
+    opacity: 0.15;
+    transform: rotate(-15deg);
+  }
+
+  .slide-5 .spark-emoji {
+    display: none;
+  }
+
+  .slide-5 h2 {
+    font-family: 'Young Serif', serif;
+    font-size: 76px;
+    font-weight: 400;
+    color: var(--text-heading);
+    line-height: 1.12;
+    margin-bottom: 32px;
+    max-width: 800px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .slide-5 h2 span {
+    color: var(--text-accent);
+  }
+
+  .slide-5 .description {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 26px;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 56px;
+    max-width: 680px;
+    font-weight: 300;
+    position: relative;
+    z-index: 2;
+  }
+
+  .cta-button {
+    background: var(--bg-warm-dark);
+    color: var(--text-light);
+    font-family: 'Young Serif', serif;
+    font-size: 30px;
+    font-weight: 400;
+    padding: 28px 64px;
+    border-radius: 100px;
+    border: none;
+    letter-spacing: 0px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .cta-sub { display: none; }
+  .workshop-details { display: none; }
+  .workshop-divider { display: none; }
+  .slide-5 .orb-1 { display: none; }
+  .slide-5 .orb-2 { display: none; }
+
+  /* ============ SHARED ============ */
+  .z-10 { position: relative; z-index: 10; }
+</style>
+</head>
+<body>
+
+<!-- ========== SLIDE 1: HOOK ========== -->
+<div class="slide slide-1" id="slide-1">
+  <div class="stroke"></div>
+  <div class="z-10" style="display:flex;flex-direction:column;">
+    <div class="badge">A Claude Code Skill</div>
+    <h1>I built an AI that<br><span>summarizes anything</span><br>in seconds</h1>
+    <p class="subtitle">YouTube videos. Podcasts. PDFs. Articles.<br>One command. All the insights.</p>
+  </div>
+</div>
+
+<!-- ========== SLIDE 2: WHAT IT DOES ========== -->
+<div class="slide slide-2" id="slide-2">
+  <div class="stroke-2"></div>
+  <div class="z-10" style="display:flex;flex-direction:column;height:100%;">
+    <div class="section-label">What it summarizes</div>
+    <h2>Drop in <span>any content</span>.<br>Get the key insights.</h2>
+    <div class="content-types">
+      <div class="content-card">
+        <div class="icon">&#9654;</div>
+        <h3>YouTube Videos</h3>
+        <p>Hours of content distilled into key takeaways</p>
+      </div>
+      <div class="content-card">
+        <div class="icon">&#127911;</div>
+        <h3>Podcasts</h3>
+        <p>Skip the 2-hour episode, get the gold</p>
+      </div>
+      <div class="content-card">
+        <div class="icon">&#128196;</div>
+        <h3>PDFs &amp; Docs</h3>
+        <p>Research papers, reports, contracts</p>
+      </div>
+      <div class="content-card">
+        <div class="icon">&#127760;</div>
+        <h3>Web Articles</h3>
+        <p>Any URL, instantly summarized</p>
+      </div>
+      <div class="content-card">
+        <div class="icon">&#128187;</div>
+        <h3>Local Files</h3>
+        <p>Code, notes, logs on your machine</p>
+      </div>
+      <div class="content-card">
+        <div class="icon">&#127463;</div>
+        <h3>Multi-Language</h3>
+        <p>Summarize in English, Spanish, French...</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== SLIDE 3: HOW IT WORKS ========== -->
+<div class="slide slide-3" id="slide-3">
+  <div class="stroke-3"></div>
+  <div class="z-10" style="display:flex;flex-direction:column;height:100%;">
+    <div class="section-label">How it works</div>
+    <h2>One command. That's it.</h2>
+    <div class="terminal">
+      <div class="terminal-header">
+        <div class="terminal-dot red"></div>
+        <div class="terminal-dot yellow"></div>
+        <div class="terminal-dot green"></div>
+        <div class="terminal-title">Claude Code</div>
+      </div>
+      <div class="terminal-body">
+        <div>
+          <div class="terminal-line">
+            <span class="prompt">&gt;</span>
+            <span class="command">/summarize <span class="url">youtube.com/watch?v=dQw4...</span></span>
+          </div>
+          <div class="terminal-output">
+            <span class="highlight">Summarizing YouTube video...</span><br>
+            Extracted transcript (47 min)<br>
+            Generated XL summary
+          </div>
+        </div>
+
+        <div>
+          <div class="terminal-line">
+            <span class="prompt">&gt;</span>
+            <span class="command">/summarize <span class="url">research-paper.pdf</span> <span class="flag">--length short</span></span>
+          </div>
+          <div class="terminal-output">
+            <span class="highlight">Summarizing PDF...</span><br>
+            Extracted 42 pages via OCR<br>
+            Generated concise summary
+          </div>
+        </div>
+
+        <div>
+          <div class="terminal-line">
+            <span class="prompt">&gt;</span>
+            <span class="command">/summarize <span class="url">podcast-episode.mp3</span> <span class="flag">--timestamps</span></span>
+          </div>
+          <div class="terminal-output">
+            <span class="highlight">Summarizing podcast...</span><br>
+            Transcribed 1h 23m of audio<br>
+            Generated summary with timestamps
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== SLIDE 4: USE CASES ========== -->
+<div class="slide slide-4" id="slide-4">
+  <div class="stroke-4"></div>
+  <div class="z-10" style="display:flex;flex-direction:column;height:100%;">
+    <div class="section-label">Real use cases</div>
+    <h2>How this changes your workflow</h2>
+    <div class="use-cases">
+      <div class="use-case">
+        <div class="use-case-number">01</div>
+        <div class="use-case-content">
+          <h3>Research in minutes, not hours</h3>
+          <p>Summarize 10 papers before your morning coffee.</p>
+          <span class="command">/summarize arxiv.org/paper --length short</span>
+        </div>
+      </div>
+      <div class="use-case">
+        <div class="use-case-number">02</div>
+        <div class="use-case-content">
+          <h3>Never miss a podcast insight</h3>
+          <p>Your podcast queue is 47 episodes deep.</p>
+          <span class="command">/summarize episode.mp3 --timestamps</span>
+        </div>
+      </div>
+      <div class="use-case">
+        <div class="use-case-number">03</div>
+        <div class="use-case-content">
+          <h3>Stay ahead of the news</h3>
+          <p>Drop any article URL and get the key points.</p>
+          <span class="command">/summarize https://article-url.com</span>
+        </div>
+      </div>
+      <div class="use-case">
+        <div class="use-case-number">04</div>
+        <div class="use-case-content">
+          <h3>Learn from any YouTube video</h3>
+          <p>That 3-hour conference talk? 30-second summary.</p>
+          <span class="command">/summarize youtube.com/watch?v=...</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== SLIDE 5: CTA ========== -->
+<div class="slide slide-5" id="slide-5">
+  <div class="stroke-5a"></div>
+  <div class="stroke-5b"></div>
+  <div class="z-10" style="display:flex;flex-direction:column;align-items:center;">
+    <h2>Learn to build<br><span>AI skills like this</span><br>yourself</h2>
+    <p class="description">Join our hands-on workshop where we teach you to create custom Claude Code skills that automate your life.</p>
+    <div class="cta-button">Comment SKILLS for workshop link</div>
+  </div>
+</div>
+
+</body>
+</html>

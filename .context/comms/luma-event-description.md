@@ -1,25 +1,34 @@
 # Luma Event Description
 
-**Event Name:** Becoming Superhuman: Leveraging Claude Code in Your Everyday Life
+**Event Name:** Zero to Live: Build Your Website in 90 Minutes
 
 ---
 
-Claude Code is the latest AI tool that people are using to 10x their output — and you don't need to be technical to use it.
+What takes most people months and thousands of dollars, you'll do in 90 minutes.
 
-In this 60-minute live workshop, you'll learn how the top AI users are leveraging Claude Code to uplevel their lives and workflows. We'll walk you through everything from getting started to building real systems you'll actually use.
+Whether you're launching a product, building a coaching page, showcasing your portfolio, or finally getting your idea on the internet -- this workshop is for you. You'll go from a rough idea to a live, deployed website with a real URL you can share with anyone. Brand, site, marketing strategy, and social content ready to post.
+
+No coding. No Squarespace. No expensive agencies. Just conversation with Claude Code, the AI tool people are using to 10x their output.
 
 **What you'll walk away with:**
-- Your very own LifeOS — a personal system to organize your life from to-do lists to calendar management to email
-- How this tool can uplevel your daily workflow, no matter what you do
-- The mindset and approach the top AI users bring to everyday tasks
-- Confidence to keep using Claude Code on your own after the workshop
+- A brand identity -- name, tagline, color palette, and visual direction
+- A live website deployed on the internet -- your product page, portfolio, or landing page
+- A marketing strategy based on real viral patterns Claude finds on the web
+- Ready-to-post social media content for your launch
+- Power user techniques: plan mode, auto-accept, web search, model switching
 
 **Who this is for:**
-- Anyone curious about AI but unsure where to start
-- People who want to get more done without working harder
-- Non-technical professionals looking for a real edge
+- Entrepreneurs launching a new product who need a site that sells
+- Coaches, consultants, and freelancers who need a professional web presence
+- Non-technical founders who want a landing page that collects emails
+- Designers, artists, and creatives who want to showcase their work online
+- Anyone who's been meaning to build a website but it always felt too expensive or technical
+- Returning attendees from our first workshop who want to go deeper with new techniques
+
+**What's different from Workshop 1:**
+Completely new project, completely new techniques. If you attended the first workshop (Life OS), you'll learn plan mode, auto-accept, deployment, web search, and more. If you're brand new, everything you need is covered from the start.
 
 **Your hosts:**
-Evan Grenda has worked in AI since 2018 — from healthcare to Deloitte to advising companies at AWS. Dylan has been building products for over a decade and using AI in his daily life for the past two years. Together they founded OneDay to make AI accessible to everyone.
+Evan Grenda has worked in AI since 2018 -- from healthcare to Deloitte to advising companies at AWS. Dylan has been building products for over a decade and using AI in his daily life for the past two years. Together they founded OneDay to make AI accessible to everyone.
 
-No coding experience needed. Just bring your laptop and an open mind.
+No coding experience needed. Just bring your laptop and an idea -- or even a spark of one.

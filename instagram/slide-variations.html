@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Slide 1 Variations — Brand Exploration</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #050505;
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 80px;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .variation-label {
+    color: rgba(255,255,255,0.3);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: -60px;
+    align-self: flex-start;
+    max-width: 1080px;
+    width: 100%;
+  }
+
+  .slide {
+    width: 1080px;
+    height: 1080px;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  /* ============================================================
+     VARIATION 1: NEON BLOB
+     Inspired by 3D pink blob render. Soft organic shape + clean type.
+     ============================================================ */
+  .v1 {
+    background: #0a0a0a;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 80px;
+  }
+
+  .v1 .blob {
+    position: absolute;
+    width: 700px;
+    height: 700px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(ellipse at 40% 40%, #f5a0c0 0%, #c060a0 30%, #4a1040 60%, transparent 75%);
+    border-radius: 60% 40% 55% 45% / 50% 60% 40% 50%;
+    filter: blur(60px);
+    opacity: 0.5;
+  }
+
+  .v1 .content {
+    position: relative;
+    z-index: 2;
+  }
+
+  .v1 .tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 24px;
+    color: #f5a0c0;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    opacity: 0.8;
+  }
+
+  .v1 h1 {
+    font-family: 'Inter', sans-serif;
+    font-size: 88px;
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.05;
+    letter-spacing: -3px;
+    margin-bottom: 32px;
+  }
+
+  .v1 h1 em {
+    font-style: normal;
+    color: #f5a0c0;
+  }
+
+  .v1 .sub {
+    font-size: 32px;
+    color: rgba(255,255,255,0.4);
+    font-weight: 300;
+    line-height: 1.5;
+  }
+
+  /* ============================================================
+     VARIATION 2: PARTICLE CONSTELLATION
+     Inspired by the particle/network art. CSS dot field.
+     ============================================================ */
+  .v2 {
+    background: #0a0a0a;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 80px;
+  }
+
+  .v2 .particles {
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(1.5px 1.5px at 120px 80px, #f5a623 80%, transparent),
+      radial-gradient(1px 1px at 340px 200px, #f5a623 80%, transparent),
+      radial-gradient(2px 2px at 560px 140px, #f5a623 80%, transparent),
+      radial-gradient(1px 1px at 780px 300px, #f5a623 80%, transparent),
+      radial-gradient(1.5px 1.5px at 200px 420px, #f5a623 80%, transparent),
+      radial-gradient(1px 1px at 480px 380px, #f5a623 80%, transparent),
+      radial-gradient(2px 2px at 700px 500px, #f5a623 80%, transparent),
+      radial-gradient(1px 1px at 900px 450px, #f5a623 80%, transparent),
+      radial-gradient(1.5px 1.5px at 150px 620px, #f5a623 80%, transparent),
+      radial-gradient(1px 1px at 400px 580px, #f5a623 80%, transparent),
+      radial-gradient(2px 2px at 650px 700px, #f5a623 80%, transparent),
+      radial-gradient(1px 1px at 850px 650px, #f5a623 80%, transparent),
+      radial-gradient(1.5px 1.5px at 100px 800px, #f5a623 80%, transparent),
+      radial-gradient(1px 1px at 300px 750px, #f5a623 80%, transparent),
+      radial-gradient(2px 2px at 520px 820px, #f5a623 80%, transparent),
+      radial-gradient(1px 1px at 750px 880px, #f5a623 80%, transparent),
+      radial-gradient(1.5px 1.5px at 950px 780px, #f5a623 80%, transparent),
+      radial-gradient(1px 1px at 250px 950px, #f5a623 80%, transparent),
+      radial-gradient(2px 2px at 600px 960px, #f5a623 80%, transparent),
+      radial-gradient(1px 1px at 820px 1020px, #f5a623 80%, transparent);
+    opacity: 0.6;
+  }
+
+  .v2 .glow {
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(245,166,35,0.08) 0%, transparent 70%);
+  }
+
+  .v2 .content {
+    position: relative;
+    z-index: 2;
+  }
+
+  .v2 h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 92px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.05;
+    letter-spacing: -2px;
+    margin-bottom: 28px;
+  }
+
+  .v2 h1 em {
+    font-style: normal;
+    color: #f5a623;
+  }
+
+  .v2 .sub {
+    font-size: 30px;
+    color: rgba(255,255,255,0.35);
+    font-weight: 400;
+    line-height: 1.5;
+    max-width: 700px;
+  }
+
+  .v2 .cmd {
+    margin-top: 48px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 28px;
+    color: rgba(245,166,35,0.5);
+  }
+
+  /* ============================================================
+     VARIATION 3: LIGHT THROUGH BLINDS
+     Horizontal stripes with color gradient bleeding through.
+     ============================================================ */
+  .v3 {
+    background: #0a0a0a;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 80px;
+  }
+
+  .v3 .blinds {
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      180deg,
+      transparent 0px,
+      transparent 38px,
+      rgba(255,255,255,0.03) 38px,
+      rgba(255,255,255,0.03) 40px
+    );
+  }
+
+  .v3 .light-leak {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(180deg,
+      rgba(0,229,255,0.06) 0%,
+      rgba(0,229,255,0.12) 20%,
+      rgba(0,180,220,0.08) 50%,
+      rgba(0,229,255,0.04) 80%,
+      transparent 100%
+    );
+    mask-image: repeating-linear-gradient(
+      180deg,
+      transparent 0px,
+      transparent 2px,
+      black 2px,
+      black 38px,
+      transparent 38px,
+      transparent 40px
+    );
+  }
+
+  .v3 .content {
+    position: relative;
+    z-index: 2;
+  }
+
+  .v3 .tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 22px;
+    color: #00e5ff;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 48px;
+    opacity: 0.7;
+  }
+
+  .v3 h1 {
+    font-family: 'Inter', sans-serif;
+    font-size: 84px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.1;
+    letter-spacing: -2px;
+    margin-bottom: 32px;
+  }
+
+  .v3 h1 em {
+    font-style: normal;
+    color: #00e5ff;
+  }
+
+  .v3 .sub {
+    font-size: 30px;
+    color: rgba(255,255,255,0.35);
+    font-weight: 400;
+    line-height: 1.5;
+    max-width: 650px;
+  }
+
+  /* ============================================================
+     VARIATION 4: GOLDEN HOUR
+     Warm sunset tones, soft organic gradients.
+     ============================================================ */
+  .v4 {
+    background: linear-gradient(160deg, #1a1008 0%, #2a1a0e 30%, #1a0e18 70%, #0a0a0a 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 80px;
+  }
+
+  .v4 .sun-glow {
+    position: absolute;
+    top: -200px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 800px;
+    height: 500px;
+    background: radial-gradient(ellipse, rgba(245,166,35,0.15) 0%, rgba(245,100,60,0.05) 50%, transparent 75%);
+  }
+
+  .v4 .horizon {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent 10%, rgba(245,166,35,0.2) 50%, transparent 90%);
+  }
+
+  .v4 .content {
+    position: relative;
+    z-index: 2;
+  }
+
+  .v4 .tag {
+    font-size: 26px;
+    color: #e8d5b7;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    margin-bottom: 48px;
+    opacity: 0.5;
+    font-weight: 300;
+  }
+
+  .v4 h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: 96px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.05;
+    letter-spacing: -2px;
+    margin-bottom: 36px;
+  }
+
+  .v4 h1 em {
+    font-style: normal;
+    background: linear-gradient(135deg, #f5a623, #f07040, #e8d5b7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .v4 .sub {
+    font-size: 32px;
+    color: rgba(232,213,183,0.4);
+    font-weight: 300;
+    line-height: 1.5;
+    max-width: 750px;
+  }
+
+  /* ============================================================
+     VARIATION 5: GEOMETRIC COLOR BLOCKS
+     Bold nested squares, Bauhaus energy.
+     ============================================================ */
+  .v5 {
+    background: #0a0a0a;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding: 80px;
+  }
+
+  .v5 .blocks {
+    position: absolute;
+    top: 60px;
+    right: 60px;
+    width: 500px;
+    height: 500px;
+  }
+
+  .v5 .block {
+    position: absolute;
+    border-radius: 4px;
+  }
+
+  .v5 .block-1 {
+    width: 500px;
+    height: 500px;
+    background: #ff2d78;
+    top: 0;
+    left: 0;
+  }
+
+  .v5 .block-2 {
+    width: 350px;
+    height: 350px;
+    background: #00e5ff;
+    top: 75px;
+    left: 75px;
+  }
+
+  .v5 .block-3 {
+    width: 200px;
+    height: 200px;
+    background: #f5a623;
+    top: 150px;
+    left: 150px;
+  }
+
+  .v5 .block-4 {
+    width: 80px;
+    height: 80px;
+    background: #fff;
+    top: 210px;
+    left: 210px;
+  }
+
+  .v5 .content {
+    position: relative;
+    z-index: 2;
+  }
+
+  .v5 h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 86px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.05;
+    letter-spacing: -2px;
+    margin-bottom: 24px;
+  }
+
+  .v5 h1 em {
+    font-style: normal;
+    color: #ff2d78;
+  }
+
+  .v5 .sub {
+    font-size: 30px;
+    color: rgba(255,255,255,0.35);
+    line-height: 1.5;
+    max-width: 500px;
+  }
+
+  .v5 .cmd {
+    margin-top: 40px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 26px;
+    color: rgba(255,45,120,0.5);
+  }
+
+  /* ============================================================
+     VARIATION 6: WAVE LINES
+     Elegant line art on dark, inspired by B&W wave pattern.
+     ============================================================ */
+  .v6 {
+    background: #0a0a0a;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 80px;
+  }
+
+  .v6 .waves {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+  }
+
+  .v6 .wave-line {
+    position: absolute;
+    left: -10%;
+    width: 120%;
+    height: 2px;
+    border-radius: 50%;
+  }
+
+  .v6 .wave-line:nth-child(1) { top: 8%; border-top: 1px solid rgba(255,255,255,0.04); transform: rotate(-2deg); }
+  .v6 .wave-line:nth-child(2) { top: 14%; border-top: 1px solid rgba(255,255,255,0.05); transform: rotate(-1.5deg); }
+  .v6 .wave-line:nth-child(3) { top: 20%; border-top: 1px solid rgba(255,255,255,0.06); transform: rotate(-1deg); }
+  .v6 .wave-line:nth-child(4) { top: 26%; border-top: 1px solid rgba(255,255,255,0.07); transform: rotate(-0.5deg); }
+  .v6 .wave-line:nth-child(5) { top: 32%; border-top: 1px solid rgba(255,255,255,0.08); transform: rotate(0deg); }
+  .v6 .wave-line:nth-child(6) { bottom: 32%; border-top: 1px solid rgba(255,255,255,0.08); transform: rotate(0deg); }
+  .v6 .wave-line:nth-child(7) { bottom: 26%; border-top: 1px solid rgba(255,255,255,0.07); transform: rotate(0.5deg); }
+  .v6 .wave-line:nth-child(8) { bottom: 20%; border-top: 1px solid rgba(255,255,255,0.06); transform: rotate(1deg); }
+  .v6 .wave-line:nth-child(9) { bottom: 14%; border-top: 1px solid rgba(255,255,255,0.05); transform: rotate(1.5deg); }
+  .v6 .wave-line:nth-child(10) { bottom: 8%; border-top: 1px solid rgba(255,255,255,0.04); transform: rotate(2deg); }
+
+  .v6 .content {
+    position: relative;
+    z-index: 2;
+  }
+
+  .v6 h1 {
+    font-family: 'Inter', sans-serif;
+    font-size: 92px;
+    font-weight: 200;
+    color: #fff;
+    line-height: 1.1;
+    letter-spacing: -1px;
+    margin-bottom: 32px;
+  }
+
+  .v6 h1 strong {
+    font-weight: 900;
+  }
+
+  .v6 .sub {
+    font-size: 28px;
+    color: rgba(255,255,255,0.3);
+    font-weight: 300;
+    line-height: 1.6;
+    max-width: 700px;
+  }
+
+  .v6 .divider {
+    width: 60px;
+    height: 1px;
+    background: rgba(255,255,255,0.15);
+    margin: 40px auto;
+  }
+
+  .v6 .cmd {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 26px;
+    color: rgba(255,255,255,0.2);
+  }
+
+  /* ============================================================
+     VARIATION 7: DATA VIZ RING
+     Colored arc/ring element as hero graphic.
+     ============================================================ */
+  .v7 {
+    background: #0a0a0a;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding: 80px;
+  }
+
+  .v7 .ring-container {
+    position: absolute;
+    top: 40px;
+    right: -80px;
+    width: 700px;
+    height: 700px;
+  }
+
+  .v7 .ring {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 40px solid transparent;
+    border-top-color: #00e5ff;
+    border-right-color: #f5a623;
+    border-bottom-color: #ff2d78;
+    border-left-color: #c4b5fd;
+    opacity: 0.6;
+  }
+
+  .v7 .ring-inner {
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    border: 25px solid transparent;
+    border-top-color: #c4b5fd;
+    border-right-color: #ff2d78;
+    border-bottom-color: #f5a623;
+    border-left-color: #00e5ff;
+    opacity: 0.3;
+  }
+
+  .v7 .content {
+    position: relative;
+    z-index: 2;
+  }
+
+  .v7 .tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 22px;
+    color: #00e5ff;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 36px;
+    opacity: 0.6;
+  }
+
+  .v7 h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 84px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.08;
+    letter-spacing: -2px;
+    margin-bottom: 28px;
+    max-width: 650px;
+  }
+
+  .v7 h1 em {
+    font-style: normal;
+    color: #00e5ff;
+  }
+
+  .v7 .sub {
+    font-size: 28px;
+    color: rgba(255,255,255,0.35);
+    line-height: 1.5;
+    max-width: 550px;
+  }
+
+  /* ============================================================
+     VARIATION 8: TEXTURED SURFACE
+     Physical dots/bumps texture like the blue dot pattern.
+     ============================================================ */
+  .v8 {
+    background: #0e1428;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 80px;
+  }
+
+  .v8 .texture {
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle 6px at center, rgba(100,140,200,0.15) 0%, transparent 100%);
+    background-size: 48px 48px;
+    background-position: 24px 24px;
+  }
+
+  .v8 .texture-overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, transparent 30%, #0e1428 80%);
+  }
+
+  .v8 .content {
+    position: relative;
+    z-index: 2;
+  }
+
+  .v8 .tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 24px;
+    color: #c4b5fd;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 48px;
+    opacity: 0.6;
+  }
+
+  .v8 h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: 90px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.05;
+    letter-spacing: -2px;
+    margin-bottom: 32px;
+  }
+
+  .v8 h1 em {
+    font-style: normal;
+    color: #c4b5fd;
+  }
+
+  .v8 .sub {
+    font-size: 30px;
+    color: rgba(255,255,255,0.35);
+    font-weight: 300;
+    line-height: 1.5;
+    max-width: 700px;
+  }
+
+  /* ============================================================
+     VARIATION 9: SPLIT DUALITY
+     Left warm, right cool — reflecting dual nature.
+     ============================================================ */
+  .v9 {
+    background: #0a0a0a;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 80px;
+  }
+
+  .v9 .split-warm {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(245,166,35,0.08) 0%, rgba(240,112,64,0.04) 50%, transparent 100%);
+  }
+
+  .v9 .split-cool {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(0,229,255,0.08) 0%, rgba(196,181,253,0.04) 50%, transparent 100%);
+  }
+
+  .v9 .split-line {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent 5%, rgba(255,255,255,0.06) 30%, rgba(255,255,255,0.06) 70%, transparent 95%);
+  }
+
+  .v9 .content {
+    position: relative;
+    z-index: 2;
+  }
+
+  .v9 h1 {
+    font-family: 'Inter', sans-serif;
+    font-size: 88px;
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.08;
+    letter-spacing: -3px;
+    margin-bottom: 32px;
+  }
+
+  .v9 h1 .warm {
+    color: #f5a623;
+  }
+
+  .v9 h1 .cool {
+    color: #00e5ff;
+  }
+
+  .v9 .sub {
+    font-size: 30px;
+    color: rgba(255,255,255,0.35);
+    font-weight: 300;
+    line-height: 1.5;
+    max-width: 750px;
+  }
+
+  .v9 .tags {
+    display: flex;
+    gap: 16px;
+    margin-top: 48px;
+  }
+
+  .v9 .tag-pill {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 20px;
+    padding: 10px 24px;
+    border-radius: 100px;
+    border: 1px solid rgba(255,255,255,0.08);
+    color: rgba(255,255,255,0.4);
+  }
+
+  /* ============================================================
+     VARIATION 10: CINEMA POSTER
+     Massive type, single accent, ultra-minimal.
+     ============================================================ */
+  .v10 {
+    background: #0a0a0a;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 80px;
+  }
+
+  .v10 .accent-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 8px;
+    height: 100%;
+    background: linear-gradient(180deg, #ff2d78 0%, #f5a623 50%, #00e5ff 100%);
+  }
+
+  .v10 .top {
+    position: relative;
+    z-index: 2;
+  }
+
+  .v10 .tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 20px;
+    color: rgba(255,255,255,0.25);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+  }
+
+  .v10 .middle {
+    position: relative;
+    z-index: 2;
+    flex: 1;
+    display: flex;
+    align-items: center;
+  }
+
+  .v10 h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: 120px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 0.95;
+    letter-spacing: -4px;
+  }
+
+  .v10 h1 em {
+    font-style: normal;
+    display: block;
+    background: linear-gradient(90deg, #ff2d78, #f5a623);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .v10 .bottom {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  .v10 .sub {
+    font-size: 26px;
+    color: rgba(255,255,255,0.3);
+    font-weight: 300;
+    line-height: 1.5;
+    max-width: 500px;
+  }
+
+  .v10 .cmd {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 24px;
+    color: rgba(255,255,255,0.15);
+    text-align: right;
+  }
+
+</style>
+</head>
+<body>
+
+<!-- ========== VARIATION 1: NEON BLOB ========== -->
+<div class="variation-label">01 — Neon Blob</div>
+<div class="slide v1">
+  <div class="blob"></div>
+  <div class="content">
+    <div class="tag">Claude Code Skill</div>
+    <h1>I built an AI that<br><em>summarizes anything</em><br>in seconds</h1>
+    <p class="sub">YouTube. Podcasts. PDFs. Articles.<br>One command. Instant knowledge.</p>
+  </div>
+</div>
+
+<!-- ========== VARIATION 2: PARTICLE CONSTELLATION ========== -->
+<div class="variation-label">02 — Particle Constellation</div>
+<div class="slide v2">
+  <div class="particles"></div>
+  <div class="glow"></div>
+  <div class="content">
+    <h1>I built an AI that<br><em>summarizes anything</em><br>in seconds</h1>
+    <p class="sub">YouTube. Podcasts. PDFs. Articles.<br>One command. Instant knowledge.</p>
+    <div class="cmd">/summarize _</div>
+  </div>
+</div>
+
+<!-- ========== VARIATION 3: LIGHT THROUGH BLINDS ========== -->
+<div class="variation-label">03 — Light Through Blinds</div>
+<div class="slide v3">
+  <div class="blinds"></div>
+  <div class="light-leak"></div>
+  <div class="content">
+    <div class="tag">Claude Code Skill</div>
+    <h1>I built an AI that<br><em>summarizes anything</em><br>in seconds</h1>
+    <p class="sub">YouTube. Podcasts. PDFs. Articles.<br>One command. Instant knowledge.</p>
+  </div>
+</div>
+
+<!-- ========== VARIATION 4: GOLDEN HOUR ========== -->
+<div class="variation-label">04 — Golden Hour</div>
+<div class="slide v4">
+  <div class="sun-glow"></div>
+  <div class="horizon"></div>
+  <div class="content">
+    <div class="tag">Claude Code Skill</div>
+    <h1>I built an AI that<br><em>summarizes anything</em><br>in seconds</h1>
+    <p class="sub">YouTube. Podcasts. PDFs. Articles.<br>One command. Instant knowledge.</p>
+  </div>
+</div>
+
+<!-- ========== VARIATION 5: GEOMETRIC COLOR BLOCKS ========== -->
+<div class="variation-label">05 — Geometric Color Blocks</div>
+<div class="slide v5">
+  <div class="blocks">
+    <div class="block block-1"></div>
+    <div class="block block-2"></div>
+    <div class="block block-3"></div>
+    <div class="block block-4"></div>
+  </div>
+  <div class="content">
+    <h1>I built an AI that<br><em>summarizes anything</em><br>in seconds</h1>
+    <p class="sub">YouTube. Podcasts. PDFs. Articles.<br>One command. Instant knowledge.</p>
+    <div class="cmd">/summarize _</div>
+  </div>
+</div>
+
+<!-- ========== VARIATION 6: WAVE LINES ========== -->
+<div class="variation-label">06 — Wave Lines</div>
+<div class="slide v6">
+  <div class="waves">
+    <div class="wave-line"></div>
+    <div class="wave-line"></div>
+    <div class="wave-line"></div>
+    <div class="wave-line"></div>
+    <div class="wave-line"></div>
+    <div class="wave-line"></div>
+    <div class="wave-line"></div>
+    <div class="wave-line"></div>
+    <div class="wave-line"></div>
+    <div class="wave-line"></div>
+  </div>
+  <div class="content">
+    <h1>I built an AI that<br><strong>summarizes anything</strong><br>in seconds</h1>
+    <div class="divider"></div>
+    <p class="sub">YouTube. Podcasts. PDFs. Articles.<br>One command. Instant knowledge.</p>
+    <div style="height:32px"></div>
+    <div class="cmd">/summarize</div>
+  </div>
+</div>
+
+<!-- ========== VARIATION 7: DATA VIZ RING ========== -->
+<div class="variation-label">07 — Data Viz Ring</div>
+<div class="slide v7">
+  <div class="ring-container">
+    <div class="ring"></div>
+    <div class="ring-inner"></div>
+  </div>
+  <div class="content">
+    <div class="tag">Claude Code Skill</div>
+    <h1>I built an AI that<br><em>summarizes anything</em><br>in seconds</h1>
+    <p class="sub">YouTube. Podcasts. PDFs. Articles.<br>One command. Instant knowledge.</p>
+  </div>
+</div>
+
+<!-- ========== VARIATION 8: TEXTURED SURFACE ========== -->
+<div class="variation-label">08 — Textured Surface</div>
+<div class="slide v8">
+  <div class="texture"></div>
+  <div class="texture-overlay"></div>
+  <div class="content">
+    <div class="tag">Claude Code Skill</div>
+    <h1>I built an AI that<br><em>summarizes anything</em><br>in seconds</h1>
+    <p class="sub">YouTube. Podcasts. PDFs. Articles.<br>One command. Instant knowledge.</p>
+  </div>
+</div>
+
+<!-- ========== VARIATION 9: SPLIT DUALITY ========== -->
+<div class="variation-label">09 — Split Duality</div>
+<div class="slide v9">
+  <div class="split-warm"></div>
+  <div class="split-cool"></div>
+  <div class="split-line"></div>
+  <div class="content">
+    <h1>I built an AI that<br><span class="warm">summarizes</span> <span class="cool">anything</span><br>in seconds</h1>
+    <p class="sub">YouTube. Podcasts. PDFs. Articles.<br>One command. Instant knowledge.</p>
+    <div class="tags">
+      <span class="tag-pill">YouTube</span>
+      <span class="tag-pill">Podcasts</span>
+      <span class="tag-pill">PDFs</span>
+      <span class="tag-pill">Articles</span>
+    </div>
+  </div>
+</div>
+
+<!-- ========== VARIATION 10: CINEMA POSTER ========== -->
+<div class="variation-label">10 — Cinema Poster</div>
+<div class="slide v10">
+  <div class="accent-bar"></div>
+  <div class="top">
+    <div class="tag">Claude Code Skill</div>
+  </div>
+  <div class="middle">
+    <h1>Summarize<br><em>anything</em><br>in seconds</h1>
+  </div>
+  <div class="bottom">
+    <p class="sub">YouTube. Podcasts. PDFs.<br>Articles. One command.</p>
+    <div class="cmd">/summarize</div>
+  </div>
+</div>
+
+</body>
+</html>

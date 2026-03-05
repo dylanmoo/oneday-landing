@@ -4,10 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-  <title>Becoming Superhuman — Live Workshop | OneDay</title>
-  <meta name="description" content="Leveraging Claude Code in your everyday life. $30 live workshop — build your own Life OS and 10x your output. No technical experience needed." />
-  <meta property="og:title" content="Becoming Superhuman — Live Workshop | OneDay" />
-  <meta property="og:description" content="Leveraging Claude Code in your everyday life. Build your own Life OS in 60 minutes. No technical experience needed." />
+  <title>Zero to Live — Live Workshop | OneDay</title>
+  <meta name="description" content="Build a professional website for your product, coaching practice, or portfolio in 90 minutes — brand, site, marketing strategy, social content. Live workshop using Claude Code. From $44. No coding required." />
+  <meta property="og:title" content="Zero to Live — Live Workshop | OneDay" />
+  <meta property="og:description" content="Build a professional website in 90 minutes. Brand, live site, marketing strategy, and social content — no coding required." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="/workshop-cover.png" />
   <meta property="og:image:width" content="1200" />
@@ -723,6 +723,246 @@
       text-decoration: underline;
     }
 
+    /* ── Testimonials ── */
+    .testimonials {
+      padding: 120px 24px;
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .testimonials-grid {
+      max-width: 800px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .testimonial-card {
+      padding: 28px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      position: relative;
+    }
+
+    .testimonial-card::before {
+      content: '\201C';
+      position: absolute;
+      top: 16px;
+      left: 24px;
+      font-size: 48px;
+      font-family: var(--font-serif);
+      color: var(--accent);
+      opacity: 0.3;
+      line-height: 1;
+    }
+
+    .testimonial-card p {
+      font-size: 15px;
+      color: var(--text);
+      line-height: 1.7;
+      font-style: italic;
+      margin-top: 16px;
+    }
+
+    .testimonial-source {
+      margin-top: 16px;
+      font-size: 13px;
+      color: var(--text-muted);
+      font-style: normal;
+    }
+
+    /* ── Value Comparison ── */
+    .value-compare {
+      padding: 120px 24px;
+    }
+
+    .value-grid {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .value-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .value-row:last-child {
+      border-bottom: none;
+      padding-top: 20px;
+    }
+
+    .value-label {
+      font-size: 16px;
+      color: var(--text-muted);
+    }
+
+    .value-price {
+      font-size: 16px;
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .value-row.total .value-label {
+      font-size: 18px;
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .value-row.total .value-price {
+      font-size: 18px;
+      text-decoration: line-through;
+      color: var(--text-muted);
+    }
+
+    .value-your-price {
+      text-align: center;
+      margin-top: 32px;
+      font-size: 20px;
+      color: var(--text);
+    }
+
+    .value-your-price strong {
+      color: var(--accent);
+      font-size: 28px;
+    }
+
+    /* ── Pricing Tiers ── */
+    .pricing {
+      padding: 120px 24px;
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .pricing-grid {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .pricing-card {
+      padding: 32px 28px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      text-align: center;
+      transition: border-color 0.3s, transform 0.3s;
+      position: relative;
+    }
+
+    .pricing-card:hover {
+      border-color: rgba(108, 99, 255, 0.3);
+      transform: translateY(-2px);
+    }
+
+    .pricing-card.featured {
+      border-color: var(--accent);
+      box-shadow: 0 0 30px var(--accent-glow);
+    }
+
+    .pricing-badge {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 4px 16px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border-radius: 100px;
+      white-space: nowrap;
+    }
+
+    .pricing-card h3 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .pricing-amount {
+      font-family: var(--font-serif);
+      font-size: 42px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .pricing-seats {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+
+    .pricing-features {
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+
+    .pricing-feature {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .pricing-feature svg {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+      stroke: var(--green);
+      fill: none;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      margin-top: 2px;
+    }
+
+    .pricing-cta {
+      display: inline-block;
+      width: 100%;
+      padding: 14px 24px;
+      background: transparent;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      border-radius: 10px;
+      font-family: var(--font-sans);
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .pricing-cta:hover {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .pricing-card.featured .pricing-cta {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .pricing-card.featured .pricing-cta:hover {
+      background: var(--accent-hover);
+      box-shadow: 0 0 24px var(--accent-glow);
+    }
+
     /* ── Responsive ── */
     @media (max-width: 768px) {
       .learn-grid {
@@ -736,6 +976,16 @@
       }
 
       .hosts-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+      }
+
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+        max-width: 480px;
+      }
+
+      .pricing-grid {
         grid-template-columns: 1fr;
         max-width: 400px;
       }
@@ -761,8 +1011,7 @@
   <nav>
     <div class="nav-inner">
       <a href="/landing.html" class="nav-logo">One<span>Day</span></a>
-      <!-- TODO: Replace with your Luma event URL -->
-      <a href="#register" class="nav-cta">Join — $30</a>
+      <a href="https://luma.com/ui0lggny" class="nav-cta">Join — from $44</a>
     </div>
   </nav>
 
@@ -774,27 +1023,26 @@
         <span class="live-dot"></span>
         Live Workshop
       </div>
-      <h1><em>Becoming Superhuman</em></h1>
+      <h1><em>Zero to Live</em></h1>
       <p class="hero-sub">
-        Leveraging Claude Code in your everyday life. Claude Code is the latest AI tool that people are using to 10x their output — and in 60 minutes, you'll learn how it can uplevel your life and workflow.
+        What takes most people months and thousands of dollars, you'll do in 90 minutes with Claude Code — the AI tool everyone's talking about. Go from a rough idea to a live website that represents you on the internet — your product, your coaching practice, your portfolio, your vision. Brand, site, marketing strategy, and social content ready to post. No experience needed — we'll teach you everything.
       </p>
       <div class="hero-details">
         <div class="hero-detail">
           <svg class="hero-detail-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-          <span><strong>Monday, Feb 23</strong></span>
+          <span><strong>Monday, Mar 9</strong></span>
         </div>
         <div class="hero-detail">
           <svg class="hero-detail-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          <span><strong>8:00 – 9:00 PM PST</strong></span>
+          <span><strong>6:00 – 7:30 PM PST</strong></span>
         </div>
         <div class="hero-detail">
           <svg class="hero-detail-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 10l5 5-5 5"/><path d="M4 4v7a4 4 0 0 0 4 4h12"/></svg>
           <span><strong>Google Meet</strong> (link sent after registration)</span>
         </div>
       </div>
-      <!-- TODO: Replace # with your Luma event URL -->
-      <a href="#register" class="hero-cta">Reserve Your Spot</a>
-      <p class="hero-price"><strong>$30</strong> &middot; Limited seats &middot; Recording included</p>
+      <a href="https://luma.com/ui0lggny" class="hero-cta">Reserve Your Spot</a>
+      <p class="hero-price">From <strong>$44</strong> &middot; 60 seats &middot; Recording included</p>
     </div>
   </section>
 
@@ -803,61 +1051,61 @@
     <div class="container">
       <div class="reveal">
         <p class="label">What You'll Learn</p>
-        <h2 class="section-title">How this tool can uplevel your life and workflow.</h2>
+        <h2 class="section-title">Your idea, live on the internet — in one evening.</h2>
       </div>
       <div class="learn-grid">
         <div class="learn-card reveal" style="transition-delay: 0.05s;">
           <div class="learn-icon">
-            <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4c0-1.1.9-2 2-2h8a2 2 0 0 1 2 2v5Z"/><path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1"/></svg>
           </div>
           <div class="learn-text">
-            <h3>Getting Started</h3>
-            <p>We'll get Claude Code up and running on your computer together — Mac or PC, step by step.</p>
+            <h3>Braindump Your Idea</h3>
+            <p>Forget "prompt engineering." Just talk about your idea like you're telling a friend — messy, unfiltered, real. That's the whole secret.</p>
           </div>
         </div>
         <div class="learn-card reveal" style="transition-delay: 0.1s;">
           <div class="learn-icon">
-            <svg viewBox="0 0 24 24"><path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4c0-1.1.9-2 2-2h8a2 2 0 0 1 2 2v5Z"/><path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
           </div>
           <div class="learn-text">
-            <h3>How to Talk to AI</h3>
-            <p>Learn the simple way to ask Claude for what you want — and get great results every time.</p>
+            <h3>Create Your Brand</h3>
+            <p>Claude generates your name, tagline, color palette, and visual identity — a complete brand born from your braindump.</p>
           </div>
         </div>
         <div class="learn-card reveal" style="transition-delay: 0.15s;">
           <div class="learn-icon">
-            <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
           </div>
           <div class="learn-text">
-            <h3>Real-Life Examples</h3>
-            <p>See exactly how top AI users are managing their lives, automating busywork, and getting more done.</p>
+            <h3>Build &amp; Deploy Your Site</h3>
+            <p>A polished landing page — built, deployed, and live on the internet with a real URL. One command to launch.</p>
           </div>
         </div>
         <div class="learn-card reveal" style="transition-delay: 0.2s;">
           <div class="learn-icon">
-            <svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
           </div>
           <div class="learn-text">
-            <h3>Build Your Life OS</h3>
-            <p>Follow along as we build a personal system together — a real project you'll walk away with.</p>
+            <h3>Research Your Market</h3>
+            <p>Claude searches the web live — finds what's viral in your niche, analyzes competitors, and identifies the strategies that are working right now.</p>
           </div>
         </div>
         <div class="learn-card reveal" style="transition-delay: 0.25s;">
           <div class="learn-icon">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
           </div>
           <div class="learn-text">
-            <h3>Hidden Superpowers</h3>
-            <p>The techniques top AI users rely on every day — explained simply so anyone can start using them.</p>
+            <h3>Get Your Launch Kit</h3>
+            <p>Walk away with a marketing strategy and ready-to-post social content — tweets, captions, hooks — tailored to your product.</p>
           </div>
         </div>
         <div class="learn-card reveal" style="transition-delay: 0.3s;">
           <div class="learn-icon">
-            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
           </div>
           <div class="learn-text">
-            <h3>Live Q&A</h3>
-            <p>Ask anything. Get answers in real-time. No question is too basic — that's the whole point.</p>
+            <h3>Power User Techniques</h3>
+            <p>Plan mode, auto-accept, web search, model switching — the skills that turn you from beginner to power user in one night.</p>
           </div>
         </div>
       </div>
@@ -869,33 +1117,66 @@
     <div class="container">
       <div class="reveal">
         <p class="label">What You'll Walk Away With</p>
-        <h2 class="section-title">Not just knowledge — a real system you'll use every day.</h2>
+        <h2 class="section-title">Not just knowledge — a complete web presence.</h2>
       </div>
       <div class="walkaway-card reveal">
         <div class="walkaway-main">
-          <div class="walkaway-badge">Your Takeaway</div>
-          <h3>Your Very Own Life OS</h3>
-          <p>A personal system built by you, during the workshop, that organizes your life — from to-do lists to calendar management to email. You'll leave with something real and working, not just notes from a lecture.</p>
+          <div class="walkaway-badge">Your Launch Kit</div>
+          <h3>Everything You Need to Launch</h3>
+          <p>Whether you're launching a product, building a coaching page, or showcasing your portfolio — you'll walk out with a professional web presence that would normally cost thousands and take weeks.</p>
           <div class="walkaway-features">
             <div class="walkaway-feature">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+              <span>A brand identity — name, tagline, color palette</span>
+            </div>
+            <div class="walkaway-feature">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-              <span>To-do lists that organize themselves</span>
+              <span>A live website deployed on the internet — your product page, portfolio, or landing page</span>
             </div>
             <div class="walkaway-feature">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-              <span>Calendar management that works for you</span>
-            </div>
-            <div class="walkaway-feature">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-              <span>Email that handles itself</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              <span>A marketing strategy based on real viral patterns</span>
             </div>
             <div class="walkaway-feature">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-              <span>A system that keeps getting smarter</span>
+              <span>Ready-to-post social media content for your launch</span>
             </div>
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- What This Would Cost Without AI -->
+  <section class="value-compare">
+    <div class="container">
+      <div class="reveal">
+        <p class="label">Perspective</p>
+        <h2 class="section-title">What this would cost without AI.</h2>
+      </div>
+      <div class="value-grid reveal">
+        <div class="value-row">
+          <span class="value-label">Brand identity design</span>
+          <span class="value-price">$2,000+</span>
+        </div>
+        <div class="value-row">
+          <span class="value-label">Landing page design + development</span>
+          <span class="value-price">$3,000+</span>
+        </div>
+        <div class="value-row">
+          <span class="value-label">Marketing strategy</span>
+          <span class="value-price">$2,000+</span>
+        </div>
+        <div class="value-row">
+          <span class="value-label">Social media content creation</span>
+          <span class="value-price">$500+</span>
+        </div>
+        <div class="value-row total">
+          <span class="value-label">Total</span>
+          <span class="value-price">$7,500+</span>
+        </div>
+      </div>
+      <p class="value-your-price reveal">Your price tonight: <strong>$79</strong></p>
     </div>
   </section>
 
@@ -904,38 +1185,70 @@
     <div class="container">
       <div class="reveal">
         <p class="label">Who This Is For</p>
-        <h2 class="section-title">You don't need to be technical. You just need to show up.</h2>
+        <h2 class="section-title">You don't need to be technical. You just need an idea — or even a spark of one.</h2>
       </div>
       <div class="audience-list">
         <div class="audience-item reveal" style="transition-delay: 0.05s;">
           <div class="audience-check">
             <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
           </div>
-          <span>You have ideas but don't know how to build them</span>
+          <span>You're an entrepreneur launching a new product and need a site that sells</span>
         </div>
         <div class="audience-item reveal" style="transition-delay: 0.1s;">
           <div class="audience-check">
             <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
           </div>
-          <span>You've tried ChatGPT but want to go way deeper</span>
+          <span>You're a coach, consultant, or freelancer who needs a professional web presence</span>
         </div>
         <div class="audience-item reveal" style="transition-delay: 0.15s;">
           <div class="audience-check">
             <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
           </div>
-          <span>You want to launch a product, app, or side project</span>
+          <span>You're a non-technical founder who wants a landing page that collects emails</span>
         </div>
         <div class="audience-item reveal" style="transition-delay: 0.2s;">
           <div class="audience-check">
             <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
           </div>
-          <span>You're a founder, freelancer, or professional who wants to do more with less</span>
+          <span>You're a designer, artist, or creative who wants to showcase your work online</span>
         </div>
         <div class="audience-item reveal" style="transition-delay: 0.25s;">
           <div class="audience-check">
             <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
           </div>
-          <span>You don't want to get left behind as AI changes everything</span>
+          <span>You've been meaning to build a website but it always felt too expensive or technical</span>
+        </div>
+        <div class="audience-item reveal" style="transition-delay: 0.3s;">
+          <div class="audience-check">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <span>You've heard about Claude Code and want to learn it — but don't know where to start</span>
+        </div>
+        <div class="audience-item reveal" style="transition-delay: 0.35s;">
+          <div class="audience-check">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <span>You attended our first workshop and want to go deeper with a new project</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonials">
+    <div class="container">
+      <div class="reveal">
+        <p class="label">From Past Attendees</p>
+        <h2 class="section-title">People are already building with what we teach.</h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card reveal">
+          <p>I saved 2+ hours writing up contracts for influencers teaching Claude how to do it for me in like 30ish min ... woah</p>
+          <div class="testimonial-source">Workshop attendee</div>
+        </div>
+        <div class="testimonial-card reveal">
+          <p>All I needed was a basic understanding of how this worked and in less than a week I'm already turning data pipelines into a marketing tech platform that will solve for the accountability crisis that's been running rampant in the $900B digital marketing space for 30 years. Deep gratitude.</p>
+          <div class="testimonial-source">Workshop attendee</div>
         </div>
       </div>
     </div>
@@ -951,33 +1264,33 @@
       <div class="outcomes-grid">
         <div class="outcome-card reveal" style="transition-delay: 0.05s;">
           <span class="outcome-emoji">&#x1F680;</span>
-          <h3>Launch Your Ideas</h3>
-          <p>Turn concepts into working projects — no developer required.</p>
+          <h3>Launch in One Night</h3>
+          <p>What takes agencies months and thousands of dollars — you'll do in a single evening.</p>
         </div>
         <div class="outcome-card reveal" style="transition-delay: 0.1s;">
-          <span class="outcome-emoji">&#x1F6D2;</span>
-          <h3>Sell Your Products</h3>
-          <p>Build landing pages, tools, and automations to sell what you create.</p>
+          <span class="outcome-emoji">&#x1F3A8;</span>
+          <h3>Brand Anything</h3>
+          <p>Generate a complete brand identity from a messy idea — name, tagline, colors, personality.</p>
         </div>
         <div class="outcome-card reveal" style="transition-delay: 0.15s;">
-          <span class="outcome-emoji">&#x1F4F1;</span>
-          <h3>Create Apps</h3>
-          <p>Build real, working applications with Claude Code doing the heavy lifting.</p>
+          <span class="outcome-emoji">&#x1F310;</span>
+          <h3>Ship to the Internet</h3>
+          <p>Deploy a real website with a real URL. Text it to your friends. It's live.</p>
         </div>
         <div class="outcome-card reveal" style="transition-delay: 0.2s;">
-          <span class="outcome-emoji">&#x2728;</span>
-          <h3>Bring Visions to Life</h3>
-          <p>Things that seemed impossible last month are now within reach.</p>
+          <span class="outcome-emoji">&#x1F4E3;</span>
+          <h3>Go Viral</h3>
+          <p>Claude researches what's working in your niche right now — then writes your launch content.</p>
         </div>
         <div class="outcome-card reveal" style="transition-delay: 0.25s;">
-          <span class="outcome-emoji">&#x1F916;</span>
-          <h3>Automate Your Work</h3>
-          <p>Set up systems that handle repetitive tasks while you focus on what matters.</p>
+          <span class="outcome-emoji">&#x2728;</span>
+          <h3>Do It Again Tomorrow</h3>
+          <p>The skills you learn tonight work for any idea. Launch one thing, launch a hundred.</p>
         </div>
         <div class="outcome-card reveal" style="transition-delay: 0.3s;">
           <span class="outcome-emoji">&#x1F4AA;</span>
-          <h3>Multiply Your Output</h3>
-          <p>Do in one evening what used to take weeks. The leverage is real.</p>
+          <h3>Stop Waiting, Start Shipping</h3>
+          <p>The gap between "I have an idea" and "it's live" just went from months to minutes.</p>
         </div>
       </div>
     </div>
@@ -1020,14 +1333,14 @@
             Do I need any coding experience?
             <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
           </button>
-          <div class="faq-answer">Absolutely not. This webinar is specifically designed for non-technical people. If you can type and follow along, you're qualified. We start from zero.</div>
+          <div class="faq-answer">Absolutely not. This workshop is designed for non-technical people. If you can describe an idea out loud, you're qualified. Claude does the building.</div>
         </div>
         <div class="faq-item">
           <button class="faq-question" aria-expanded="false">
-            What is Claude Code exactly?
+            What if I don't have a project idea yet?
             <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
           </button>
-          <div class="faq-answer">Claude Code is an AI tool by Anthropic that lets you build software, automate tasks, and create things by describing what you want in plain English. It's like having a world-class engineer working alongside you.</div>
+          <div class="faq-answer">That's totally fine. We'll show you how to brainstorm with Claude — tell it what space you're interested in, and it'll help you land on something exciting to build. Some of the best projects start without a plan.</div>
         </div>
         <div class="faq-item">
           <button class="faq-question" aria-expanded="false">
@@ -1041,42 +1354,106 @@
             What do I need to have installed beforehand?
             <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
           </button>
-          <div class="faq-answer">Just a computer and a browser. We'll walk through the full setup together during the session. You don't need to prepare anything in advance.</div>
+          <div class="faq-answer">We'll send you a setup guide a few days before the workshop. You'll need VS Code, Claude Code, and a free Vercel account — everything is free except the Claude Pro subscription ($20/month). Setup takes about 30 minutes and must be done before the workshop.</div>
         </div>
         <div class="faq-item">
           <button class="faq-question" aria-expanded="false">
-            Why $30?
+            I attended the first workshop — will I learn new things?
             <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
           </button>
-          <div class="faq-answer">This isn't a generic overview. It's a hands-on, live workshop where you'll walk away with a real working project. $30 ensures a committed group where everyone gets value. Most people tell us the first hour alone is worth 10x that.</div>
+          <div class="faq-answer">Yes. This is a completely different project with new techniques — plan mode, auto-accept, deploying to the internet, web search for marketing research, and more. If you enjoyed the first workshop, this one goes deeper.</div>
         </div>
         <div class="faq-item">
           <button class="faq-question" aria-expanded="false">
-            What if I want more help after the webinar?
+            What are the ticket options?
             <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
           </button>
-          <div class="faq-answer">We offer 1-on-1 sessions and small group training for people who want to go deeper. We'll share details at the end of the webinar — no pressure, just options.</div>
+          <div class="faq-answer">Early Bird ($44) is for the first 20 seats — same full workshop, just rewards fast action. Standard ($79) is the regular price. Founder's Accelerator ($249) includes everything plus a private 1-hour session where we dive into your specific business and build real AI implementations for your workflow.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            What if I want more help after the workshop?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">We offer 1-on-1 sessions and small group training for people who want to go deeper. We'll share details at the end of the workshop — no pressure, just options.</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Final CTA -->
-  <section class="final-cta" id="register">
-    <div class="container container--narrow">
+  <!-- Pricing -->
+  <section class="pricing" id="register">
+    <div class="container">
       <div class="reveal">
-        <h2>Ready to become superhuman?</h2>
-        <p class="sub">
-          The people who learn to work with AI now will have a head start for the rest of their lives.
-        </p>
-        <div class="detail-row">
-          <span class="detail-item"><strong>Monday, Feb 23</strong></span>
-          <span class="detail-item"><strong>8 – 9 PM PST</strong></span>
-          <span class="detail-item"><strong>$30</strong></span>
+        <p class="label">Reserve Your Spot</p>
+        <h2 class="section-title">Monday, March 9 &middot; 6 &ndash; 7:30 PM PST</h2>
+      </div>
+      <div class="pricing-grid">
+        <div class="pricing-card reveal">
+          <h3>Early Bird</h3>
+          <div class="pricing-amount">$44</div>
+          <div class="pricing-seats">First 20 seats only</div>
+          <div class="pricing-features">
+            <div class="pricing-feature">
+              <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Full 90-min live workshop</span>
+            </div>
+            <div class="pricing-feature">
+              <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Complete launch kit</span>
+            </div>
+            <div class="pricing-feature">
+              <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Recording + recap with all prompts</span>
+            </div>
+          </div>
+          <a href="https://luma.com/ui0lggny" class="pricing-cta">Get Early Bird</a>
         </div>
-        <!-- TODO: Replace # with your Luma event URL -->
-        <a href="#" class="final-cta-btn" id="register-btn">Join the Workshop — $30</a>
-        <p class="fine-print">Limited seats &middot; Recording included &middot; 100% beginner-friendly</p>
+        <div class="pricing-card featured reveal">
+          <div class="pricing-badge">Most Popular</div>
+          <h3>Standard</h3>
+          <div class="pricing-amount">$79</div>
+          <div class="pricing-seats">60 seats total</div>
+          <div class="pricing-features">
+            <div class="pricing-feature">
+              <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Full 90-min live workshop</span>
+            </div>
+            <div class="pricing-feature">
+              <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Complete launch kit</span>
+            </div>
+            <div class="pricing-feature">
+              <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Recording + recap with all prompts</span>
+            </div>
+          </div>
+          <a href="https://luma.com/ui0lggny" class="pricing-cta">Reserve Your Spot</a>
+        </div>
+        <div class="pricing-card reveal">
+          <h3>Founder's Accelerator</h3>
+          <div class="pricing-amount">$249</div>
+          <div class="pricing-seats">Limited to 10 spots</div>
+          <div class="pricing-features">
+            <div class="pricing-feature">
+              <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Everything in Standard</span>
+            </div>
+            <div class="pricing-feature">
+              <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>1-hour private session with a host</span>
+            </div>
+            <div class="pricing-feature">
+              <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Hands-on help with your specific business</span>
+            </div>
+            <div class="pricing-feature">
+              <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Real AI implementations for your workflow</span>
+            </div>
+          </div>
+          <a href="https://luma.com/ui0lggny" class="pricing-cta">Get Accelerator</a>
+        </div>
       </div>
     </div>
   </section>
