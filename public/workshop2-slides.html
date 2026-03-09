@@ -547,14 +547,11 @@
       <h2>Welcome</h2>
       <div class="divider"></div>
       <p style="font-size: 28px; color: var(--text); margin-bottom: 24px;">Tonight you're going from a rough idea to a <span class="accent">live website</span> — deployed on the internet with a real URL you can share with anyone.</p>
-      <p style="font-size: 22px; margin-bottom: 32px;">What takes most people months and thousands of dollars, you'll do in 90 minutes.</p>
-      <p style="font-size: 22px; margin-bottom: 16px;">No coding, no Squarespace, no expensive agency. Just conversation with Claude Code.</p>
-      <p style="font-size: 20px; margin-bottom: 32px; color: var(--text-muted);">Claude Code is an AI assistant built into your code editor — you type what you want in plain English, and it builds it for you.</p>
+      <p style="font-size: 22px; margin-bottom: 32px;">No coding, no Squarespace, no expensive agency — just Claude Code, an AI assistant built into your code editor where you type what you want in plain English and it builds it for you.</p>
       <ul style="margin-top: 24px;">
         <li>Stay on mute, drop questions in chat</li>
         <li>If you fall behind, don't panic — you have the recording</li>
         <li><strong>Pro tip:</strong> if anything goes wrong tonight, paste the error back to Claude and ask it to fix it — that works for almost everything</li>
-        <li>Returning attendees: we'll cover new techniques tonight</li>
       </ul>
     </div>
   </div>
@@ -595,11 +592,11 @@
   </div>
 
   <!-- ════════════════════════════════════════════ -->
-  <!-- SLIDE 4: The Key Idea -->
+  <!-- SLIDE 4: Mindset Shift -->
   <!-- ════════════════════════════════════════════ -->
   <div class="slide" data-notes="Reframe the mental model: you're the CEO, Claude is your team. The skill isn't coding — it's clear communication. This is the same framing from Workshop 1 but worth repeating for new attendees.">
     <div class="slide-inner">
-      <h2>The Key Idea</h2>
+      <h2>Mindset Shift</h2>
       <div class="divider"></div>
       <div class="quote" style="margin: 32px 0;">
         Think of yourself as the <span class="accent">CEO</span> of a small startup.<br>
@@ -715,18 +712,19 @@
   <!-- ════════════════════════════════════════════ -->
   <!-- SLIDE 10: Deploy to Vercel -->
   <!-- ════════════════════════════════════════════ -->
-  <div class="slide" data-notes="WOW MOMENT #3: The website goes live on the internet. This prompt combines the Node.js check and Vercel deploy into one step — Claude will handle installing anything missing. Teaching moment: 'Notice how Claude figured out what was missing and installed it for you. You didn't need to know what Node.js is — you just told Claude what you wanted and it handled the details.' With auto-accept on, this should flow smoothly. They'll need to authenticate with Vercel in the browser. The punchline: a real URL they can share RIGHT NOW.">
+  <div class="slide" data-notes="WOW MOMENT #3: The website goes live on the internet. This prompt combines the Node.js check and Vercel deploy into one step — Claude will handle installing anything missing. TIMING: This step has the most variance — 2 min if Node.js is installed, up to 8-10 min if not. If people are waiting on installs, say: 'Some computers need a couple extra tools installed — Claude is handling it. This is actually a great example of what makes Claude powerful: you told it what you wanted and it is figuring out the technical details for you.' If anyone gets stuck on a password prompt in the terminal, tell them: 'Type your Mac password — the characters won't show up, that's normal. Press Enter when done.' If Homebrew starts installing, tell them to be patient — it takes a few minutes. Teaching moment after deploys finish: 'Notice how Claude figured out what was missing and installed it for you. You didn't need to know what Node.js is — you just told Claude what you wanted and it handled the details.' With auto-accept on, this should flow smoothly. They'll need to authenticate with Vercel in the browser — remind them to use the same email they signed up with. The punchline: a real URL they can share RIGHT NOW. While fast people share URLs, slower people catch up — use this natural buffer.">
     <div class="slide-inner">
       <div class="wow-badge">Wow Moment #3</div>
       <h2>Go <span class="accent">Live</span></h2>
       <div class="divider"></div>
       <p style="margin-bottom: 8px;">Time to put your website on the internet. Claude will set up everything you need:</p>
       <div class="prompt-block" style="font-size: 17px;">
-        I want to deploy my website to Vercel so I get a live URL I can share. Check if my computer has everything it needs to do this — if anything is missing, install it for me. Then deploy and walk me through any steps I need to do.
+        I want to deploy my website to Vercel so I get a live URL I can share. Check if my computer has everything it needs — if anything is missing, install it for me using the fastest method possible. Then deploy using npx vercel and walk me through any steps I need to do.
         <span class="copy-hint">click to copy</span>
       </div>
       <p style="margin-top: 24px; font-size: 22px; color: var(--green); font-weight: 500;">Claude will check your setup, install any missing tools, and upload your site — all automatically.</p>
-      <p style="margin-top: 16px;">Vercel may open in your browser and ask you to log in — go ahead and do that.</p>
+      <p style="margin-top: 16px; font-size: 20px; color: var(--text-muted);">This step may take a few minutes if your computer needs extra tools. That's normal — let Claude work.</p>
+      <p style="margin-top: 16px;">Vercel may open in your browser and ask you to log in — use the <strong>same email</strong> you signed up with at vercel.com.</p>
       <div class="secret-box">
         <p><strong>Notice what just happened.</strong> Claude figured out what your computer was missing and installed it for you. You didn't need to know what those tools were — <em>you just said what you wanted and Claude handled the details.</em></p>
       </div>
