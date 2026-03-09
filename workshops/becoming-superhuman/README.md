@@ -4,8 +4,10 @@ A hands-on workshop teaching attendees to leverage Claude Code in their everyday
 
 ## Contents
 
+- **[slides.html](slides.html)** — Presentation slides
 - **[recap.md](recap.md)** — Post-workshop summary to share with attendees (FAQ, prompts, resources)
 - **[setup-email.md](setup-email.md)** — Pre-workshop setup instructions to send 1-2 days before
+- **[followup-email.md](followup-email.md)** — Post-workshop follow-up email
 
 ## Links
 
@@ -19,7 +21,7 @@ A hands-on workshop teaching attendees to leverage Claude Code in their everyday
 
 ## Slides Source
 
-The presentation slides live at [`public/workshop-slides.html`](../../public/workshop-slides.html) in this repo and are hosted automatically via Vercel.
+The presentation slides live at [`slides.html`](slides.html) in this folder (also copied to `public/workshop-slides.html` for Vercel hosting).
 
 ## Workshop Flow
 
