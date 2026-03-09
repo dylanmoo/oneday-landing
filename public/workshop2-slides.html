@@ -636,12 +636,37 @@
       <div class="divider"></div>
       <p style="margin-bottom: 8px;">This is where the magic starts. Type this into the Claude Code chat panel (or speak it with WisprFlow / Talktastic):</p>
       <div class="prompt-block" style="font-size: 17px;">
-        I want to build a website. Interview me — ask me 4-5 questions one at a time about what I'm building, who it's for, what makes it special, and the vibe I want. Then create a brand brief with a name, tagline, color palette, and visual direction.
+        I want to build a website. Interview me — ask me 2-3 questions one at a time, focusing on what would be most useful for creating a brand brief (e.g. who it's for, what makes it different, the vibe I want). Then create a brand brief with a name, tagline, color palette, and visual direction.
         <span class="copy-hint">click to copy</span>
       </div>
       <p style="margin-top: 20px;">We'll paste every prompt in the chat so you can copy it. Answer Claude's questions honestly — this is the foundation of everything we build tonight.</p>
       <div class="secret-box">
         <p><strong>This is the interview pattern.</strong> When you don't know what you want, tell Claude to ask <em>you</em> questions first. The more it understands about your situation, the better its output will be.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════ -->
+  <!-- SLIDE 6.5: Add the UI/UX Plugin -->
+  <!-- ════════════════════════════════════════════ -->
+  <div class="slide" data-notes="Before we build the website, we're going to give Claude a design superpower — a plugin that makes it dramatically better at building beautiful UIs. Walk through each command one at a time. First command adds the plugin source. Second command installs it. This only takes a moment.">
+    <div class="slide-inner">
+      <div class="section-label">Building Your Brand</div>
+      <h2>Add a <span class="accent">Design Plugin</span></h2>
+      <div class="divider"></div>
+      <p style="margin-bottom: 8px;">Before we build, let's give Claude a design superpower. Type these two commands into the chat panel, one at a time:</p>
+      <div class="prompt-block" style="font-size: 17px;">
+        /plugin marketplace add nextlevelbuilder/ui-ux-pro-max-skill
+        <span class="copy-hint">click to copy</span>
+      </div>
+      <p style="margin-top: 16px; margin-bottom: 8px;">Then install it:</p>
+      <div class="prompt-block" style="font-size: 17px;">
+        /plugin install ui-ux-pro-max@ui-ux-pro-max-skill
+        <span class="copy-hint">click to copy</span>
+      </div>
+      <p style="margin-top: 20px;">This plugin teaches Claude professional UI/UX design patterns — color palettes, typography, layouts, and more. It'll make everything we build tonight look <strong style="color: var(--accent);">significantly better</strong>.</p>
+      <div class="secret-box">
+        <p><strong>Plugins are Claude's app store.</strong> They add specialized knowledge and skills. This one turns Claude into a design-savvy builder.</p>
       </div>
     </div>
   </div>
@@ -699,7 +724,7 @@
       <p style="font-size: 24px; color: var(--text); margin-bottom: 16px;">Tired of clicking "Allow" every time? Let's speed things up.</p>
       <p style="margin-bottom: 24px;">Since we're in our own empty project folder with no sensitive files, we can let Claude work without asking permission each time.</p>
       <ol class="steps" style="max-width: 900px;">
-        <li>In the Claude Code chat panel, look for the <strong style="color: var(--accent);">shield icon</strong> at the top</li>
+        <li>In the Claude Code chat panel, look for the control that says <strong style="color: var(--accent);">"Ask before edits"</strong></li>
         <li>Click it and select <strong style="color: var(--accent);">Auto-accept</strong></li>
       </ol>
       <p style="margin-top: 20px; font-size: 20px;">Think of it like telling your employee: <em style="color: var(--accent);">"I trust you — just show me the result."</em></p>
@@ -722,8 +747,6 @@
         I want to deploy my website to Vercel so I get a live URL I can share. Check if my computer has everything it needs — if anything is missing, install it for me using the fastest method possible. Then deploy using npx vercel and walk me through any steps I need to do.
         <span class="copy-hint">click to copy</span>
       </div>
-      <p style="margin-top: 24px; font-size: 22px; color: var(--green); font-weight: 500;">Claude will check your setup, install any missing tools, and upload your site — all automatically.</p>
-      <p style="margin-top: 16px; font-size: 20px; color: var(--text-muted);">This step may take a few minutes if your computer needs extra tools. That's normal — let Claude work.</p>
       <p style="margin-top: 16px;">Vercel may open in your browser and ask you to log in — use the <strong>same email</strong> you signed up with at vercel.com.</p>
       <div class="secret-box">
         <p><strong>Notice what just happened.</strong> Claude figured out what your computer was missing and installed it for you. You didn't need to know what those tools were — <em>you just said what you wanted and Claude handled the details.</em></p>
