@@ -659,7 +659,7 @@
       <div class="divider"></div>
       <p style="margin-bottom: 8px;">Now the big one — turn that brand brief into a real website:</p>
       <div class="prompt-block" style="font-size: 17px;">
-        Based on the brand brief, build me a complete, beautiful landing page as a single HTML file. Include a hero section (the big banner at the top), an about section, what I offer, testimonials placeholder, and a call-to-action button. Make it modern, look great on phones, and ready to put on the internet. Save it as index.html.
+        Based on the brand brief, build me a complete, beautiful landing page. Include a hero section (the big banner at the top), an about section, what I offer, testimonials, and a call-to-action button. Make it modern, look great on phones, and ready to put on the internet.
         <span class="copy-hint">click to copy</span>
       </div>
       <p style="margin-top: 24px; font-size: 22px; color: var(--green); font-weight: 500;">When Claude asks permission to create a file — say yes. It's safe.</p>
@@ -700,11 +700,11 @@
       <h2>Cruise <span class="accent">Control</span></h2>
       <div class="divider"></div>
       <p style="font-size: 24px; color: var(--text); margin-bottom: 16px;">Tired of clicking "Allow" every time? Let's speed things up.</p>
-      <p style="margin-bottom: 24px;">Since we're in our own empty project folder with no sensitive files, we can tell Claude to go ahead without asking permission each time.</p>
-      <div class="prompt-block" style="font-size: 17px;">
-        Turn on auto-accept mode so you can work without asking me for permission each time.
-        <span class="copy-hint">click to copy</span>
-      </div>
+      <p style="margin-bottom: 24px;">Since we're in our own empty project folder with no sensitive files, we can let Claude work without asking permission each time.</p>
+      <ol class="steps" style="max-width: 900px;">
+        <li>In the Claude Code chat panel, look for the <strong style="color: var(--accent);">shield icon</strong> at the top</li>
+        <li>Click it and select <strong style="color: var(--accent);">Auto-accept</strong></li>
+      </ol>
       <p style="margin-top: 20px; font-size: 20px;">Think of it like telling your employee: <em style="color: var(--accent);">"I trust you — just show me the result."</em></p>
       <div class="secret-box">
         <p><strong>When is this safe?</strong> In a dedicated project folder like tonight — with no passwords, personal files, or sensitive data. <em>Turn it off when working with anything sensitive.</em></p>
@@ -713,38 +713,23 @@
   </div>
 
   <!-- ════════════════════════════════════════════ -->
-  <!-- SLIDE 10: Prep for Launch -->
+  <!-- SLIDE 10: Deploy to Vercel -->
   <!-- ════════════════════════════════════════════ -->
-  <div class="slide" data-notes="Quick install check before deployment. Claude will detect if Node.js is missing and install it. This prevents the show-stopping npm error during deployment. Should take ~1 minute if already installed, ~3 minutes if not. Keep energy up: 'One quick setup step before we go live.'">
-    <div class="slide-inner">
-      <div class="section-label">Almost There</div>
-      <h2>Prep for <span class="accent">Launch</span></h2>
-      <div class="divider"></div>
-      <p style="margin-bottom: 8px;">Before we put your website on the internet, we need one tool installed. Let Claude handle it:</p>
-      <div class="prompt-block" style="font-size: 17px;">
-        Check if I have Node.js and npm installed on my computer. If I don't, help me install them — I'll need them to deploy my website.
-        <span class="copy-hint">click to copy</span>
-      </div>
-      <p style="margin-top: 24px;">If they're already installed, Claude will tell you and we'll move right on.</p>
-      <p style="margin-top: 12px; font-size: 20px; color: var(--text-muted);">Node.js is a behind-the-scenes tool that lets us use Vercel's deployment service. You won't need to learn it — Claude just needs it installed.</p>
-    </div>
-  </div>
-
-  <!-- ════════════════════════════════════════════ -->
-  <!-- SLIDE 11: Deploy to Vercel -->
-  <!-- ════════════════════════════════════════════ -->
-  <div class="slide" data-notes="WOW MOMENT #3: The website goes live on the internet. Walk them through this carefully. Claude will run terminal commands to install Vercel CLI and deploy. With auto-accept on, this should flow smoothly. They'll need to authenticate with Vercel in the browser. The punchline: a real URL they can share RIGHT NOW.">
+  <div class="slide" data-notes="WOW MOMENT #3: The website goes live on the internet. This prompt combines the Node.js check and Vercel deploy into one step — Claude will handle installing anything missing. Teaching moment: 'Notice how Claude figured out what was missing and installed it for you. You didn't need to know what Node.js is — you just told Claude what you wanted and it handled the details.' With auto-accept on, this should flow smoothly. They'll need to authenticate with Vercel in the browser. The punchline: a real URL they can share RIGHT NOW.">
     <div class="slide-inner">
       <div class="wow-badge">Wow Moment #3</div>
       <h2>Go <span class="accent">Live</span></h2>
       <div class="divider"></div>
-      <p style="margin-bottom: 8px;">Time to put your website on the internet:</p>
+      <p style="margin-bottom: 8px;">Time to put your website on the internet. Claude will set up everything you need:</p>
       <div class="prompt-block" style="font-size: 17px;">
-        Deploy my website to Vercel so I get a live URL I can share. Walk me through any steps I need to do.
+        I want to deploy my website to Vercel so I get a live URL I can share. Check if my computer has everything it needs to do this — if anything is missing, install it for me. Then deploy and walk me through any steps I need to do.
         <span class="copy-hint">click to copy</span>
       </div>
-      <p style="margin-top: 24px; font-size: 22px; color: var(--green); font-weight: 500;">Claude will run some behind-the-scenes commands to install Vercel's tools and upload your site.</p>
+      <p style="margin-top: 24px; font-size: 22px; color: var(--green); font-weight: 500;">Claude will check your setup, install any missing tools, and upload your site — all automatically.</p>
       <p style="margin-top: 16px;">Vercel may open in your browser and ask you to log in — go ahead and do that.</p>
+      <div class="secret-box">
+        <p><strong>Notice what just happened.</strong> Claude figured out what your computer was missing and installed it for you. You didn't need to know what those tools were — <em>you just said what you wanted and Claude handled the details.</em></p>
+      </div>
       <p style="margin-top: 24px; font-size: 28px; color: var(--text); font-weight: 600;">You now have a <span class="accent">live URL</span>. Share it in the chat.</p>
       <p style="margin-top: 12px; font-size: 20px;">Text it to a friend. Post it on social media. It's real. It's yours.</p>
     </div>
@@ -758,7 +743,7 @@
       <div class="wow-badge">Wow Moment #4</div>
       <h2>Marketing <span class="accent">Strategy</span></h2>
       <div class="divider"></div>
-      <p style="margin-bottom: 8px;">Your site is live. Now let's get people to it. First, make sure <strong style="color: var(--accent);">web search is enabled</strong> in Claude Code — then paste this:</p>
+      <p style="margin-bottom: 8px;">Your site is live. Now let's get people to it. First, make sure <strong style="color: var(--accent);">web search is enabled</strong> — look for the <strong style="color: var(--accent);">globe icon</strong> in the Claude Code panel and make sure it's toggled on. Then paste this:</p>
       <div class="prompt-block" style="font-size: 17px;">
         Search the web for viral marketing patterns and successful launches in my space. Then create a marketing strategy for my website — include 3 ready-to-post social media captions (for Instagram, X/Twitter, and LinkedIn) that I can copy and post right now. Include my live URL.
         <span class="copy-hint">click to copy</span>
@@ -773,7 +758,7 @@
   <!-- ════════════════════════════════════════════ -->
   <!-- SLIDE 13: Power Techniques -->
   <!-- ════════════════════════════════════════════ -->
-  <div class="slide" data-notes="Now that they've experienced building, deploying, and marketing — these concepts will land. They've already USED these features tonight. This slide names and explains what they did. Cover models, plan mode, and web search. Keep this section moving — 3 minutes max.">
+  <div class="slide" data-notes="Now that they've experienced building, deploying, and marketing — these concepts will land. They've already USED these features tonight. This slide names and explains what they did. Cover models and the three permission modes: Plan Mode, Auto-Accept, and Ask Every Time. Keep this section moving — 3 minutes max.">
     <div class="slide-inner">
       <div class="section-label">Level Up</div>
       <h2>Power User <span class="accent">Techniques</span></h2>
@@ -810,8 +795,8 @@
               <p>What we turned on earlier — Claude works without asking permission each time.</p>
             </div>
             <div class="concept-card">
-              <h4>Web Search</h4>
-              <p>What we just used — Claude searches the real web for examples and trends.</p>
+              <h4>Ask Every Time</h4>
+              <p>The default — Claude asks your permission before every action. Full control.</p>
             </div>
           </div>
         </div>
@@ -847,12 +832,15 @@
           </tr>
           <tr>
             <td class="level pause">Pause & think<br><span style="font-size: 16px; font-weight: 400; color: var(--text-muted);">Rare</span></td>
-            <td>Sending emails or messages. Deleting files. Connecting to services with your credentials.</td>
+            <td>Sending emails or messages. Deleting files. Connecting to services with your passwords or login info.</td>
             <td class="examples">Anything that sends data outward</td>
           </tr>
         </tbody>
       </table>
       <p style="margin-top: 24px; font-size: 22px; color: var(--text); font-weight: 500;">Bottom line: Claude is designed to be safe. You are always in control.</p>
+      <div class="secret-box" style="margin-top: 20px;">
+        <p><strong>Power user shortcut:</strong> If you want to skip <em>all</em> permission prompts permanently, go to <strong style="color: var(--text);">Extensions &rarr; Claude Code &rarr; Settings</strong> and enable <strong style="color: var(--text);">"Dangerously skip permissions"</strong>. Only use this in safe project folders — never with sensitive files.</p>
+      </div>
     </div>
   </div>
 
@@ -956,7 +944,7 @@
 <!-- Bottom bar -->
 <div class="bottom-bar">
   <div class="progress-bar" id="progress"></div>
-  <span class="slide-counter" id="counter">1 / 19</span>
+  <span class="slide-counter" id="counter">1 / 18</span>
   <span class="key-hints">
     <span><kbd>&larr;</kbd> <kbd>&rarr;</kbd> Navigate</span>
     <span><kbd>N</kbd> Speaker notes</span>
