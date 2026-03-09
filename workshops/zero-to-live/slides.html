@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <title>Zero to Live — Workshop Slides | OneDay</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #0B0F1A;
+      --surface: #131825;
+      --surface-2: #1A2035;
+      --border: rgba(255, 255, 255, 0.06);
+      --text: #E8ECF4;
+      --text-muted: #8A94A8;
+      --accent: #6C63FF;
+      --accent-hover: #5B52E0;
+      --accent-glow: rgba(108, 99, 255, 0.25);
+      --green: #34D399;
+      --gold: #FBBF24;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-mono: 'JetBrains Mono', 'SF Mono', 'Fira Code', monospace;
+    }
+
+    html, body {
+      height: 100%;
+      overflow: hidden;
+      font-family: var(--font-sans);
+      background: var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Slide container ── */
+    .deck {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 60px 80px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+    }
+
+    .slide.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .slide-inner {
+      max-width: 1100px;
+      width: 100%;
+    }
+
+    /* ── Typography ── */
+    .slide h1 {
+      font-family: var(--font-serif);
+      font-size: 64px;
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 24px;
+    }
+
+    .slide h2 {
+      font-family: var(--font-serif);
+      font-size: 48px;
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+    }
+
+    .slide h3 {
+      font-family: var(--font-sans);
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+      margin-bottom: 16px;
+      color: var(--text);
+    }
+
+    .slide p {
+      font-size: 24px;
+      line-height: 1.5;
+      color: var(--text-muted);
+      max-width: 800px;
+    }
+
+    .slide p + p {
+      margin-top: 16px;
+    }
+
+    .accent { color: var(--accent); }
+    .green { color: var(--green); }
+    .muted { color: var(--text-muted); }
+    .serif { font-family: var(--font-serif); }
+
+    /* ── Section label ── */
+    .section-label {
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+
+    /* ── Prompt block ── */
+    .prompt-block {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin: 24px 0;
+      font-family: var(--font-mono);
+      font-size: 20px;
+      line-height: 1.6;
+      color: var(--text);
+      position: relative;
+      cursor: pointer;
+      transition: border-color 0.2s;
+    }
+
+    .prompt-block:hover {
+      border-left-color: var(--green);
+    }
+
+    .prompt-block::before {
+      content: 'PROMPT';
+      position: absolute;
+      top: -10px;
+      left: 20px;
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      background: var(--surface);
+      padding: 0 8px;
+    }
+
+    .prompt-block .copy-hint {
+      position: absolute;
+      top: 12px;
+      right: 16px;
+      font-family: var(--font-sans);
+      font-size: 12px;
+      color: var(--text-muted);
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    .prompt-block:hover .copy-hint {
+      opacity: 1;
+    }
+
+    /* ── Secret box ── */
+    .secret-box {
+      background: rgba(251, 191, 36, 0.06);
+      border: 1px solid rgba(251, 191, 36, 0.2);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin: 28px 0;
+      position: relative;
+    }
+
+    .secret-box::before {
+      content: 'SECRET';
+      position: absolute;
+      top: -10px;
+      left: 20px;
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: var(--gold);
+      background: var(--bg);
+      padding: 0 8px;
+    }
+
+    .secret-box p {
+      font-size: 20px;
+      line-height: 1.5;
+      color: var(--gold);
+      max-width: none;
+    }
+
+    .secret-box p strong {
+      color: var(--text);
+    }
+
+    /* ── Bullet list ── */
+    .slide ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .slide ul li {
+      font-size: 24px;
+      line-height: 1.5;
+      color: var(--text-muted);
+      padding: 8px 0;
+      padding-left: 28px;
+      position: relative;
+    }
+
+    .slide ul li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 18px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .slide ul li strong {
+      color: var(--text);
+    }
+
+    /* ── Numbered steps ── */
+    .steps {
+      counter-reset: step;
+      list-style: none;
+      padding: 0;
+    }
+
+    .steps li {
+      counter-increment: step;
+      font-size: 22px;
+      line-height: 1.5;
+      color: var(--text-muted);
+      padding: 12px 0 12px 48px;
+      position: relative;
+    }
+
+    .steps li::before {
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: 12px;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(108, 99, 255, 0.15);
+      border: 1px solid rgba(108, 99, 255, 0.3);
+      color: var(--accent);
+      font-size: 16px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .steps li strong {
+      color: var(--text);
+    }
+
+    /* ── Key concept card ── */
+    .concept-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin: 24px 0;
+    }
+
+    .concept-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+    }
+
+    .concept-card h4 {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+
+    .concept-card p {
+      font-size: 16px;
+      line-height: 1.5;
+      color: var(--text-muted);
+    }
+
+    /* ── Wow moment badge ── */
+    .wow-badge {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 100px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      background: rgba(108, 99, 255, 0.15);
+      color: var(--accent);
+      border: 1px solid rgba(108, 99, 255, 0.3);
+      margin-bottom: 16px;
+    }
+
+    /* ── Two-column layout ── */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    /* ── Quote block ── */
+    .quote {
+      font-family: var(--font-serif);
+      font-size: 32px;
+      font-style: italic;
+      line-height: 1.4;
+      color: var(--text);
+      border-left: 3px solid var(--accent);
+      padding-left: 24px;
+      margin: 24px 0;
+    }
+
+    /* ── Divider ── */
+    .divider {
+      width: 60px;
+      height: 3px;
+      background: var(--accent);
+      border-radius: 2px;
+      margin: 24px 0;
+    }
+
+    /* ── Teaser grid ── */
+    .teaser-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin: 24px 0;
+    }
+
+    .teaser-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+      transition: border-color 0.2s;
+    }
+
+    .teaser-card:hover {
+      border-color: rgba(108, 99, 255, 0.3);
+    }
+
+    .teaser-card .label {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .teaser-card h4 {
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .teaser-card p {
+      font-size: 17px;
+      line-height: 1.5;
+      color: var(--text-muted);
+    }
+
+    /* ── Table ── */
+    .perm-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 24px 0;
+    }
+
+    .perm-table th {
+      text-align: left;
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .perm-table td {
+      font-size: 20px;
+      padding: 16px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    .perm-table .level {
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .perm-table .level.safe { color: var(--green); }
+    .perm-table .level.glance { color: var(--gold); }
+    .perm-table .level.pause { color: #F87171; }
+
+    .perm-table .examples {
+      color: var(--text-muted);
+      font-size: 18px;
+    }
+
+    /* ── Bottom bar ── */
+    .bottom-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 24px;
+      background: rgba(11, 15, 26, 0.9);
+      backdrop-filter: blur(8px);
+      border-top: 1px solid var(--border);
+      z-index: 100;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .progress-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: width 0.3s ease;
+    }
+
+    .slide-counter {
+      font-variant-numeric: tabular-nums;
+    }
+
+    .key-hints {
+      display: flex;
+      gap: 16px;
+    }
+
+    .key-hints kbd {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 4px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      font-family: var(--font-sans);
+      font-size: 12px;
+    }
+
+    /* ── Speaker notes panel ── */
+    .notes-panel {
+      position: fixed;
+      bottom: 48px;
+      left: 0;
+      right: 0;
+      max-height: 30vh;
+      overflow-y: auto;
+      background: rgba(19, 24, 37, 0.95);
+      backdrop-filter: blur(16px);
+      border-top: 1px solid var(--border);
+      padding: 20px 32px;
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--text-muted);
+      z-index: 99;
+      display: none;
+    }
+
+    .notes-panel.visible {
+      display: block;
+    }
+
+    .notes-panel strong {
+      color: var(--accent);
+    }
+
+    .notes-panel em {
+      color: var(--green);
+    }
+
+    /* ── Canvas background ── */
+    #bg-canvas {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      opacity: 0.3;
+    }
+
+    /* ── Favicon inline ── */
+    .favicon-inline {
+      width: 20px;
+      height: 20px;
+      vertical-align: middle;
+      margin-right: 8px;
+      position: relative;
+      top: -1px;
+    }
+  </style>
+</head>
+<body>
+
+<canvas id="bg-canvas"></canvas>
+
+<div class="deck" id="deck">
+
+  <!-- ════════════════════════════════════════════ -->
+  <!-- SLIDE 0: Title -->
+  <!-- ════════════════════════════════════════════ -->
+  <div class="slide active" data-notes="Title card while people join. Hold until scheduled start time. Energy: excited, warm. Have background music if possible.">
+    <div class="slide-inner" style="text-align: center;">
+      <p class="section-label" style="font-size: 16px; margin-bottom: 24px; display: inline-flex; align-items: center; gap: 8px; justify-content: center;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" class="favicon-inline" style="margin: 0;"><rect width="32" height="32" rx="7" fill="#0f0d20"/><defs><radialGradient id="orb-title" cx="44%" cy="40%" r="56%"><stop offset="0%" stop-color="#e0ddff"/><stop offset="45%" stop-color="#6C63FF"/><stop offset="100%" stop-color="#2e2870"/></radialGradient></defs><circle cx="16" cy="16" r="11.5" fill="none" stroke="#6C63FF" stroke-width="0.9" opacity="0.30"/><circle cx="16" cy="16" r="7.5" fill="url(#orb-title)"/></svg>OneDay Presents</p>
+      <h1 style="font-size: 72px; margin-bottom: 16px;">Zero to <span class="accent">Live</span></h1>
+      <div class="divider" style="margin: 24px auto;"></div>
+      <p style="font-size: 28px; max-width: 700px; margin: 0 auto 32px;">Launch Your Website with Claude Code in 90 Minutes</p>
+      <p style="font-size: 18px; color: var(--text-muted); margin: 0 auto;">A hands-on online workshop with Evan Grenda & Dylan Moore</p>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════ -->
+  <!-- SLIDE 1: Welcome -->
+  <!-- ════════════════════════════════════════════ -->
+  <div class="slide" data-notes="Introduce both hosts. Set the energy: tonight you're going from nothing to a live website. Mention recording will be available. For returning attendees: 'If you were at the first workshop, we'll revisit some tools but go deeper with new techniques.' Keep under 3 minutes.">
+    <div class="slide-inner">
+      <h2>Welcome</h2>
+      <div class="divider"></div>
+      <p style="font-size: 28px; color: var(--text); margin-bottom: 24px;">Tonight you're going from a rough idea to a <span class="accent">live website</span> — deployed on the internet with a real URL you can share with anyone.</p>
+      <p style="font-size: 22px; margin-bottom: 32px;">What takes most people months and thousands of dollars, you'll do in 90 minutes.</p>
+      <p style="font-size: 22px; margin-bottom: 16px;">No coding, no Squarespace, no expensive agency. Just conversation with Claude Code.</p>
+      <p style="font-size: 20px; margin-bottom: 32px; color: var(--text-muted);">Claude Code is an AI assistant built into your code editor — you type what you want in plain English, and it builds it for you.</p>
+      <ul style="margin-top: 24px;">
+        <li>Stay on mute, drop questions in chat</li>
+        <li>If you fall behind, don't panic — you have the recording</li>
+        <li><strong>Pro tip:</strong> if anything goes wrong tonight, paste the error back to Claude and ask it to fix it — that works for almost everything</li>
+        <li>Returning attendees: we'll cover new techniques tonight</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════ -->
+  <!-- SLIDE 2: Setup Check -->
+  <!-- ════════════════════════════════════════════ -->
+  <div class="slide" data-notes="Quick setup verification. Ask for thumbs-up in chat. Everyone should have VS Code + Claude Code + Vercel account ready. If more than ~20% have issues, spend an extra minute. Otherwise, move on and troubleshoot via DM.">
+    <div class="slide-inner" style="text-align: center;">
+      <h2>Quick Setup Check</h2>
+      <div class="divider" style="margin: 24px auto;"></div>
+      <ol class="steps" style="text-align: left; max-width: 700px; margin: 32px auto;">
+        <li>Open <strong>VS Code</strong> (or <strong>Visual Studio Code</strong>)</li>
+        <li>Click the <strong>Claude icon</strong> in the top-right of VS Code — make sure you're signed in</li>
+        <li>Confirm you have a <strong>Vercel account</strong> at vercel.com</li>
+        <li>All good? Drop a <strong style="color: var(--green);">thumbs up</strong> in chat</li>
+      </ol>
+      <p style="margin: 32px auto 0; font-size: 20px; text-align: center;">Stuck? Drop your issue in chat — we'll help you in the background.</p>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════ -->
+  <!-- SLIDE 3: What We're Building -->
+  <!-- ════════════════════════════════════════════ -->
+  <div class="slide" data-notes="Set expectations for the output. Show the full picture of what they'll leave with. This builds excitement and gives them a mental map of the session.">
+    <div class="slide-inner">
+      <h2>What You'll <span class="accent">Walk Away With</span></h2>
+      <div class="divider"></div>
+      <ol class="steps" style="max-width: 900px;">
+        <li>A <strong>brand identity</strong> — name, tagline, color palette, and visual direction</li>
+        <li>A <strong>live website</strong> deployed on the internet with a real URL</li>
+        <li>A <strong>marketing strategy</strong> based on real viral patterns Claude finds on the web</li>
+        <li><strong>Ready-to-post social media content</strong> for your launch</li>
+        <li><strong>Power user techniques</strong> — ways to make Claude work faster and smarter for you</li>
+      </ol>
+      <p style="margin-top: 32px; font-size: 22px; color: var(--text-muted);">All in 90 minutes. No coding experience needed.</p>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════ -->
+  <!-- SLIDE 4: The Key Idea -->
+  <!-- ════════════════════════════════════════════ -->
+  <div class="slide" data-notes="Reframe the mental model: you're the CEO, Claude is your team. The skill isn't coding — it's clear communication. This is the same framing from Workshop 1 but worth repeating for new attendees.">
+    <div class="slide-inner">
+      <h2>The Key Idea</h2>
+      <div class="divider"></div>
+      <div class="quote" style="margin: 32px 0;">
+        Think of yourself as the <span class="accent">CEO</span> of a small startup.<br>
+        Every time you open Claude Code, you're starting a conversation with a new employee.
+      </div>
+      <p style="font-size: 26px; color: var(--text); margin-top: 32px;">Tonight, your team is building you a website. You set the vision — Claude does the execution.</p>
+      <p style="font-size: 26px; color: var(--accent); margin-top: 24px; font-weight: 600;">Great CEOs don't do the work — they communicate clearly what needs to be done.</p>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════ -->
+  <!-- SLIDE 5: Create Your Workspace -->
+  <!-- ════════════════════════════════════════════ -->
+  <div class="slide" data-notes="Walk them through step by step. This ensures Claude Code runs inside their project folder. Keep it simple — just two steps. Help anyone stuck via chat.">
+    <div class="slide-inner">
+      <div class="section-label">Getting Started</div>
+      <h2>Create Your <span class="accent">Workspace</span></h2>
+      <div class="divider"></div>
+      <p style="margin-bottom: 24px;">Before we start, let's set up our project folder:</p>
+      <ol class="steps" style="max-width: 900px;">
+        <li>Open <strong>Finder</strong> (Mac) or <strong>File Explorer</strong> (Windows), go to your <strong>Desktop</strong>, and create a new folder called <strong style="color: var(--accent); font-family: var(--font-mono);">my-website</strong></li>
+        <li>In <strong>VS Code</strong>, go to <strong>File &rarr; Open Folder</strong> and select the <strong style="color: var(--accent); font-family: var(--font-mono);">my-website</strong> folder you just created</li>
+        <li>Click the <strong>Claude icon</strong> in the top-right of VS Code to open the chat panel — this is where we'll work for the rest of the workshop</li>
+      </ol>
+      <p style="margin-top: 24px; font-size: 20px;">Claude Code works best when it's inside a project folder — this tells it where to save the files it creates for you.</p>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════ -->
+  <!-- SLIDE 6: The Braindump -->
+  <!-- ════════════════════════════════════════════ -->
+  <div class="slide" data-notes="WOW MOMENT #1: The interview pattern. Have attendees use Talktastic or type. The prompt asks Claude to interview them about their idea, then create a brand brief. This personalizes everything. Give ~3 minutes for the interview. The key teaching: when you don't know what you want, tell Claude to ask YOU questions first.">
+    <div class="slide-inner">
+      <div class="section-label">Building Your Brand</div>
+      <div class="wow-badge">Wow Moment #1</div>
+      <h2>The <span class="accent">Braindump</span></h2>
+      <div class="divider"></div>
+      <p style="margin-bottom: 8px;">This is where the magic starts. Type this into the Claude Code chat panel (or speak it with WisprFlow / Talktastic):</p>
+      <div class="prompt-block" style="font-size: 17px;">
+        I want to build a website. Interview me — ask me 4-5 questions one at a time about what I'm building, who it's for, what makes it special, and the vibe I want. Then create a brand brief with a name, tagline, color palette, and visual direction.
+        <span class="copy-hint">click to copy</span>
+      </div>
+      <p style="margin-top: 20px;">We'll paste every prompt in the chat so you can copy it. Answer Claude's questions honestly — this is the foundation of everything we build tonight.</p>
+      <div class="secret-box">
+        <p><strong>This is the interview pattern.</strong> When you don't know what you want, tell Claude to ask <em>you</em> questions first. The more it understands about your situation, the better its output will be.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════ -->
+  <!-- SLIDE 7: Build the Website -->
+  <!-- ════════════════════════════════════════════ -->
+  <div class="slide" data-notes="WOW MOMENT #2: The website appears. Claude writes HTML/CSS and creates the file. Permissions moment: 'Claude wants to create a file. Safe — click Allow.' Show them how to open in browser (right-click the file, Open with Live Server, or Cmd+Shift+P > 'Open with Live Server'). If they don't have Live Server, just double-click the HTML file in Finder. The reveal: a beautiful, personalized website.">
+    <div class="slide-inner">
+      <div class="wow-badge">Wow Moment #2</div>
+      <h2>Build Your <span class="accent">Website</span></h2>
+      <div class="divider"></div>
+      <p style="margin-bottom: 8px;">Now the big one — turn that brand brief into a real website:</p>
+      <div class="prompt-block" style="font-size: 17px;">
+        Based on the brand brief, build me a complete, beautiful landing page. Include a hero section (the big banner at the top), an about section, what I offer, testimonials, and a call-to-action button. Make it modern, look great on phones, and ready to put on the internet.
+        <span class="copy-hint">click to copy</span>
+      </div>
+      <p style="margin-top: 24px; font-size: 22px; color: var(--green); font-weight: 500;">When Claude asks permission to create a file — say yes. It's safe.</p>
+      <p style="margin-top: 16px; font-size: 22px; color: var(--text); font-weight: 500;">To see your website: find <strong style="font-family: var(--font-mono); color: var(--accent);">index.html</strong> in VS Code's left panel. Right-click it → <strong>Reveal in Finder</strong> (Mac) or <strong>Reveal in File Explorer</strong> (Windows). Then double-click the file — it opens in your browser.</p>
+      <p style="margin-top: 16px;">You just built a <strong style="color: var(--accent);">complete landing page</strong>. If it doesn't look quite right, don't worry — we'll refine it next.</p>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════ -->
+  <!-- SLIDE 8: Iterate & Refine -->
+  <!-- ════════════════════════════════════════════ -->
+  <div class="slide" data-notes="Teach iteration. This is the conversational superpower — you can refine endlessly by describing what you want in plain English. Show examples of different kinds of tweaks. Give ~2 minutes for people to try their own refinements.">
+    <div class="slide-inner">
+      <h2>Iterate in <span class="accent">Plain English</span></h2>
+      <div class="divider"></div>
+      <p style="margin-bottom: 16px;">Your website is live in the browser. Now make it yours — just describe what you want:</p>
+      <div class="prompt-block" style="font-size: 18px;">
+        Make the top banner more dramatic — bigger headline, add a subtle gradient background, and make the main button pop more.
+        <span class="copy-hint">click to copy</span>
+      </div>
+      <p style="margin-top: 24px;">Or try your own — here are ideas:</p>
+      <ul>
+        <li>"Add an email signup form that looks clean and modern"</li>
+        <li>"Change the color scheme to feel more warm and inviting"</li>
+        <li>"Add a section that shows three things I offer, side by side"</li>
+        <li>"Make it feel more like Apple's website"</li>
+      </ul>
+      <p style="margin-top: 24px; font-size: 20px; color: var(--accent); font-weight: 500;">Refresh your browser after each change (<kbd style="background: var(--surface-2); border: 1px solid var(--border); border-radius: 4px; padding: 2px 8px; font-size: 16px;">⌘R</kbd> Mac · <kbd style="background: var(--surface-2); border: 1px solid var(--border); border-radius: 4px; padding: 2px 8px; font-size: 16px;">Ctrl+R</kbd> Windows).</p>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════ -->
+  <!-- SLIDE 9: Cruise Control -->
+  <!-- ════════════════════════════════════════════ -->
+  <div class="slide" data-notes="Teach auto-accept. By now they've clicked Allow 10+ times and it feels tedious. Frame it with the CEO metaphor: 'You're telling your employee: I trust you, just show me the result.' SAFETY: emphasize this is safe because we're in an empty project folder with no sensitive files. Show them how to enable it. From here on, the workshop flows much faster.">
+    <div class="slide-inner">
+      <div class="section-label">Level Up</div>
+      <h2>Cruise <span class="accent">Control</span></h2>
+      <div class="divider"></div>
+      <p style="font-size: 24px; color: var(--text); margin-bottom: 16px;">Tired of clicking "Allow" every time? Let's speed things up.</p>
+      <p style="margin-bottom: 24px;">Since we're in our own empty project folder with no sensitive files, we can let Claude work without asking permission each time.</p>
+      <ol class="steps" style="max-width: 900px;">
+        <li>In the Claude Code chat panel, look for the <strong style="color: var(--accent);">shield icon</strong> at the top</li>
+        <li>Click it and select <strong style="color: var(--accent);">Auto-accept</strong></li>
+      </ol>
+      <p style="margin-top: 20px; font-size: 20px;">Think of it like telling your employee: <em style="color: var(--accent);">"I trust you — just show me the result."</em></p>
+      <div class="secret-box">
+        <p><strong>When is this safe?</strong> In a dedicated project folder like tonight — with no passwords, personal files, or sensitive data. <em>Turn it off when working with anything sensitive.</em></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════ -->
+  <!-- SLIDE 10: Deploy to Vercel -->
+  <!-- ════════════════════════════════════════════ -->
+  <div class="slide" data-notes="WOW MOMENT #3: The website goes live on the internet. This prompt combines the Node.js check and Vercel deploy into one step — Claude will handle installing anything missing. Teaching moment: 'Notice how Claude figured out what was missing and installed it for you. You didn't need to know what Node.js is — you just told Claude what you wanted and it handled the details.' With auto-accept on, this should flow smoothly. They'll need to authenticate with Vercel in the browser. The punchline: a real URL they can share RIGHT NOW.">
+    <div class="slide-inner">
+      <div class="wow-badge">Wow Moment #3</div>
+      <h2>Go <span class="accent">Live</span></h2>
+      <div class="divider"></div>
+      <p style="margin-bottom: 8px;">Time to put your website on the internet. Claude will set up everything you need:</p>
+      <div class="prompt-block" style="font-size: 17px;">
+        I want to deploy my website to Vercel so I get a live URL I can share. Check if my computer has everything it needs to do this — if anything is missing, install it for me. Then deploy and walk me through any steps I need to do.
+        <span class="copy-hint">click to copy</span>
+      </div>
+      <p style="margin-top: 24px; font-size: 22px; color: var(--green); font-weight: 500;">Claude will check your setup, install any missing tools, and upload your site — all automatically.</p>
+      <p style="margin-top: 16px;">Vercel may open in your browser and ask you to log in — go ahead and do that.</p>
+      <div class="secret-box">
+        <p><strong>Notice what just happened.</strong> Claude figured out what your computer was missing and installed it for you. You didn't need to know what those tools were — <em>you just said what you wanted and Claude handled the details.</em></p>
+      </div>
+      <p style="margin-top: 24px; font-size: 28px; color: var(--text); font-weight: 600;">You now have a <span class="accent">live URL</span>. Share it in the chat.</p>
+      <p style="margin-top: 12px; font-size: 20px;">Text it to a friend. Post it on social media. It's real. It's yours.</p>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════ -->
+  <!-- SLIDE 12: Marketing Strategy -->
+  <!-- ════════════════════════════════════════════ -->
+  <div class="slide" data-notes="WOW MOMENT #4: Claude searches the web for real viral patterns and creates a marketing strategy. IMPORTANT: Make sure web search is enabled — show attendees how to toggle it on if it's not already active. This is where web search shines. The output will be personalized to their brand/industry. Give ~2 minutes for Claude to research and generate.">
+    <div class="slide-inner">
+      <div class="wow-badge">Wow Moment #4</div>
+      <h2>Marketing <span class="accent">Strategy</span></h2>
+      <div class="divider"></div>
+      <p style="margin-bottom: 8px;">Your site is live. Now let's get people to it. First, make sure <strong style="color: var(--accent);">web search is enabled</strong> — look for the <strong style="color: var(--accent);">globe icon</strong> in the Claude Code panel and make sure it's toggled on. Then paste this:</p>
+      <div class="prompt-block" style="font-size: 17px;">
+        Search the web for viral marketing patterns and successful launches in my space. Then create a marketing strategy for my website — include 3 ready-to-post social media captions (for Instagram, X/Twitter, and LinkedIn) that I can copy and post right now. Include my live URL.
+        <span class="copy-hint">click to copy</span>
+      </div>
+      <p style="margin-top: 24px;">Claude is searching the web for <strong style="color: var(--text);">real trends in your industry</strong> and building a strategy around them.</p>
+      <div class="secret-box">
+        <p><strong>Web search is a superpower.</strong> Claude can find real examples, competitors, viral hooks, and trending formats — then apply them to <em>your</em> specific brand and audience.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════ -->
+  <!-- SLIDE 13: Power Techniques -->
+  <!-- ════════════════════════════════════════════ -->
+  <div class="slide" data-notes="Now that they've experienced building, deploying, and marketing — these concepts will land. They've already USED these features tonight. This slide names and explains what they did. Cover models and the three permission modes: Plan Mode, Auto-Accept, and Ask Every Time. Keep this section moving — 3 minutes max.">
+    <div class="slide-inner">
+      <div class="section-label">Level Up</div>
+      <h2>Power User <span class="accent">Techniques</span></h2>
+      <div class="divider"></div>
+      <div class="two-col">
+        <div>
+          <h3>Models — The Thinking Dial</h3>
+          <p style="font-size: 18px; margin-bottom: 12px;">Claude has different "brains" you can switch between. The default works great — switch when you need more speed or more depth.</p>
+          <div class="concept-grid" style="grid-template-columns: 1fr; gap: 12px;">
+            <div class="concept-card">
+              <h4 class="green">Haiku</h4>
+              <p>Fastest. Quick, simple tasks. Lightning speed.</p>
+            </div>
+            <div class="concept-card">
+              <h4 class="accent">Sonnet</h4>
+              <p>Default. Fast and good for most things.</p>
+            </div>
+            <div class="concept-card">
+              <h4 style="color: #FBBF24;">Opus</h4>
+              <p>Slowest but thinks much deeper. Complex, multi-step tasks.</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h3>Modes — How Claude Works</h3>
+          <p style="font-size: 18px; margin-bottom: 12px;">You've already used some of these tonight. Here's the full picture:</p>
+          <div class="concept-grid" style="grid-template-columns: 1fr; gap: 12px;">
+            <div class="concept-card">
+              <h4>Plan Mode</h4>
+              <p>Claude creates a plan and asks for your OK before acting. Great for big tasks.</p>
+            </div>
+            <div class="concept-card">
+              <h4>Auto-Accept</h4>
+              <p>What we turned on earlier — Claude works without asking permission each time.</p>
+            </div>
+            <div class="concept-card">
+              <h4>Ask Every Time</h4>
+              <p>The default — Claude asks your permission before every action. Full control.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════ -->
+  <!-- SLIDE 14: Permissions Framework -->
+  <!-- ════════════════════════════════════════════ -->
+  <div class="slide" data-notes="The explicit safety framework. This formalizes what they've been doing intuitively. Read through each level. Reassurance: Anthropic doesn't train on Claude Code conversations. Remind them to turn off auto-accept when working with sensitive files.">
+    <div class="slide-inner">
+      <h2>When Claude Asks <span class="accent">Permission</span></h2>
+      <div class="divider"></div>
+      <table class="perm-table">
+        <thead>
+          <tr>
+            <th style="width: 200px;">Level</th>
+            <th>What It's Doing</th>
+            <th>Examples</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="level safe">Always safe<br><span style="font-size: 16px; font-weight: 400; color: var(--text-muted);">Say yes</span></td>
+            <td>Creating, reading, or writing files in your project.</td>
+            <td class="examples">Creating your website files, reading your project, writing styles</td>
+          </tr>
+          <tr>
+            <td class="level glance">Glance first<br><span style="font-size: 16px; font-weight: 400; color: var(--text-muted);">3 seconds</span></td>
+            <td>Running behind-the-scenes commands. Installing tools. Deploying.</td>
+            <td class="examples">Installing tools, deploying your website, saving your work</td>
+          </tr>
+          <tr>
+            <td class="level pause">Pause & think<br><span style="font-size: 16px; font-weight: 400; color: var(--text-muted);">Rare</span></td>
+            <td>Sending emails or messages. Deleting files. Connecting to services with your passwords or login info.</td>
+            <td class="examples">Anything that sends data outward</td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="margin-top: 24px; font-size: 22px; color: var(--text); font-weight: 500;">Bottom line: Claude is designed to be safe. You are always in control.</p>
+      <div class="secret-box" style="margin-top: 20px;">
+        <p><strong>Power user shortcut:</strong> If you want to skip <em>all</em> permission prompts permanently, go to <strong style="color: var(--text);">Extensions &rarr; Claude Code &rarr; Settings</strong> and enable <strong style="color: var(--text);">"Dangerously skip permissions"</strong>. Only use this in safe project folders — never with sensitive files.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════ -->
+  <!-- SLIDE 15: What Else Is Possible -->
+  <!-- ════════════════════════════════════════════ -->
+  <div class="slide" data-notes="NOT a live demo — talk through examples to inspire. These are possibilities for what you can build with Claude Code beyond websites. Don't push 1:1s here — just let the ideas breathe.">
+    <div class="slide-inner">
+      <h2>What's <span class="accent">Possible</span></h2>
+      <div class="divider"></div>
+      <p style="margin-bottom: 24px;">Everything you built tonight is just the beginning. Here's where Claude Code can take you:</p>
+      <div class="teaser-grid">
+        <div class="teaser-card">
+          <div class="label">E-Commerce</div>
+          <h4>Full Online Store</h4>
+          <p>Build a product catalog, shopping cart, and checkout flow. Connect to Stripe for payments.</p>
+        </div>
+        <div class="teaser-card">
+          <div class="label">Automation</div>
+          <h4>Personal Life OS</h4>
+          <p>Connect Apple Notes, Calendar, and email into a personal operating system that organizes your life.</p>
+        </div>
+        <div class="teaser-card">
+          <div class="label">Content</div>
+          <h4>Blog & Newsletter</h4>
+          <p>Build a blog, generate content calendars, and create email templates that match your brand.</p>
+        </div>
+        <div class="teaser-card">
+          <div class="label">Data</div>
+          <h4>Analytics Dashboard</h4>
+          <p>Analyze data from Shopify, social media, or surveys — visualized in a custom dashboard.</p>
+        </div>
+      </div>
+      <p style="margin-top: 24px; font-size: 22px; color: var(--text-muted);">The same patterns you learned tonight — braindump, iterate, deploy — power all of this.</p>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════ -->
+  <!-- SLIDE 16: Recap -->
+  <!-- ════════════════════════════════════════════ -->
+  <div class="slide" data-notes="High energy. Read the list of what they built. The punchline: 'None of that required a single line of code. You did all of it by typing English.' Pause for applause / reaction.">
+    <div class="slide-inner">
+      <div class="section-label">Closing</div>
+      <h2>Look What You <span class="accent">Built</span></h2>
+      <div class="divider"></div>
+      <ol class="steps">
+        <li>Braindumped your idea and got a <strong>complete brand identity</strong></li>
+        <li>Built a <strong>beautiful landing page</strong> from scratch</li>
+        <li>Iterated and refined it in <strong>plain English</strong></li>
+        <li><strong>Deployed it to the internet</strong> — with a real URL you shared</li>
+        <li>Got a <strong>marketing strategy</strong> based on real viral patterns</li>
+        <li>Created <strong>ready-to-post social content</strong> for your launch</li>
+      </ol>
+      <p style="margin-top: 32px; font-size: 26px; color: var(--text); font-weight: 500;">None of that required a single line of code.</p>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════ -->
+  <!-- SLIDE 17: Upsell -->
+  <!-- ════════════════════════════════════════════ -->
+  <div class="slide" data-notes="Introduce the 1:1 offering. We build systems for founders, entrepreneurs, and creatives. Personalized systems to 10x daily workflow. We train individuals or teams. Mention 20% discount and $200 referral bonus.">
+    <div class="slide-inner" style="text-align: center;">
+      <h2>Go <span class="accent">Deeper</span></h2>
+      <div class="divider" style="margin: 24px auto;"></div>
+      <div class="quote" style="text-align: left; max-width: 800px; margin: 32px auto;">
+        We build systems for founders, entrepreneurs, and creatives to give them time back to focus on driving their business forward.
+      </div>
+      <p style="font-size: 22px; margin: 24px auto; max-width: 750px; text-align: left;">We create <strong style="color: var(--text);">deeply personalized systems</strong> to 10x your daily workflow. We train individuals or teams. Reach out to us for a personalized plan.</p>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 700px; margin: 32px auto;">
+        <div style="background: var(--surface); border: 1px solid rgba(108, 99, 255, 0.3); border-radius: 16px; padding: 28px;">
+          <p style="font-size: 36px; font-weight: 700; color: var(--accent); margin-bottom: 4px;">20% off</p>
+          <p style="font-size: 18px;">1:1 services for all workshop attendees</p>
+        </div>
+        <div style="background: var(--surface); border: 1px solid rgba(52, 211, 153, 0.3); border-radius: 16px; padding: 28px;">
+          <p style="font-size: 36px; font-weight: 700; color: var(--green); margin-bottom: 4px;">$200</p>
+          <p style="font-size: 18px;">Referral bonus for anyone who sends us a client</p>
+        </div>
+      </div>
+      <p style="font-size: 18px; margin-top: 24px; color: var(--text-muted);">Booking link will be shared with you directly.</p>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════ -->
+  <!-- SLIDE 18: Thank You -->
+  <!-- ════════════════════════════════════════════ -->
+  <div class="slide" data-notes="Final slide. Both hosts on camera. Warm, grateful energy. 'The recording will be in your inbox tomorrow. Thank you for being here tonight.'">
+    <div class="slide-inner" style="text-align: center;">
+      <h1 style="font-size: 72px;">Thank <span class="accent">You</span></h1>
+      <div class="divider" style="margin: 24px auto;"></div>
+      <p style="font-size: 24px; margin: 0 auto 16px;">You now have a live website, a brand identity, a marketing strategy, and the skills to keep building.</p>
+      <p style="font-size: 20px; text-align: center; margin: 0 auto;">The recording will be in your inbox tomorrow.</p>
+      <p style="font-size: 18px; text-align: center; margin: 16px auto 0; color: var(--text-muted);">To keep working on your site: open VS Code, open your <strong style="font-family: var(--font-mono); color: var(--accent);">my-website</strong> folder, and start a new conversation with Claude.</p>
+      <p style="margin: 32px auto 0; font-size: 20px; text-align: center;">Apply to our 1:1 program or share with a friend:</p>
+      <a href="https://oneday-ai.vercel.app/landing.html" style="display: inline-block; margin-top: 12px; font-size: 22px; color: var(--accent); text-decoration: none; border: 1px solid rgba(108, 99, 255, 0.4); border-radius: 12px; padding: 14px 32px;">oneday-ai.vercel.app/landing.html</a>
+      <p style="margin: 48px auto 0; font-size: 18px; color: var(--text-muted); text-align: center;">Evan Grenda & Dylan Moore &middot; OneDay</p>
+    </div>
+  </div>
+
+</div>
+
+<!-- Bottom bar -->
+<div class="bottom-bar">
+  <div class="progress-bar" id="progress"></div>
+  <span class="slide-counter" id="counter">1 / 18</span>
+  <span class="key-hints">
+    <span><kbd>&larr;</kbd> <kbd>&rarr;</kbd> Navigate</span>
+    <span><kbd>N</kbd> Speaker notes</span>
+    <span><kbd>F</kbd> Fullscreen</span>
+  </span>
+</div>
+
+<!-- Notes panel -->
+<div class="notes-panel" id="notes"></div>
+
+<script>
+  // ── Slide engine ──
+  const slides = document.querySelectorAll('.slide');
+  const total = slides.length;
+  let current = 0;
+  let notesVisible = false;
+
+  function goTo(index) {
+    if (index < 0 || index >= total) return;
+    slides[current].classList.remove('active');
+    current = index;
+    slides[current].classList.add('active');
+    updateUI();
+  }
+
+  function updateUI() {
+    document.getElementById('counter').textContent = `${current + 1} / ${total}`;
+    document.getElementById('progress').style.width = `${((current + 1) / total) * 100}%`;
+    const noteText = slides[current].getAttribute('data-notes') || '';
+    document.getElementById('notes').innerHTML = noteText;
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === ' ') {
+      e.preventDefault();
+      goTo(current + 1);
+    } else if (e.key === 'ArrowLeft') {
+      e.preventDefault();
+      goTo(current - 1);
+    } else if (e.key === 'n' || e.key === 'N') {
+      notesVisible = !notesVisible;
+      document.getElementById('notes').classList.toggle('visible', notesVisible);
+    } else if (e.key === 'f' || e.key === 'F') {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen();
+      } else {
+        document.exitFullscreen();
+      }
+    } else if (e.key === 'Home') {
+      goTo(0);
+    } else if (e.key === 'End') {
+      goTo(total - 1);
+    }
+  });
+
+  // ── Click to copy prompt blocks ──
+  document.querySelectorAll('.prompt-block').forEach(block => {
+    block.addEventListener('click', () => {
+      const text = block.childNodes[0].textContent.trim();
+      navigator.clipboard.writeText(text).then(() => {
+        const hint = block.querySelector('.copy-hint');
+        if (hint) {
+          hint.textContent = 'Copied!';
+          hint.style.opacity = '1';
+          hint.style.color = 'var(--green)';
+          setTimeout(() => {
+            hint.textContent = 'click to copy';
+            hint.style.opacity = '';
+            hint.style.color = '';
+          }, 2000);
+        }
+      });
+    });
+  });
+
+  // ── Background animation (subtle rings) ──
+  const canvas = document.getElementById('bg-canvas');
+  const ctx = canvas.getContext('2d');
+
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  resizeCanvas();
+  window.addEventListener('resize', resizeCanvas);
+
+  function drawRings(time) {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    const cx = canvas.width * 0.5;
+    const cy = canvas.height * 0.5;
+
+    for (let i = 0; i < 5; i++) {
+      const radius = 150 + i * 100 + Math.sin(time * 0.0005 + i) * 20;
+      ctx.beginPath();
+      ctx.arc(cx, cy, radius, 0, Math.PI * 2);
+      ctx.strokeStyle = `rgba(108, 99, 255, ${0.06 - i * 0.01})`;
+      ctx.lineWidth = 1;
+      ctx.stroke();
+    }
+    requestAnimationFrame(drawRings);
+  }
+  requestAnimationFrame(drawRings);
+</script>
+
+</body>
+</html>
